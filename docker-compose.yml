@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  test-automation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xyz-bank-test-automation
+    environment:
+      - BROWSER=chrome
+      - HEADLESS_MODE=true
+      - MAVEN_OPTS=-Xmx1024m -Xms512m
+    volumes:
+      - ./target:/app/target
+      - ./screenshots:/app/screenshots
+      - ./logs:/app/logs
+    networks:
+      - automation-network
+    depends_on:
+      - selenoid
+
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    container_name: selenoid-hub
+    ports:
+      - "4444:4444"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./selenoid/config:/etc/selenoid:ro
+      - ./selenoid/videos:/opt/selenoid/video
+      - ./selenoid/logs:/opt/selenoid/logs
+    networks:
+      - automation-network
+    command: -conf /etc/selenoid/browsers.json -video-screen-width 1920 -video-screen-height 1080
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui:latest-release
+    container_name: selenoid-ui
+    ports:
+      - "8080:8080"
+    networks:
+      - automation-network
+    depends_on:
+      - selenoid
+    command: --selenoid-uri http://selenoid:4444
+
+  allure:
+    image: frankescobar/allure-docker-service:latest
+    container_name: allure-server
+    ports:
+      - "4040:4040"
+      - "3000:3000"
+    volumes:
+      - ./target/allure-results:/app/allure-results
+      - ./target/allure-report:/app/default-reports
+    networks:
+      - automation-network
+
+networks:
+  automation-network:
+    driver: bridge
+

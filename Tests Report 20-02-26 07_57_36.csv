@@ -1,0 +1,26 @@
+Summary;Status
+Verify Customer Access Revoked After Account Deletion;PASSED
+Verify Successful Account Deletion;FAILED
+Verify Customer Cannot Access Account Before Creation;PASSED
+Verify No Account Creation Without Selecting Customer;PASSED
+Verify Successful Account Creation for Existing Customer;PASSED
+Verify Addition with Empty Fields (Negative);PASSED
+Verify Validation - Postal Code with Letters (Invalid);FAILED
+Verify Validation - Name with Special Characters (Invalid);FAILED
+Verify Validation - Name with Numbers (Invalid);FAILED
+Verify Successful Addition of a New Customer with Valid Data;PASSED
+Verify Withdrawal Exact Balance (to Zero);PASSED
+Verify Withdrawal Validation - Zero Amount;PASSED
+Verify Withdrawal Validation - Insufficient Balance;PASSED
+Verify Successful Withdrawal with Sufficient Balance;PASSED
+Verify Deposit with Very Small Positive Amount (Boundary);PASSED
+Verify Deposit Validation - Zero Amount;FAILED
+Verify Deposit Validation - Negative Amount;FAILED
+Verify Successful Deposit with Valid Amount;PASSED
+Verify No Transaction History for New/Empty Account;PASSED
+Verify Transaction History Persists After Logout/Login;PASSED
+Verify Transaction History Sorting and Chronological Order;FAILED
+Verify Transaction History Displays Correct Transaction Types and Amounts;PASSED
+Verify Transaction History Displays Correct Transaction Types and Amounts;TO DO
+Verify Transaction History Cannot Be Modified;FAILED
+Verify Customer Can View Transaction History;FAILED
