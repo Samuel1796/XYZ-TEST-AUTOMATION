@@ -19,16 +19,18 @@ public class CustomerDashboardPage {
 
     private final WebDriver driver;
 
-    // --- #/account – main buttons ---
-    private static final By DEPOSIT_BUTTON = By.xpath("//button[contains(text(),'Deposit')]");
-    private static final By WITHDRAW_BUTTON = By.xpath("//button[contains(text(),'Withdraw')]");
+    // --- #/account – tab buttons (class 'btn-lg tab') ---
+    private static final By DEPOSIT_TAB_BUTTON = By.xpath("//button[contains(@ng-click,'deposit')]");
+    private static final By WITHDRAW_TAB_BUTTON = By.xpath("//button[contains(@ng-click,'withdrawl')]");
     private static final By TRANSACTIONS_BUTTON = By.xpath("//button[contains(text(),'Transactions')]");
     private static final By LOGOUT_BUTTON = By.xpath("//button[contains(text(),'Logout')]");
 
-    // --- #/account – form shown after clicking Deposit or Withdraw (same input, same Submit) ---
+    // --- #/account – form shown after clicking Deposit or Withdraw tab ---
     private static final By AMOUNT_INPUT = By.cssSelector("input[ng-model='amount']");
-    /** Single Submit button for both Deposit and Withdraw form */
-    private static final By FORM_SUBMIT_BUTTON = By.xpath("//button[contains(text(),'Submit')]");
+    /** Deposit form submit button (type='submit', text says 'Deposit') */
+    private static final By DEPOSIT_SUBMIT_BUTTON = By.xpath("//button[@type='submit' and contains(text(),'Deposit')]");
+    /** Withdraw form submit button (type='submit', text says 'Withdraw') */
+    private static final By WITHDRAW_SUBMIT_BUTTON = By.xpath("//button[@type='submit' and contains(text(),'Withdraw')]");
 
     // --- #/account – account info ---
     private static final By ACCOUNT_NUMBER = By.xpath("//div[contains(.,'Account Number')]//span[@class='ng-binding']");
@@ -57,9 +59,9 @@ public class CustomerDashboardPage {
         return SeleniumUtils.isElementDisplayed(driver, DASHBOARD_TITLE);
     }
 
-    @Step("Click Deposit (form appears on same #/account)")
+    @Step("Click Deposit tab (form appears on same #/account)")
     public CustomerDashboardPage clickDepositButton() {
-        SeleniumUtils.click(driver, DEPOSIT_BUTTON);
+        SeleniumUtils.click(driver, DEPOSIT_TAB_BUTTON);
         WaitUtils.smallWait(); // form updates
         SeleniumUtils.waitForElementToBeVisible(driver, AMOUNT_INPUT);
         return this;
@@ -73,7 +75,7 @@ public class CustomerDashboardPage {
 
     @Step("Submit deposit")
     public CustomerDashboardPage submitDeposit() {
-        SeleniumUtils.click(driver, FORM_SUBMIT_BUTTON);
+        SeleniumUtils.click(driver, DEPOSIT_SUBMIT_BUTTON);
         return this;
     }
 
@@ -84,9 +86,9 @@ public class CustomerDashboardPage {
         return this;
     }
 
-    @Step("Click Withdraw (form appears on same #/account)")
+    @Step("Click Withdraw tab (form appears on same #/account)")
     public CustomerDashboardPage clickWithdrawButton() {
-        SeleniumUtils.click(driver, WITHDRAW_BUTTON);
+        SeleniumUtils.click(driver, WITHDRAW_TAB_BUTTON);
         WaitUtils.smallWait(); // form updates
         SeleniumUtils.waitForElementToBeVisible(driver, AMOUNT_INPUT);
         return this;
@@ -100,7 +102,7 @@ public class CustomerDashboardPage {
 
     @Step("Submit withdrawal")
     public CustomerDashboardPage submitWithdrawal() {
-        SeleniumUtils.click(driver, FORM_SUBMIT_BUTTON);
+        SeleniumUtils.click(driver, WITHDRAW_SUBMIT_BUTTON);
         return this;
     }
 
