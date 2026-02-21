@@ -19,6 +19,7 @@ public class ManagerDashboardPage {
     private static final By ADD_CUSTOMER_BUTTON = By.xpath("//button[contains(text(),'Add Customer')]");
     private static final By OPEN_ACCOUNT_BUTTON = By.xpath("//button[contains(text(),'Open Account')]");
     private static final By CUSTOMERS_BUTTON = By.xpath("//button[contains(text(),'Customers')]");
+    private static final By HOME_BUTTON = By.xpath("//button[contains(text(),'Home')]");
     private static final By DASHBOARD_TITLE = By.cssSelector("div.center strong");
 
     // --- #/manager/addCust (Add Customer form) ---
@@ -119,6 +120,8 @@ public class ManagerDashboardPage {
                 .selectCustomerForAccount(customerName)
                 .selectCurrency(currency)
                 .clickProcessButton();
+        WaitUtils.smallWait();
+        SeleniumUtils.acceptAlert(driver);
         return this;
     }
 
@@ -158,5 +161,12 @@ public class ManagerDashboardPage {
     public boolean customerExists(String customerName) {
         By row = By.xpath("//td[contains(text(),'" + customerName + "')]");
         return SeleniumUtils.isElementDisplayed(driver, row);
+    }
+
+    @Step("Click Home button (back to #/login)")
+    public ManagerDashboardPage clickHomeButton() {
+        SeleniumUtils.waitForElementToBeClickable(driver, HOME_BUTTON).click();
+        SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
+        return this;
     }
 }

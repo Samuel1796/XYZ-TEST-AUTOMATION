@@ -2,7 +2,6 @@ package org.example.tests.customer;
 
 import io.qameta.allure.*;
 import org.example.base.BaseTest;
-import org.example.config.ConfigManager;
 import org.example.pages.customer.CustomerDashboardPage;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
@@ -46,7 +45,9 @@ public class CustomerTest extends BaseTest {
         loginPage.loginAsManager("Manager");
         managerPage.addCustomer(name, data.getPostalCode());
         managerPage.createAccount(testCustomerName, "Dollar");
-        driver.navigate().to(ConfigManager.getBaseUrl());
+
+        // Click Home button to go back to #/login (home page)
+        managerPage.clickHomeButton();
     }
 
     @Nested
@@ -65,7 +66,9 @@ public class CustomerTest extends BaseTest {
 
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(data.getName(), data.getPostalCode());
-            driver.navigate().to(ConfigManager.getBaseUrl());
+
+            // Click Home button to go back to #/login
+            managerPage.clickHomeButton();
 
             loginPage.selectCustomerUserType();
             assertTrue(loginPage.isLoginPageDisplayed());
@@ -86,7 +89,9 @@ public class CustomerTest extends BaseTest {
             managerPage.deleteCustomer(displayName);
             assertFalse(managerPage.customerExists(displayName));
 
-            driver.navigate().to(ConfigManager.getBaseUrl());
+            // Click Home button to go back to #/login
+            managerPage.clickHomeButton();
+
             loginPage.selectCustomerUserType();
             assertTrue(loginPage.isLoginPageDisplayed());
         }
