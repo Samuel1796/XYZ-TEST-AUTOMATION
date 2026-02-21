@@ -3,7 +3,6 @@ package org.example.pages.customer;
 import io.qameta.allure.Step;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
-import org.example.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,7 +61,6 @@ public class CustomerDashboardPage {
     @Step("Click Deposit tab (form appears on same #/account)")
     public CustomerDashboardPage clickDepositButton() {
         SeleniumUtils.click(driver, DEPOSIT_TAB_BUTTON);
-        WaitUtils.smallWait(); // form updates
         SeleniumUtils.waitForElementToBeVisible(driver, AMOUNT_INPUT);
         return this;
     }
@@ -89,7 +87,6 @@ public class CustomerDashboardPage {
     @Step("Click Withdraw tab (form appears on same #/account)")
     public CustomerDashboardPage clickWithdrawButton() {
         SeleniumUtils.click(driver, WITHDRAW_TAB_BUTTON);
-        WaitUtils.smallWait(); // form updates
         SeleniumUtils.waitForElementToBeVisible(driver, AMOUNT_INPUT);
         return this;
     }
@@ -135,6 +132,16 @@ public class CustomerDashboardPage {
             return SeleniumUtils.getText(driver, ACCOUNT_BALANCE);
         } catch (Exception e) {
             return "";
+        }
+    }
+
+    @Step("Get account balance as integer")
+    public int getBalanceAsInt() {
+        try {
+            String balance = getAccountBalance().trim();
+            return Integer.parseInt(balance);
+        } catch (NumberFormatException e) {
+            return 0;
         }
     }
 

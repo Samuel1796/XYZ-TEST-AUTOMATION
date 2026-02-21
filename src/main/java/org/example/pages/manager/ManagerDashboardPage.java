@@ -3,7 +3,6 @@ package org.example.pages.manager;
 import io.qameta.allure.Step;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
-import org.example.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -70,9 +69,7 @@ public class ManagerDashboardPage {
 
     @Step("Submit Add Customer form")
     public ManagerDashboardPage submitCustomerForm() {
-        WaitUtils.smallWait();
         SeleniumUtils.click(driver, ADD_CUSTOMER_SUBMIT);
-        WaitUtils.smallWait();
         SeleniumUtils.acceptAlert(driver);
         return this;
     }
@@ -120,7 +117,6 @@ public class ManagerDashboardPage {
                 .selectCustomerForAccount(customerName)
                 .selectCurrency(currency)
                 .clickProcessButton();
-        WaitUtils.smallWait();
         SeleniumUtils.acceptAlert(driver);
         return this;
     }
@@ -153,7 +149,8 @@ public class ManagerDashboardPage {
     @Step("Delete customer: {customerName}")
     public ManagerDashboardPage deleteCustomer(String customerName) {
         By deleteBtn = By.xpath("//td[contains(text(),'" + customerName + "')]/..//button[contains(text(),'Delete')]");
-        SeleniumUtils.click(driver, deleteBtn);
+        WebElement deleteBtnElement = SeleniumUtils.waitForElementToBePresent(driver, deleteBtn);
+        SeleniumUtils.scrollAndClick(driver, deleteBtnElement);
         return this;
     }
 

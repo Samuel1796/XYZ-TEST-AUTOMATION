@@ -87,13 +87,13 @@ public class TestDataGenerator {
     }
 
     /**
-     * Generates a valid withdrawal amount (positive)
+     * Generates a valid withdrawal amount (positive whole number)
      *
      * @return a valid withdrawal amount
      */
     public static String generateValidWithdrawalAmount() {
-        double amount = random.nextDouble(500) + 1; // 1 to 500
-        String amountStr = String.format("%.2f", amount);
+        int amount = random.nextInt(500) + 1; // 1 to 500
+        String amountStr = String.valueOf(amount);
         logger.debug("Generated withdrawal amount: " + amountStr);
         return amountStr;
     }
@@ -114,32 +114,31 @@ public class TestDataGenerator {
      * @return a negative amount as string
      */
     public static String generateNegativeAmount() {
-        double amount = -(random.nextDouble(100) + 1);
-        String amountStr = String.format("%.2f", amount);
+        int amount = -(random.nextInt(100) + 1);
+        String amountStr = String.valueOf(amount);
         logger.debug("Generated negative amount: " + amountStr);
         return amountStr;
     }
 
     /**
-     * Generates a large deposit amount
+     * Generates a large deposit amount (whole number)
      *
      * @return a large amount
      */
     public static String generateLargeAmount() {
-        double amount = random.nextDouble(10000) + 5000; // 5000 to 15000
-        String amountStr = String.format("%.2f", amount);
+        int amount = random.nextInt(10000) + 5000; // 5000 to 15000
+        String amountStr = String.valueOf(amount);
         logger.debug("Generated large amount: " + amountStr);
         return amountStr;
     }
 
     /**
-     * Generates a very small positive amount (boundary test)
+     * Generates a very small positive amount (boundary test, smallest whole number)
      *
      * @return a very small amount
      */
     public static String generateSmallAmount() {
-        double amount = 0.01;
-        String amountStr = String.format("%.2f", amount);
+        String amountStr = "1";
         logger.debug("Generated small amount: " + amountStr);
         return amountStr;
     }

@@ -8,17 +8,16 @@ import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * User Story 1: As a Bank Manager, I want to add customers, create accounts, and delete accounts
- * so that I can manage customer accounts efficiently.
+ * User Story 1: As a Bank Manager, I want to add customers, create accounts,
+ * and delete accounts so that I can manage customer accounts efficiently.
  */
-@DisplayName("User Story 1: Bank Manager – Add customers, create accounts, delete accounts")
-@Epic("User Story 1: Bank Manager")
+@DisplayName("US1 – Bank Manager")
+@Epic("XYZ Bank")
 @Feature("Manager Account Management")
 public class ManagerTest extends BaseTest {
 
@@ -31,18 +30,17 @@ public class ManagerTest extends BaseTest {
         managerPage = new ManagerDashboardPage(driver);
     }
 
+    // ─── AC1: Adding Customers ───────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC1 – Adding Customers (names alphabetic only, postal codes numeric only)")
+    @DisplayName("Adding Customers")
     @Story("Adding Customers")
-    @Tag("us1")
-    @Tag("adding_customers")
     class AddingCustomers {
 
         @Test
-        @DisplayName("Verify manager can add new customer with valid name and postal code")
+        @DisplayName("Verify manager can add new customer with valid data")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void managerCanAddNewCustomer_withValidData_success() {
+        void addNewCustomer_withValidData() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
             loginPage.loginAsManager("Manager");
@@ -55,9 +53,8 @@ public class ManagerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify customer name with numbers is rejected (alphabetic only)")
-        @Tag("validation")
-        @Tag("negative")
+        @DisplayName("Verify customer name with numbers is rejected")
+        @Severity(SeverityLevel.NORMAL)
         void customerName_withNumbers_rejected() {
             String invalidName = TestDataGenerator.generateInvalidCustomerNameWithNumbers();
             String postalCode = TestDataGenerator.generateValidPostalCode();
@@ -69,9 +66,8 @@ public class ManagerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify customer name with special characters is rejected (alphabetic only)")
-        @Tag("validation")
-        @Tag("negative")
+        @DisplayName("Verify customer name with special characters is rejected")
+        @Severity(SeverityLevel.NORMAL)
         void customerName_withSpecialCharacters_rejected() {
             String invalidName = TestDataGenerator.generateInvalidCustomerNameWithSpecialChars();
             String postalCode = TestDataGenerator.generateValidPostalCode();
@@ -83,9 +79,8 @@ public class ManagerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify postal code with letters is rejected (numeric only)")
-        @Tag("validation")
-        @Tag("negative")
+        @DisplayName("Verify postal code with letters is rejected")
+        @Severity(SeverityLevel.NORMAL)
         void postalCode_withLetters_rejected() {
             String name = TestDataGenerator.generateValidCustomerName();
             String invalidPostal = TestDataGenerator.generateInvalidPostalCodeWithLetters();
@@ -97,10 +92,9 @@ public class ManagerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify add customer with empty form shows validation")
-        @Tag("validation")
-        @Tag("negative")
-        void addCustomer_emptyForm_validationOrError() {
+        @DisplayName("Verify empty form submission shows validation")
+        @Severity(SeverityLevel.MINOR)
+        void emptyForm_showsValidation() {
             loginPage.loginAsManager("Manager");
             managerPage.clickAddCustomerButton();
             managerPage.submitCustomerForm();
@@ -111,18 +105,17 @@ public class ManagerTest extends BaseTest {
         }
     }
 
+    // ─── AC2: Creating Accounts ──────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC2 – Creating Accounts (create for added customers; no access until account created)")
+    @DisplayName("Creating Accounts")
     @Story("Creating Accounts")
-    @Tag("us1")
-    @Tag("creating_accounts")
     class CreatingAccounts {
 
         @Test
-        @DisplayName("Verify open account without selecting customer shows error")
-        @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void openAccount_withoutSelectingCustomer_showsError() {
+        @DisplayName("Verify process without selecting customer shows error")
+        @Severity(SeverityLevel.NORMAL)
+        void processWithoutCustomer_showsError() {
             loginPage.loginAsManager("Manager");
             managerPage.clickOpenAccountButton()
                     .selectCurrency("Dollar")
@@ -132,10 +125,9 @@ public class ManagerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify manager can create account for added customer – success")
+        @DisplayName("Verify manager can create account for added customer")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void managerCanCreateAccount_forAddedCustomer_success() {
+        void createAccount_forAddedCustomer() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
 
@@ -149,18 +141,17 @@ public class ManagerTest extends BaseTest {
         }
     }
 
+    // ─── AC3: Deleting Accounts ──────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC3 – Deleting Accounts (manager can delete; deleted customer cannot access)")
+    @DisplayName("Deleting Accounts")
     @Story("Deleting Accounts")
-    @Tag("us1")
-    @Tag("deleting_accounts")
     class DeletingAccounts {
 
         @Test
-        @DisplayName("Verify manager can delete customer account – customer removed from list")
+        @DisplayName("Verify manager can delete customer – customer removed from list")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void managerCanDeleteCustomerAccount_customerRemovedFromList() {
+        void deleteCustomer_removedFromList() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
 
@@ -170,7 +161,8 @@ public class ManagerTest extends BaseTest {
             managerPage.clickCustomersButton();
             managerPage.deleteCustomer(displayName);
 
-            assertFalse(managerPage.customerExists(displayName), "Customer should be deleted");
+            assertFalse(managerPage.customerExists(displayName),
+                    "Customer should no longer appear in the list");
         }
     }
 }

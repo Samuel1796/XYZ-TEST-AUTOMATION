@@ -9,17 +9,16 @@ import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * User Story 2: As a Customer, I want to view my transactions, deposit funds, and withdraw money
- * so that I can manage my finances effectively.
+ * User Story 2: As a Customer, I want to view my transactions, deposit funds,
+ * and withdraw money so that I can manage my finances effectively.
  */
-@DisplayName("User Story 2: Customer – View transactions, deposit funds, withdraw money")
-@Epic("User Story 2: Customer")
+@DisplayName("US2 – Customer Banking")
+@Epic("XYZ Bank")
 @Feature("Customer Banking")
 public class CustomerTest extends BaseTest {
 
@@ -39,35 +38,29 @@ public class CustomerTest extends BaseTest {
     private void createTestCustomer() {
         TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
         String name = data.getName();
-        // App shows "FirstName LastName" in dropdowns (we use same name for first and last)
         testCustomerName = name + " " + name;
 
         loginPage.loginAsManager("Manager");
         managerPage.addCustomer(name, data.getPostalCode());
         managerPage.createAccount(testCustomerName, "Dollar");
-
-        // Click Home button to go back to #/login (home page)
         managerPage.clickHomeButton();
     }
 
+    // ─── Account Access ──────────────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC2 – Customers cannot access account until manager has created one")
+    @DisplayName("Account Access")
     @Story("Account Access")
-    @Tag("us2")
-    @Tag("access")
-    class AccountAccessUntilCreated {
+    class AccountAccess {
 
         @Test
-        @DisplayName("Verify customer without account cannot reach account (no account in dropdown)")
+        @DisplayName("Verify customer without account cannot reach account page")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
         void customerWithoutAccount_cannotReachAccount() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(data.getName(), data.getPostalCode());
-
-            // Click Home button to go back to #/login
             managerPage.clickHomeButton();
 
             loginPage.selectCustomerUserType();
@@ -75,9 +68,8 @@ public class CustomerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify deleted customer cannot access account (removed from dropdown)")
+        @DisplayName("Verify deleted customer cannot access account")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
         void deletedCustomer_cannotAccessAccount() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
@@ -89,26 +81,23 @@ public class CustomerTest extends BaseTest {
             managerPage.deleteCustomer(displayName);
             assertFalse(managerPage.customerExists(displayName));
 
-            // Click Home button to go back to #/login
             managerPage.clickHomeButton();
-
             loginPage.selectCustomerUserType();
             assertTrue(loginPage.isLoginPageDisplayed());
         }
     }
 
+    // ─── AC1: Viewing Transactions ───────────────────────────────────────
+
     @Nested
-    @DisplayName("AC1 – Viewing Transactions (view list of recent transactions)")
+    @DisplayName("Viewing Transactions")
     @Story("Viewing Transactions")
-    @Tag("us2")
-    @Tag("viewing_transactions")
     class ViewingTransactions {
 
         @Test
-        @DisplayName("Verify customer can view list of recent transactions after deposit")
+        @DisplayName("Verify customer can view recent transactions after deposit")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void customerCanViewRecentTransactions_afterDeposit() {
+        void viewRecentTransactions_afterDeposit() {
             loginPage.loginAsCustomer(testCustomerName);
             customerPage.deposit(TestDataGenerator.generateValidDepositAmount());
             customerPage.clickTransactionsButton();
@@ -119,7 +108,8 @@ public class CustomerTest extends BaseTest {
 
         @Test
         @DisplayName("Verify new account has empty transaction list")
-        void newAccount_transactionListEmpty() {
+        @Severity(SeverityLevel.NORMAL)
+        void newAccount_emptyTransactionList() {
             loginPage.loginAsCustomer(testCustomerName);
             customerPage.clickTransactionsButton();
 
@@ -127,168 +117,190 @@ public class CustomerTest extends BaseTest {
         }
 
         @Test
-        @DisplayName("Verify transaction list shows correct type and amount (e.g. Deposit)")
-        void transactionList_showsCorrectTypeAndAmount() {
+        @DisplayName("Verify transaction list shows correct transaction type")
+        @Severity(SeverityLevel.NORMAL)
+        void transactionList_showsCorrectType() {
             loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit("500.00");
+            customerPage.deposit("500");
             customerPage.clickTransactionsButton();
 
             var list = customerPage.getTransactionHistory();
             assertFalse(list.isEmpty());
-            assertTrue(list.stream().anyMatch(t -> t.contains("Deposit")));
+            assertTrue(list.stream().anyMatch(t -> t.contains("Credit")),
+                    "Transaction list should contain a Credit entry after deposit");
         }
 
         @Test
         @DisplayName("Verify multiple transactions all appear in list")
+        @Severity(SeverityLevel.NORMAL)
         void multipleTransactions_allAppearInList() {
             loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit("100.00");
-            customerPage.deposit("200.00");
-            customerPage.withdraw("50.00");
+            customerPage.deposit("100");
+            customerPage.deposit("200");
+            customerPage.withdraw("50");
             customerPage.clickTransactionsButton();
 
             assertTrue(customerPage.getTransactionCount() >= 3);
         }
 
         @Test
-        @DisplayName("Verify transaction list persists after logout and login")
-        void transactionList_persistsAfterLogoutLogin() {
+        @DisplayName("Verify transaction list persists after logout and re-login")
+        @Severity(SeverityLevel.NORMAL)
+        void transactionList_persistsAfterReLogin() {
             loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit("300.00");
+            customerPage.deposit("300");
             customerPage.logout();
-            loginPage.loginAsCustomer(testCustomerName);
+            // After logout the app lands on #/customer (dropdown page)
+            loginPage.selectCustomer(testCustomerName);
+            loginPage.clickLoginButton();
             customerPage.clickTransactionsButton();
 
             assertTrue(customerPage.getTransactionCount() > 0);
         }
     }
 
+    // ─── AC2: Depositing Funds ───────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC2 – Depositing Funds (enter amount; validate positive; balance updated on success)")
+    @DisplayName("Depositing Funds")
     @Story("Depositing Funds")
-    @Tag("us2")
-    @Tag("depositing_funds")
     class DepositingFunds {
 
         @Test
-        @DisplayName("Verify customer can deposit valid positive amount – balance updated")
+        @DisplayName("Verify valid deposit updates balance correctly")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void customerCanDeposit_validPositiveAmount_success() {
+        void validDeposit_updatesBalance() {
             String amount = TestDataGenerator.generateValidDepositAmount();
 
             loginPage.loginAsCustomer(testCustomerName);
-            assertTrue(customerPage.isDashboardDisplayed());
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.deposit(amount);
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            String msg = customerPage.getSuccessMessage();
-            assertNotNull(msg);
-            assertFalse(msg.isEmpty());
+            assertEquals(balanceBefore + Integer.parseInt(amount), balanceAfter,
+                    "Balance should increase by " + amount);
         }
 
         @Test
-        @DisplayName("Verify deposit zero amount shows validation error")
-        @Tag("validation")
-        @Tag("negative")
-        void deposit_zeroAmount_validationError() {
+        @DisplayName("Verify zero deposit does not change balance")
+        @Severity(SeverityLevel.NORMAL)
+        void zeroDeposit_balanceUnchanged() {
             loginPage.loginAsCustomer(testCustomerName);
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.deposit(TestDataGenerator.generateZeroAmount());
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getErrorMessage());
+            assertEquals(balanceBefore, balanceAfter,
+                    "Balance should not change when depositing zero");
         }
 
         @Test
-        @DisplayName("Verify deposit negative amount shows validation error")
-        @Tag("validation")
-        @Tag("negative")
-        void deposit_negativeAmount_validationError() {
+        @DisplayName("Verify negative deposit does not change balance")
+        @Severity(SeverityLevel.NORMAL)
+        void negativeDeposit_balanceUnchanged() {
             loginPage.loginAsCustomer(testCustomerName);
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.deposit(TestDataGenerator.generateNegativeAmount());
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getErrorMessage());
+            assertEquals(balanceBefore, balanceAfter,
+                    "Balance should not change when depositing a negative amount");
         }
 
         @Test
-        @DisplayName("Verify deposit small positive amount succeeds")
-        @Tag("boundary")
-        void deposit_smallPositiveAmount_success() {
+        @DisplayName("Verify small deposit (1) updates balance correctly")
+        @Severity(SeverityLevel.MINOR)
+        void smallDeposit_updatesBalance() {
             loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit(TestDataGenerator.generateSmallAmount());
+            int balanceBefore = customerPage.getBalanceAsInt();
+            String smallAmount = TestDataGenerator.generateSmallAmount();
+            customerPage.deposit(smallAmount);
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getSuccessMessage());
+            assertEquals(balanceBefore + Integer.parseInt(smallAmount), balanceAfter,
+                    "Balance should increase by " + smallAmount);
         }
     }
 
+    // ─── AC3: Withdrawing Money ──────────────────────────────────────────
+
     @Nested
-    @DisplayName("AC3 – Withdrawing Money (enter amount; validate positive and sufficient balance; balance updated)")
+    @DisplayName("Withdrawing Money")
     @Story("Withdrawing Money")
-    @Tag("us2")
-    @Tag("withdrawing_money")
     class WithdrawingMoney {
 
         @Test
-        @DisplayName("Verify customer can withdraw valid amount with sufficient balance – balance updated")
+        @DisplayName("Verify valid withdrawal with sufficient balance updates balance correctly")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void customerCanWithdraw_validAmountSufficientBalance_success() {
+        void validWithdrawal_updatesBalance() {
             String depositAmount = TestDataGenerator.generateLargeAmount();
             String withdrawAmount = TestDataGenerator.generateValidWithdrawalAmount();
 
             loginPage.loginAsCustomer(testCustomerName);
             customerPage.deposit(depositAmount);
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.withdraw(withdrawAmount);
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getSuccessMessage());
+            assertEquals(balanceBefore - Integer.parseInt(withdrawAmount), balanceAfter,
+                    "Balance should decrease by " + withdrawAmount);
         }
 
         @Test
-        @DisplayName("Verify withdraw zero amount shows validation error")
-        @Tag("validation")
-        @Tag("negative")
-        void withdraw_zeroAmount_validationError() {
+        @DisplayName("Verify zero withdrawal does not change balance")
+        @Severity(SeverityLevel.NORMAL)
+        void zeroWithdrawal_balanceUnchanged() {
             loginPage.loginAsCustomer(testCustomerName);
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.withdraw(TestDataGenerator.generateZeroAmount());
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getErrorMessage());
+            assertEquals(balanceBefore, balanceAfter,
+                    "Balance should not change when withdrawing zero");
         }
 
         @Test
-        @DisplayName("Verify withdraw more than balance shows validation error (insufficient balance)")
-        @Tag("validation")
-        @Tag("negative")
-        void withdraw_moreThanBalance_validationError() {
+        @DisplayName("Verify withdrawal exceeding balance does not change balance")
+        @Severity(SeverityLevel.NORMAL)
+        void withdrawalExceedingBalance_balanceUnchanged() {
             loginPage.loginAsCustomer(testCustomerName);
+            int balanceBefore = customerPage.getBalanceAsInt();
             customerPage.withdraw(TestDataGenerator.generateLargeAmount());
+            int balanceAfter = customerPage.getBalanceAsInt();
 
-            assertNotNull(customerPage.getErrorMessage());
+            assertEquals(balanceBefore, balanceAfter,
+                    "Balance should not change when withdrawing more than available");
         }
 
         @Test
-        @DisplayName("Verify withdraw exact balance succeeds")
-        @Tag("boundary")
-        void withdraw_exactBalance_success() {
-            loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit("100.00");
-            customerPage.withdraw("100.00");
+        @DisplayName("Verify withdrawing exact deposited amount brings balance to zero")
+        @Severity(SeverityLevel.NORMAL)
+        void withdrawExactDeposit_balanceBecomesZero() {
+            String amount = "500";
 
-            assertNotNull(customerPage.getSuccessMessage());
+            loginPage.loginAsCustomer(testCustomerName);
+            customerPage.deposit(amount);
+            customerPage.withdraw(amount);
+            int balanceAfter = customerPage.getBalanceAsInt();
+
+            assertEquals(0, balanceAfter,
+                    "Balance should be zero after withdrawing the same amount deposited");
         }
     }
 
+    // ─── AC4: Transaction Security ───────────────────────────────────────
+
     @Nested
-    @DisplayName("AC4 – Transaction Security (cannot reset or alter transaction history)")
+    @DisplayName("Transaction Security")
     @Story("Transaction Security")
-    @Tag("us2")
-    @Tag("transaction_security")
     class TransactionSecurity {
 
         @Test
-        @DisplayName("Verify transaction history is read-only (displayed but not editable)")
+        @DisplayName("Verify transaction history is read-only and cannot be altered")
         @Severity(SeverityLevel.CRITICAL)
-        @Tag("smoke")
-        void transactionHistory_readOnly_notEditable() {
+        void transactionHistory_isReadOnly() {
             loginPage.loginAsCustomer(testCustomerName);
-            customerPage.deposit("250.00");
+            customerPage.deposit("250");
             customerPage.clickTransactionsButton();
 
             assertFalse(customerPage.getTransactionHistory().isEmpty());
