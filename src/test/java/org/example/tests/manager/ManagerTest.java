@@ -1,254 +1,176 @@
 package org.example.tests.manager;
 
 import io.qameta.allure.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.example.base.BaseTest;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
 import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Test class for Bank Manager functionality.
- * Tests cover: adding customers, creating accounts, and deleting accounts.
- *
- * Epic: User Story 1 - Bank Manager Account Management
- *
- * @author QA Team
- * @version 1.0
+ * User Story 1: As a Bank Manager, I want to add customers, create accounts, and delete accounts
+ * so that I can manage customer accounts efficiently.
  */
-@DisplayName("Bank Manager Tests")
-@Epic("User Story 1: Bank Manager Account Management")
-@Feature("Manager Operations")
+@DisplayName("User Story 1: Bank Manager – Add customers, create accounts, delete accounts")
+@Epic("User Story 1: Bank Manager")
+@Feature("Manager Account Management")
 public class ManagerTest extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(ManagerTest.class);
     private LoginPage loginPage;
-    private ManagerDashboardPage dashboardPage;
-    private static final String MANAGER_NAME = "Harry Potter";
+    private ManagerDashboardPage managerPage;
 
     @BeforeEach
-    public void setUpManagerTest() {
+    void setUpManager() {
         loginPage = new LoginPage(driver);
-        dashboardPage = new ManagerDashboardPage(driver);
+        managerPage = new ManagerDashboardPage(driver);
     }
 
-    @Test
-    @DisplayName("Verify Successful Addition of a New Customer with Valid Data")
+    @Nested
+    @DisplayName("AC1 – Adding Customers (names alphabetic only, postal codes numeric only)")
     @Story("Adding Customers")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("smoke")
-    @Tag("customer_management")
-    public void testSuccessfulAdditionOfNewCustomer() {
-        logger.info("TEST: Verify Successful Addition of a New Customer with Valid Data");
+    @Tag("us1")
+    @Tag("adding_customers")
+    class AddingCustomers {
 
-        // Test Data
-        TestDataGenerator.CustomerTestData testData = TestDataGenerator.generateCustomerTestData();
-        String customerName = testData.getName();
-        String postalCode = testData.getPostalCode();
+        @Test
+        @DisplayName("Verify manager can add new customer with valid name and postal code")
+        @Severity(SeverityLevel.CRITICAL)
+        @Tag("smoke")
+        void managerCanAddNewCustomer_withValidData_success() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
+            loginPage.loginAsManager("Manager");
+            assertTrue(managerPage.isDashboardDisplayed());
 
-        Allure.step("Verify manager dashboard is displayed");
-        assertTrue(dashboardPage.isDashboardDisplayed(), "Manager dashboard should be displayed");
+            managerPage.addCustomer(data.getName(), data.getPostalCode());
+            String msg = managerPage.getSuccessMessage();
+            assertNotNull(msg);
+            assertFalse(msg.isEmpty());
+        }
 
-        Allure.step("Add customer with name: " + customerName);
-        dashboardPage.addCustomer(customerName, postalCode);
+        @Test
+        @DisplayName("Verify customer name with numbers is rejected (alphabetic only)")
+        @Tag("validation")
+        @Tag("negative")
+        void customerName_withNumbers_rejected() {
+            String invalidName = TestDataGenerator.generateInvalidCustomerNameWithNumbers();
+            String postalCode = TestDataGenerator.generateValidPostalCode();
 
-        Allure.step("Verify success message is displayed");
-        String successMessage = dashboardPage.getSuccessMessage();
-        assertNotNull(successMessage, "Success message should be displayed");
-        assertFalse(successMessage.isEmpty(), "Success message should not be empty");
+            loginPage.loginAsManager("Manager");
+            managerPage.addCustomer(invalidName, postalCode);
+
+            assertNotNull(managerPage.getErrorMessage());
+        }
+
+        @Test
+        @DisplayName("Verify customer name with special characters is rejected (alphabetic only)")
+        @Tag("validation")
+        @Tag("negative")
+        void customerName_withSpecialCharacters_rejected() {
+            String invalidName = TestDataGenerator.generateInvalidCustomerNameWithSpecialChars();
+            String postalCode = TestDataGenerator.generateValidPostalCode();
+
+            loginPage.loginAsManager("Manager");
+            managerPage.addCustomer(invalidName, postalCode);
+
+            assertNotNull(managerPage.getErrorMessage());
+        }
+
+        @Test
+        @DisplayName("Verify postal code with letters is rejected (numeric only)")
+        @Tag("validation")
+        @Tag("negative")
+        void postalCode_withLetters_rejected() {
+            String name = TestDataGenerator.generateValidCustomerName();
+            String invalidPostal = TestDataGenerator.generateInvalidPostalCodeWithLetters();
+
+            loginPage.loginAsManager("Manager");
+            managerPage.addCustomer(name, invalidPostal);
+
+            assertNotNull(managerPage.getErrorMessage());
+        }
+
+        @Test
+        @DisplayName("Verify add customer with empty form shows validation")
+        @Tag("validation")
+        @Tag("negative")
+        void addCustomer_emptyForm_validationOrError() {
+            loginPage.loginAsManager("Manager");
+            managerPage.clickAddCustomerButton();
+            managerPage.submitCustomerForm();
+
+            String error = managerPage.getErrorMessage();
+            assertTrue(!error.isEmpty() || managerPage.isDashboardDisplayed(),
+                    "Form validation or error expected");
+        }
     }
 
-    @Test
-    @DisplayName("Verify Validation - Name with Numbers (Invalid)")
-    @Story("Adding Customers")
-    @Tag("validation")
-    @Tag("negative")
-    public void testCustomerNameValidationWithNumbers() {
-        logger.info("TEST: Verify Validation - Name with Numbers (Invalid)");
-
-        // Test Data
-        String invalidName = TestDataGenerator.generateInvalidCustomerNameWithNumbers();
-        String postalCode = TestDataGenerator.generateValidPostalCode();
-
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
-
-        Allure.step("Add customer with invalid name: " + invalidName);
-        dashboardPage.addCustomer(invalidName, postalCode);
-
-        Allure.step("Verify error message is displayed for invalid name");
-        String errorMessage = dashboardPage.getErrorMessage();
-        assertNotNull(errorMessage, "Error message should be displayed for invalid name");
-    }
-
-    @Test
-    @DisplayName("Verify Validation - Name with Special Characters (Invalid)")
-    @Story("Adding Customers")
-    @Tag("validation")
-    @Tag("negative")
-    public void testCustomerNameValidationWithSpecialCharacters() {
-        logger.info("TEST: Verify Validation - Name with Special Characters (Invalid)");
-
-        // Test Data
-        String invalidName = TestDataGenerator.generateInvalidCustomerNameWithSpecialChars();
-        String postalCode = TestDataGenerator.generateValidPostalCode();
-
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
-
-        Allure.step("Add customer with invalid name: " + invalidName);
-        dashboardPage.addCustomer(invalidName, postalCode);
-
-        Allure.step("Verify error message is displayed for invalid name");
-        String errorMessage = dashboardPage.getErrorMessage();
-        assertNotNull(errorMessage, "Error message should be displayed for invalid name");
-    }
-
-    @Test
-    @DisplayName("Verify Validation - Postal Code with Letters (Invalid)")
-    @Story("Adding Customers")
-    @Tag("validation")
-    @Tag("negative")
-    public void testPostalCodeValidationWithLetters() {
-        logger.info("TEST: Verify Validation - Postal Code with Letters (Invalid)");
-
-        // Test Data
-        String customerName = TestDataGenerator.generateValidCustomerName();
-        String invalidPostalCode = TestDataGenerator.generateInvalidPostalCodeWithLetters();
-
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
-
-        Allure.step("Add customer with invalid postal code: " + invalidPostalCode);
-        dashboardPage.addCustomer(customerName, invalidPostalCode);
-
-        Allure.step("Verify error message is displayed for invalid postal code");
-        String errorMessage = dashboardPage.getErrorMessage();
-        assertNotNull(errorMessage, "Error message should be displayed for invalid postal code");
-    }
-
-    @Test
-    @DisplayName("Verify No Account Creation Without Selecting Customer")
+    @Nested
+    @DisplayName("AC2 – Creating Accounts (create for added customers; no access until account created)")
     @Story("Creating Accounts")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("smoke")
-    @Tag("account_management")
-    public void testNoAccountCreationWithoutSelectingCustomer() {
-        logger.info("TEST: Verify No Account Creation Without Selecting Customer");
+    @Tag("us1")
+    @Tag("creating_accounts")
+    class CreatingAccounts {
 
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
+        @Test
+        @DisplayName("Verify open account without selecting customer shows error")
+        @Severity(SeverityLevel.CRITICAL)
+        @Tag("smoke")
+        void openAccount_withoutSelectingCustomer_showsError() {
+            loginPage.loginAsManager("Manager");
+            managerPage.clickOpenAccountButton()
+                    .selectCurrency("Dollar")
+                    .clickProcessButton();
 
-        Allure.step("Attempt to create account without selecting customer");
-        dashboardPage.clickOpenAccountButton()
-                .selectCurrency("Dollar")
-                .clickProcessButton();
+            assertNotNull(managerPage.getErrorMessage());
+        }
 
-        Allure.step("Verify error message is displayed");
-        String errorMessage = dashboardPage.getErrorMessage();
-        assertNotNull(errorMessage, "Error message should be displayed when customer is not selected");
+        @Test
+        @DisplayName("Verify manager can create account for added customer – success")
+        @Severity(SeverityLevel.CRITICAL)
+        @Tag("smoke")
+        void managerCanCreateAccount_forAddedCustomer_success() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getName() + " " + data.getName();
+
+            loginPage.loginAsManager("Manager");
+            managerPage.addCustomer(data.getName(), data.getPostalCode());
+            managerPage.createAccount(displayName, "Dollar");
+
+            String msg = managerPage.getSuccessMessage();
+            assertNotNull(msg);
+            assertFalse(msg.isEmpty());
+        }
     }
 
-    @Test
-    @DisplayName("Verify Successful Account Creation for Existing Customer")
-    @Story("Creating Accounts")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("smoke")
-    @Tag("account_management")
-    public void testSuccessfulAccountCreation() {
-        logger.info("TEST: Verify Successful Account Creation for Existing Customer");
-
-        // First add a customer
-        TestDataGenerator.CustomerTestData testData = TestDataGenerator.generateCustomerTestData();
-        String customerName = testData.getName();
-        String postalCode = testData.getPostalCode();
-
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
-
-        Allure.step("Add customer");
-        dashboardPage.addCustomer(customerName, postalCode);
-
-        Allure.step("Create account for customer: " + customerName);
-        dashboardPage.createAccount(customerName, "Dollar");
-
-        Allure.step("Verify success message is displayed");
-        String successMessage = dashboardPage.getSuccessMessage();
-        assertNotNull(successMessage, "Success message should be displayed");
-        assertFalse(successMessage.isEmpty(), "Success message should not be empty");
-    }
-
-    @Test
-    @DisplayName("Verify Successful Account Deletion")
+    @Nested
+    @DisplayName("AC3 – Deleting Accounts (manager can delete; deleted customer cannot access)")
     @Story("Deleting Accounts")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("smoke")
-    @Tag("account_management")
-    public void testSuccessfulAccountDeletion() {
-        logger.info("TEST: Verify Successful Account Deletion");
+    @Tag("us1")
+    @Tag("deleting_accounts")
+    class DeletingAccounts {
 
-        // First add a customer
-        TestDataGenerator.CustomerTestData testData = TestDataGenerator.generateCustomerTestData();
-        String customerName = testData.getName();
-        String postalCode = testData.getPostalCode();
+        @Test
+        @DisplayName("Verify manager can delete customer account – customer removed from list")
+        @Severity(SeverityLevel.CRITICAL)
+        @Tag("smoke")
+        void managerCanDeleteCustomerAccount_customerRemovedFromList() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getName() + " " + data.getName();
 
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
+            loginPage.loginAsManager("Manager");
+            managerPage.addCustomer(data.getName(), data.getPostalCode());
+            managerPage.createAccount(displayName, "Dollar");
+            managerPage.clickCustomersButton();
+            managerPage.deleteCustomer(displayName);
 
-        Allure.step("Add customer and create account");
-        dashboardPage.addCustomer(customerName, postalCode);
-        dashboardPage.createAccount(customerName, "Dollar");
-
-        Allure.step("Navigate to customers list");
-        dashboardPage.clickCustomersButton();
-
-        Allure.step("Delete customer: " + customerName);
-        dashboardPage.deleteCustomer(customerName);
-
-        Allure.step("Verify customer is deleted");
-        assertFalse(dashboardPage.customerExists(customerName), "Customer should be deleted");
-    }
-
-    @Test
-    @DisplayName("Verify Addition with Empty Fields (Negative)")
-    @Story("Adding Customers")
-    @Tag("validation")
-    @Tag("negative")
-    public void testAdditionWithEmptyFields() {
-        logger.info("TEST: Verify Addition with Empty Fields (Negative)");
-
-        // Steps
-        Allure.step("Login as manager");
-        loginPage.loginAsManager(MANAGER_NAME);
-
-        Allure.step("Click Add Customer button");
-        dashboardPage.clickAddCustomerButton();
-
-        Allure.step("Submit form with empty fields");
-        dashboardPage.submitCustomerForm();
-
-        Allure.step("Verify error message or validation is triggered");
-        String errorMessage = dashboardPage.getErrorMessage();
-        // Either error message should appear or form should not submit
-        assertTrue(!errorMessage.isEmpty() || dashboardPage.isDashboardDisplayed(),
-                "Form validation should prevent empty submission");
+            assertFalse(managerPage.customerExists(displayName), "Customer should be deleted");
+        }
     }
 }
-

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.config.ConfigManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -159,6 +160,45 @@ public class SeleniumUtils {
     }
 
     /**
+     * Checks if element located by By is displayed (with short wait).
+     *
+     * @param driver  the WebDriver instance
+     * @param locator the By locator
+     * @return true if element is visible
+     */
+    public static boolean isElementDisplayed(WebDriver driver, By locator) {
+        try {
+            return waitForElementToBeVisible(driver, locator).isDisplayed();
+        } catch (Exception e) {
+            logger.debug("Element not displayed: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Clicks element after waiting for it to be clickable.
+     */
+    public static void click(WebDriver driver, By locator) {
+        waitForElementToBeClickable(driver, locator).click();
+    }
+
+    /**
+     * Clears and sends keys to element.
+     */
+    public static void sendKeys(WebDriver driver, By locator, String text) {
+        WebElement el = waitForElementToBeVisible(driver, locator);
+        el.clear();
+        el.sendKeys(text);
+    }
+
+    /**
+     * Gets visible text of element.
+     */
+    public static String getText(WebDriver driver, By locator) {
+        return getElementText(waitForElementToBeVisible(driver, locator));
+    }
+
+    /**
      * Switches to alert and accepts it
      *
      * @param driver the WebDriver instance
@@ -228,6 +268,34 @@ public class SeleniumUtils {
         logger.debug("Waiting for page title: " + title);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         wait.until(ExpectedConditions.titleContains(title));
+    }
+
+    /**
+     * Waits for current URL to contain the given fragment (e.g. "#/manager/addCust").
+     *
+     * @param driver   the WebDriver instance
+     * @param urlFragment fragment that must appear in getCurrentUrl()
+     */
+    public static void waitForUrlContains(WebDriver driver, String urlFragment) {
+        logger.debug("Waiting for URL to contain: " + urlFragment);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        wait.until(ExpectedConditions.urlContains(urlFragment));
+    }
+
+    /**
+     * Waits until the given select has an option with the exact visible text (for async-loaded dropdowns).
+     */
+    public static void waitForDropdownToContainOption(WebDriver driver, By selectLocator, String optionText) {
+        logger.debug("Waiting for dropdown to contain option: " + optionText);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        wait.until(d -> {
+            try {
+                Select sel = new Select(driver.findElement(selectLocator));
+                return sel.getOptions().stream().anyMatch(o -> optionText.equals(o.getText().trim()));
+            } catch (Exception e) {
+                return false;
+            }
+        });
     }
 
     /**

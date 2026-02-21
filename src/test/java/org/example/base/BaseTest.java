@@ -4,7 +4,7 @@ import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.config.ConfigManager;
-import org.example.driver.DriverFactory;
+import org.example.driver.DriverManager;
 import org.example.utils.SeleniumUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +39,7 @@ public class BaseTest {
     public void setUp() {
         testFailed = false;
         logger.info("===== Starting Test: " + getTestMethodName() + " =====");
-        driver = DriverFactory.createDriver();
+        driver = DriverManager.createDriver();
         driver.navigate().to(ConfigManager.getBaseUrl());
         logger.info("Navigation to base URL successful");
     }
@@ -62,7 +62,7 @@ public class BaseTest {
             } catch (Exception e) {
                 logger.error("Error during teardown: " + e.getMessage(), e);
             } finally {
-                DriverFactory.quitDriver(driver);
+                DriverManager.quitDriver(driver);
                 logger.info("===== Completed Test: " + getTestMethodName() + " =====\n");
             }
         }
