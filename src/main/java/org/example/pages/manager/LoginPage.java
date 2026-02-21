@@ -3,9 +3,11 @@ package org.example.pages.manager;
 import io.qameta.allure.Step;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Login page for XYZ Bank.
@@ -17,44 +19,54 @@ public class LoginPage {
     private final WebDriver driver;
 
     // --- #/login (Home) ---
-    private static final By CUSTOMER_LOGIN_BUTTON = By.xpath("//button[contains(text(),'Customer Login')]");
-    private static final By MANAGER_LOGIN_BUTTON = By.xpath("//button[contains(text(),'Bank Manager Login')]");
-    private static final By HOME_BUTTON = By.xpath("//button[contains(text(),'Home')]");
-    private static final By PAGE_TITLE = By.cssSelector("strong");
+    @FindBy(xpath = "//button[contains(text(),'Customer Login')]")
+    private WebElement customerLoginButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Bank Manager Login')]")
+    private WebElement managerLoginButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Home')]")
+    private WebElement homeButton;
+
+    @FindBy(css = "strong")
+    private WebElement pageTitle;
 
     // --- #/customer (after Customer Login clicked) ---
-    private static final By USER_SELECT = By.id("userSelect");
-    /** Login button on customer login view – exact text to avoid matching "Customer Login" */
-    private static final By LOGIN_BUTTON = By.xpath("//button[normalize-space(text())='Login']");
+    @FindBy(id = "userSelect")
+    private WebElement userSelect;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Login']")
+    private WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Select Customer user type (navigates to #/customer)")
     public LoginPage selectCustomerUserType() {
-        SeleniumUtils.waitForElementToBeClickable(driver, CUSTOMER_LOGIN_BUTTON).click();
+        SeleniumUtils.waitAndClick(driver, customerLoginButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.CUSTOMER_LOGIN);
         return this;
     }
 
     @Step("Select Manager user type (navigates to manager)")
     public LoginPage selectManagerUserType() {
-        SeleniumUtils.waitForElementToBeClickable(driver, MANAGER_LOGIN_BUTTON).click();
+        SeleniumUtils.waitAndClick(driver, managerLoginButton);
         SeleniumUtils.waitForUrlContains(driver, "#/manager");
         return this;
     }
 
     @Step("Select customer: {customerName}")
     public LoginPage selectCustomer(String customerName) {
-        WebElement dropdown = SeleniumUtils.waitForElementToBeVisible(driver, USER_SELECT);
-        new org.openqa.selenium.support.ui.Select(dropdown).selectByVisibleText(customerName);
+        SeleniumUtils.waitUntilVisible(driver, userSelect);
+        new Select(userSelect).selectByVisibleText(customerName);
         return this;
     }
 
     @Step("Click Login button (on #/customer)")
     public LoginPage clickLoginButton() {
-        SeleniumUtils.waitForElementToBeClickable(driver, LOGIN_BUTTON).click();
+        SeleniumUtils.waitAndClick(driver, loginButton);
         return this;
     }
 
@@ -74,22 +86,22 @@ public class LoginPage {
 
     @Step("Verify login page is displayed (#/login)")
     public boolean isLoginPageDisplayed() {
-        return SeleniumUtils.isElementDisplayed(driver, PAGE_TITLE);
+        return SeleniumUtils.isElementDisplayed(pageTitle);
     }
 
     @Step("Verify customer option is available")
     public boolean isCustomerOptionAvailable() {
-        return SeleniumUtils.isElementDisplayed(driver, CUSTOMER_LOGIN_BUTTON);
+        return SeleniumUtils.isElementDisplayed(customerLoginButton);
     }
 
     @Step("Verify manager option is available")
     public boolean isManagerOptionAvailable() {
-        return SeleniumUtils.isElementDisplayed(driver, MANAGER_LOGIN_BUTTON);
+        return SeleniumUtils.isElementDisplayed(managerLoginButton);
     }
 
     @Step("Click Home button (back to #/login)")
     public LoginPage clickHomeButton() {
-        SeleniumUtils.waitForElementToBeClickable(driver, HOME_BUTTON).click();
+        SeleniumUtils.waitAndClick(driver, homeButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
         return this;
     }

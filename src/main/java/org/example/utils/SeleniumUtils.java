@@ -310,5 +310,57 @@ public class SeleniumUtils {
         element.clear();
         element.sendKeys(text);
     }
+
+    // ─── WebElement-based overloads (Page Factory support) ───────────────
+
+    /**
+     * Waits for a WebElement to be visible.
+     *
+     * @param driver  the WebDriver instance
+     * @param element the WebElement (may be a PageFactory proxy)
+     * @return the WebElement when visible
+     */
+    public static WebElement waitUntilVisible(WebDriver driver, WebElement element) {
+        logger.debug("Waiting for element to be visible: " + element);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    /**
+     * Waits for a WebElement to be clickable.
+     *
+     * @param driver  the WebDriver instance
+     * @param element the WebElement (may be a PageFactory proxy)
+     * @return the WebElement when clickable
+     */
+    public static WebElement waitUntilClickable(WebDriver driver, WebElement element) {
+        logger.debug("Waiting for element to be clickable: " + element);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    /**
+     * Waits for a WebElement to be clickable, then clicks it.
+     *
+     * @param driver  the WebDriver instance
+     * @param element the WebElement (may be a PageFactory proxy)
+     */
+    public static void waitAndClick(WebDriver driver, WebElement element) {
+        waitUntilClickable(driver, element).click();
+    }
+
+    /**
+     * Waits for a WebElement to be visible, clears it, and types text.
+     *
+     * @param driver  the WebDriver instance
+     * @param element the WebElement (may be a PageFactory proxy)
+     * @param text    the text to type
+     */
+    public static void clearAndType(WebDriver driver, WebElement element, String text) {
+        logger.debug("Clearing field and typing: " + text);
+        waitUntilVisible(driver, element);
+        element.clear();
+        element.sendKeys(text);
+    }
 }
 

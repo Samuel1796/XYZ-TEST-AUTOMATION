@@ -13078,3 +13078,1241 @@ Session ID: d4da0fb6b302a70ee7d74069ef3e493d
 
 2026-02-21 18:58:50.174 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify transaction list persists after logout and login
 2026-02-21 18:58:50.244 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:27:43.991 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:27:52.605 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:27:53.134 [DEBUG] [main] TestDataGenerator - Generated customer name: Diamond
+2026-02-21 19:27:53.138 [DEBUG] [main] TestDataGenerator - Generated postal code: 73657
+2026-02-21 19:27:53.140 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Diamond', postalCode='73657'}
+2026-02-21 19:27:53.151 [DEBUG] [main] SeleniumUtils - Screenshot directory created/verified: screenshots
+2026-02-21 19:27:53.285 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:27:53.542 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:27:54.128 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:27:54.358 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:27:57.227 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Diamond
+2026-02-21 19:27:57.497 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:27:58.775 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Diamond
+2026-02-21 19:27:58.819 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:27:59.065 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 73657
+2026-02-21 19:27:59.113 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:27:59.396 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:27:59.583 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:27:59.653 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:27:59.861 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:28:00.425 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Diamond Diamond
+2026-02-21 19:28:00.682 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:28:01.034 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> id: currency]
+2026-02-21 19:28:01.290 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:28:01.490 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:28:01.549 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:28:01.705 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:28:01.753 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:28:01.932 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:28:02.489 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> id: userSelect]
+2026-02-21 19:28:02.734 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:28:02.895 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:28:04.000 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:28:04.669 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:28:04.751 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 250
+2026-02-21 19:28:04.779 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:28:05.296 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:28:05.517 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (9a541680e701e49dad822500f2e765af)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:28:05.718 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:28:06.819 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: By.cssSelector: table
+2026-02-21 19:28:08.324 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:28:08.328 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify transaction history is read-only and cannot be altered
+2026-02-21 19:28:08.395 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:28:11.388 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:28:11.400 [DEBUG] [main] TestDataGenerator - Generated customer name: Nathan
+2026-02-21 19:28:11.401 [DEBUG] [main] TestDataGenerator - Generated postal code: 18712
+2026-02-21 19:28:11.403 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Nathan', postalCode='18712'}
+2026-02-21 19:28:12.007 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:28:12.187 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:28:12.768 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:28:12.984 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:28:13.527 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Nathan
+2026-02-21 19:28:13.543 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:28:13.824 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Nathan
+2026-02-21 19:28:13.846 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:28:14.071 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 18712
+2026-02-21 19:28:14.108 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:28:14.377 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:28:14.550 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:28:14.617 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:28:14.836 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:28:15.378 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Nathan Nathan
+2026-02-21 19:28:15.548 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:28:15.844 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> id: currency]
+2026-02-21 19:28:16.118 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:28:16.269 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:28:16.322 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:28:16.609 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:28:16.625 [DEBUG] [main] TestDataGenerator - Generated large amount: 12507
+2026-02-21 19:28:16.625 [DEBUG] [main] TestDataGenerator - Generated withdrawal amount: 177
+2026-02-21 19:28:16.645 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:28:16.796 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:28:17.341 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> id: userSelect]
+2026-02-21 19:28:17.540 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:28:17.708 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:28:18.241 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:28:18.707 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:28:18.746 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 12507
+2026-02-21 19:28:18.762 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:28:18.923 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:28:29.338 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:29:00.110 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:29:00.187 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[contains(@ng-click,'withdrawl')]]
+2026-02-21 19:29:00.409 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:29:00.465 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 177
+2026-02-21 19:29:00.480 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:29:10.235 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (64087d743859e1ea29051d206eecc87e)] -> xpath: //button[@type='submit' and contains(text(),'Withdraw')]]
+2026-02-21 19:29:20.594 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:29:52.546 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:29:52.550 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify valid withdrawal with sufficient balance updates balance correctly
+org.opentest4j.AssertionFailedError: Balance should decrease by 177 ==> expected: <-177> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.customer.CustomerTest$WithdrawingMoney.validWithdrawal_updatesBalance(CustomerTest.java:245) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-21 19:29:52.643 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:29:57.786 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:29:57.795 [DEBUG] [main] TestDataGenerator - Generated customer name: Loren
+2026-02-21 19:29:57.797 [DEBUG] [main] TestDataGenerator - Generated postal code: 47298
+2026-02-21 19:29:57.798 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Loren', postalCode='47298'}
+2026-02-21 19:29:58.430 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:29:58.614 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:30:00.688 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:30:01.883 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:30:02.419 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Loren
+2026-02-21 19:30:02.458 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:30:02.664 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Loren
+2026-02-21 19:30:02.687 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:30:02.869 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 47298
+2026-02-21 19:30:02.889 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:30:03.082 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:30:03.299 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:30:03.369 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:30:03.640 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:30:04.179 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Loren Loren
+2026-02-21 19:30:04.375 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:30:04.633 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> id: currency]
+2026-02-21 19:30:04.897 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:30:05.121 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:30:05.183 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:30:05.410 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:30:05.450 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:30:05.615 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:30:06.167 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> id: userSelect]
+2026-02-21 19:30:06.377 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:30:16.591 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:30:47.213 [DEBUG] [main] TestDataGenerator - Generated zero amount
+2026-02-21 19:30:47.214 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:30:47.241 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[contains(@ng-click,'withdrawl')]]
+2026-02-21 19:30:48.307 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:30:48.344 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 0
+2026-02-21 19:30:48.360 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:30:48.567 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (0218d245b102f0968bcd3c8cddff535d)] -> xpath: //button[@type='submit' and contains(text(),'Withdraw')]]
+2026-02-21 19:30:58.797 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:31:30.126 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:31:30.129 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify zero withdrawal does not change balance
+2026-02-21 19:31:30.169 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:31:33.665 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:31:33.736 [DEBUG] [main] TestDataGenerator - Generated customer name: Stewart
+2026-02-21 19:31:33.738 [DEBUG] [main] TestDataGenerator - Generated postal code: 28786
+2026-02-21 19:31:33.738 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Stewart', postalCode='28786'}
+2026-02-21 19:31:34.295 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:31:34.470 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:31:35.052 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:31:35.333 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:31:35.859 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Stewart
+2026-02-21 19:31:35.901 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:31:36.194 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Stewart
+2026-02-21 19:31:36.231 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:31:36.409 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 28786
+2026-02-21 19:31:36.434 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:31:36.664 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:31:38.783 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:31:38.843 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:31:39.227 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:31:39.754 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Stewart Stewart
+2026-02-21 19:31:40.013 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:31:40.395 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> id: currency]
+2026-02-21 19:31:40.650 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:31:40.765 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:31:40.808 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:31:41.029 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:31:41.098 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:31:41.272 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:31:41.822 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> id: userSelect]
+2026-02-21 19:31:41.987 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:31:42.223 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:31:42.776 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:31:43.266 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:31:43.319 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 500
+2026-02-21 19:31:43.331 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:31:43.580 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:31:43.735 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:31:43.764 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[contains(@ng-click,'withdrawl')]]
+2026-02-21 19:31:43.959 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:31:43.982 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 500
+2026-02-21 19:31:44.007 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:31:44.264 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (dd0b430b90888d403cf3ae37235d87d1)] -> xpath: //button[@type='submit' and contains(text(),'Withdraw')]]
+2026-02-21 19:31:54.480 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:32:25.979 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:32:25.981 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify withdrawing exact deposited amount brings balance to zero
+2026-02-21 19:32:25.995 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:32:31.346 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:32:31.354 [DEBUG] [main] TestDataGenerator - Generated customer name: Anibal
+2026-02-21 19:32:31.354 [DEBUG] [main] TestDataGenerator - Generated postal code: 43816
+2026-02-21 19:32:31.355 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Anibal', postalCode='43816'}
+2026-02-21 19:32:32.016 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:32:32.230 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:32:32.789 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:32:32.986 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:32:33.519 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Anibal
+2026-02-21 19:32:33.535 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:32:33.748 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Anibal
+2026-02-21 19:32:33.778 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:32:33.994 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 43816
+2026-02-21 19:32:34.029 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:32:34.242 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:32:34.395 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:32:34.446 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:32:34.611 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:32:35.147 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Anibal Anibal
+2026-02-21 19:32:35.312 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:32:35.543 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> id: currency]
+2026-02-21 19:32:35.795 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:32:35.973 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:32:36.044 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:32:36.334 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:32:36.362 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:32:36.487 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:32:37.039 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> id: userSelect]
+2026-02-21 19:32:37.272 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:32:47.427 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:33:18.168 [DEBUG] [main] TestDataGenerator - Generated large amount: 12981
+2026-02-21 19:33:18.170 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:33:18.222 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[contains(@ng-click,'withdrawl')]]
+2026-02-21 19:33:23.525 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:33:23.554 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 12981
+2026-02-21 19:33:23.564 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:33:23.810 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (b61a549f56c0bc597a718e2b904328e9)] -> xpath: //button[@type='submit' and contains(text(),'Withdraw')]]
+2026-02-21 19:33:33.966 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:34:05.469 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:34:05.471 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify withdrawal exceeding balance does not change balance
+2026-02-21 19:34:05.502 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:34:10.468 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:34:10.475 [DEBUG] [main] TestDataGenerator - Generated customer name: Hye
+2026-02-21 19:34:10.477 [DEBUG] [main] TestDataGenerator - Generated postal code: 85373
+2026-02-21 19:34:10.477 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Hye', postalCode='85373'}
+2026-02-21 19:34:11.117 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:34:11.312 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:34:13.900 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:34:14.684 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:34:15.278 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Hye
+2026-02-21 19:34:15.325 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:34:15.716 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Hye
+2026-02-21 19:34:15.746 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:34:16.092 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 85373
+2026-02-21 19:34:16.136 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:34:16.403 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:34:16.619 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:34:16.674 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:34:16.926 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:34:17.477 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Hye Hye
+2026-02-21 19:34:17.672 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:34:17.973 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> id: currency]
+2026-02-21 19:34:18.176 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:34:18.327 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:34:18.374 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:34:18.603 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:34:18.648 [DEBUG] [main] TestDataGenerator - Generated deposit amount: 645.49
+2026-02-21 19:34:18.675 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:34:18.856 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:34:19.402 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> id: userSelect]
+2026-02-21 19:34:19.608 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:34:29.920 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:35:00.614 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:35:00.683 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:35:04.467 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:35:04.561 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 645.49
+2026-02-21 19:35:04.573 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:35:04.831 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (38aba13fa6e878b340380e867edef033)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:35:15.037 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:35:46.201 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:35:46.208 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify valid deposit updates balance correctly
+java.lang.NumberFormatException: For input string: "645.49"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:588) ~[?:?]
+	at java.base/java.lang.Integer.parseInt(Integer.java:685) ~[?:?]
+	at org.example.tests.customer.CustomerTest$DepositingFunds.validDeposit_updatesBalance(CustomerTest.java:180) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-21 19:35:46.258 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:35:50.187 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:35:50.207 [DEBUG] [main] TestDataGenerator - Generated customer name: Gertude
+2026-02-21 19:35:50.209 [DEBUG] [main] TestDataGenerator - Generated postal code: 98059
+2026-02-21 19:35:50.210 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Gertude', postalCode='98059'}
+2026-02-21 19:35:50.856 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:35:51.085 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:35:51.633 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:35:51.880 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:35:52.405 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Gertude
+2026-02-21 19:35:52.419 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:35:52.589 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Gertude
+2026-02-21 19:35:52.607 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:35:52.848 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 98059
+2026-02-21 19:35:52.867 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:35:54.710 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:35:54.856 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:35:54.960 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:35:55.191 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:35:55.732 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Gertude Gertude
+2026-02-21 19:35:55.972 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:35:56.268 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> id: currency]
+2026-02-21 19:35:56.499 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:35:56.642 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:35:56.714 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:35:56.973 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:35:57.021 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:35:57.173 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:35:57.729 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> id: userSelect]
+2026-02-21 19:35:57.928 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:36:08.128 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:36:38.792 [DEBUG] [main] TestDataGenerator - Generated small amount: 1
+2026-02-21 19:36:38.794 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:36:38.816 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:36:41.467 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:36:41.502 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 1
+2026-02-21 19:36:41.517 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:36:41.827 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7fdf1c7c937304430aa4d60b38f5821c)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:36:52.395 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:37:24.978 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:37:24.983 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify small deposit (1) updates balance correctly
+org.opentest4j.AssertionFailedError: Balance should increase by 1 ==> expected: <1> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.customer.CustomerTest$DepositingFunds.smallDeposit_updatesBalance(CustomerTest.java:220) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-21 19:37:25.022 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:37:30.339 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:37:30.393 [DEBUG] [main] TestDataGenerator - Generated customer name: Lenora
+2026-02-21 19:37:30.394 [DEBUG] [main] TestDataGenerator - Generated postal code: 15830
+2026-02-21 19:37:30.394 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Lenora', postalCode='15830'}
+2026-02-21 19:37:31.524 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:37:32.569 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:37:33.403 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:37:33.633 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:37:34.177 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Lenora
+2026-02-21 19:37:34.366 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:37:35.071 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Lenora
+2026-02-21 19:37:35.100 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:37:35.560 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 15830
+2026-02-21 19:37:35.574 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:37:36.052 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:37:36.273 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:37:36.337 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:37:36.659 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:37:37.182 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Lenora Lenora
+2026-02-21 19:37:37.461 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:37:37.918 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> id: currency]
+2026-02-21 19:37:38.237 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:37:38.400 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:37:38.436 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:37:38.651 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:37:38.704 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:37:38.958 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:37:39.536 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> id: userSelect]
+2026-02-21 19:37:39.821 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:37:50.322 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:38:21.083 [DEBUG] [main] TestDataGenerator - Generated negative amount: -24
+2026-02-21 19:38:21.084 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:38:21.133 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:38:23.861 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:38:23.894 [DEBUG] [main] SeleniumUtils - Clearing field and typing: -24
+2026-02-21 19:38:23.911 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:38:24.239 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (55e686addfa5856bda082cab8da1679d)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:38:34.540 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:39:06.676 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:39:06.679 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify negative deposit does not change balance
+2026-02-21 19:39:06.725 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:39:11.083 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:39:11.109 [DEBUG] [main] TestDataGenerator - Generated customer name: Delmy
+2026-02-21 19:39:11.109 [DEBUG] [main] TestDataGenerator - Generated postal code: 04983
+2026-02-21 19:39:11.111 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Delmy', postalCode='04983'}
+2026-02-21 19:39:11.733 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:39:12.004 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:39:12.558 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:39:12.724 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:39:13.264 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Delmy
+2026-02-21 19:39:13.280 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:39:13.621 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Delmy
+2026-02-21 19:39:13.651 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:39:15.571 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 04983
+2026-02-21 19:39:15.631 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:39:16.279 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:39:16.495 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:39:16.532 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:39:16.699 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:39:17.232 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Delmy Delmy
+2026-02-21 19:39:17.436 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:39:17.711 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> id: currency]
+2026-02-21 19:39:17.897 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:39:18.178 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:39:18.233 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:39:18.498 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:39:18.538 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:39:18.683 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:39:19.264 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> id: userSelect]
+2026-02-21 19:39:19.452 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:39:29.649 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:40:00.270 [DEBUG] [main] TestDataGenerator - Generated zero amount
+2026-02-21 19:40:00.270 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:40:00.327 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:40:01.545 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:40:01.575 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 0
+2026-02-21 19:40:01.589 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:40:01.956 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cfd3a2bbe851e6a6c8b3cc9e618dd250)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:40:12.178 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Balance')]//span[@class='ng-binding']'
+2026-02-21 19:40:44.985 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:40:44.987 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify zero deposit does not change balance
+2026-02-21 19:40:45.023 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:40:48.911 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:40:48.922 [DEBUG] [main] TestDataGenerator - Generated customer name: Sal
+2026-02-21 19:40:48.924 [DEBUG] [main] TestDataGenerator - Generated postal code: 03059
+2026-02-21 19:40:48.924 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Sal', postalCode='03059'}
+2026-02-21 19:40:49.566 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:40:49.788 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:40:50.378 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:40:50.628 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:40:51.162 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Sal
+2026-02-21 19:40:51.177 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:40:51.497 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Sal
+2026-02-21 19:40:51.539 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:40:51.736 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 03059
+2026-02-21 19:40:51.749 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:40:52.807 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:40:53.761 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:40:53.850 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:40:54.192 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:40:55.371 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Sal Sal
+2026-02-21 19:40:55.711 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:40:56.066 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> id: currency]
+2026-02-21 19:40:56.314 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:40:56.491 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:40:56.537 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:40:56.920 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:40:56.948 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:40:57.095 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:40:57.652 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> id: userSelect]
+2026-02-21 19:40:57.966 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:40:58.464 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (1110f51fee269a278fced3051912ca8a)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:40:58.567 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:41:18.968 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:41:18.976 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify new account has empty transaction list
+2026-02-21 19:41:19.014 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:41:22.785 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:41:22.804 [DEBUG] [main] TestDataGenerator - Generated customer name: Dale
+2026-02-21 19:41:22.805 [DEBUG] [main] TestDataGenerator - Generated postal code: 19082
+2026-02-21 19:41:22.806 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Dale', postalCode='19082'}
+2026-02-21 19:41:23.383 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:41:23.556 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:41:24.118 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:41:24.317 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:41:24.849 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Dale
+2026-02-21 19:41:24.863 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:41:25.010 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Dale
+2026-02-21 19:41:25.026 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:41:25.209 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 19082
+2026-02-21 19:41:25.221 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:41:25.434 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:41:25.565 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:41:25.628 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:41:25.824 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:41:26.368 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Dale Dale
+2026-02-21 19:41:26.504 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:41:26.811 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> id: currency]
+2026-02-21 19:41:27.044 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:41:27.188 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:41:27.222 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:41:27.446 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:41:27.470 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:41:27.643 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:41:28.190 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> id: userSelect]
+2026-02-21 19:41:28.379 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:41:28.545 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:41:29.099 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:41:29.634 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:41:29.690 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 300
+2026-02-21 19:41:29.704 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:41:29.918 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:41:30.094 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Logout')]]
+2026-02-21 19:41:30.285 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> id: userSelect]
+2026-02-21 19:41:30.448 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:41:30.631 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (de15fd08513c1ab62fedadc4eecc9f1b)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:41:30.797 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:41:31.675 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:41:31.675 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify transaction list persists after logout and re-login
+2026-02-21 19:41:31.683 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:41:36.890 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:41:36.895 [DEBUG] [main] TestDataGenerator - Generated customer name: Refugio
+2026-02-21 19:41:36.895 [DEBUG] [main] TestDataGenerator - Generated postal code: 19885
+2026-02-21 19:41:36.901 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Refugio', postalCode='19885'}
+2026-02-21 19:41:38.119 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:41:38.684 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:41:39.454 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:41:40.406 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:41:41.161 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Refugio
+2026-02-21 19:41:41.347 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:41:42.434 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Refugio
+2026-02-21 19:41:42.517 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:41:45.738 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 19885
+2026-02-21 19:41:46.137 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:41:50.769 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:41:52.704 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:41:52.776 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:41:53.539 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:41:54.107 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Refugio Refugio
+2026-02-21 19:41:54.781 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:41:56.368 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> id: currency]
+2026-02-21 19:41:57.696 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:41:58.615 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:41:58.753 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:41:59.642 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:41:59.882 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:42:00.313 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:42:01.754 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> id: userSelect]
+2026-02-21 19:42:02.622 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:42:03.166 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:42:04.638 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:42:05.596 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:42:05.640 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 500
+2026-02-21 19:42:05.689 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:42:06.532 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:42:07.182 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (e648d9c57d6e5fb30410fb08540be83c)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:42:07.608 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:42:20.466 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:42:20.467 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify transaction list shows correct transaction type
+2026-02-21 19:42:20.499 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:42:24.342 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:42:24.370 [DEBUG] [main] TestDataGenerator - Generated customer name: Pearlene
+2026-02-21 19:42:24.370 [DEBUG] [main] TestDataGenerator - Generated postal code: 16844
+2026-02-21 19:42:24.370 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Pearlene', postalCode='16844'}
+2026-02-21 19:42:25.050 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:42:25.290 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:42:25.857 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:42:26.022 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:42:26.549 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Pearlene
+2026-02-21 19:42:26.565 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:42:26.798 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Pearlene
+2026-02-21 19:42:26.814 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:42:27.006 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 16844
+2026-02-21 19:42:27.031 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:42:27.236 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:42:27.383 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:42:27.425 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:42:30.700 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:42:31.231 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Pearlene Pearlene
+2026-02-21 19:42:31.500 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:42:31.683 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> id: currency]
+2026-02-21 19:42:31.876 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:42:32.054 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:42:32.110 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:42:32.405 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:42:32.437 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:42:32.547 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:42:33.099 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> id: userSelect]
+2026-02-21 19:42:33.383 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:42:33.526 [DEBUG] [main] TestDataGenerator - Generated deposit amount: 385.48
+2026-02-21 19:42:33.526 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:42:34.071 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:42:34.547 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:42:34.561 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 385.48
+2026-02-21 19:42:34.566 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:42:34.698 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:42:34.889 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (7f032d83d9f436cb5e6586ae3e816ae5)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:42:35.096 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:42:35.664 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: By.cssSelector: table
+2026-02-21 19:42:49.977 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:42:49.982 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify customer can view recent transactions after deposit
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.customer.CustomerTest$ViewingTransactions.viewRecentTransactions_afterDeposit(CustomerTest.java:106) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-21 19:42:50.040 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:42:53.531 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:42:53.537 [DEBUG] [main] TestDataGenerator - Generated customer name: Arnita
+2026-02-21 19:42:53.537 [DEBUG] [main] TestDataGenerator - Generated postal code: 11715
+2026-02-21 19:42:53.537 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Arnita', postalCode='11715'}
+2026-02-21 19:42:54.244 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:42:54.430 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:42:54.994 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:42:55.110 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:42:55.640 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Arnita
+2026-02-21 19:42:55.669 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:42:55.874 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Arnita
+2026-02-21 19:42:55.886 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:42:56.114 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 11715
+2026-02-21 19:42:56.127 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:42:56.359 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:42:56.535 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:42:56.577 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:42:56.762 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:42:57.299 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Arnita Arnita
+2026-02-21 19:42:57.456 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:42:57.643 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> id: currency]
+2026-02-21 19:42:57.851 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:42:58.000 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:42:58.054 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:42:58.350 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:42:58.415 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:42:58.527 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:42:59.070 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> id: userSelect]
+2026-02-21 19:42:59.347 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[normalize-space(text())='Login']]
+2026-02-21 19:42:59.500 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:43:00.049 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:43:00.630 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:00.649 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 100
+2026-02-21 19:43:00.659 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:00.913 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:43:01.080 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:43:01.167 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(@ng-click,'deposit')]]
+2026-02-21 19:43:01.382 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:01.443 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 200
+2026-02-21 19:43:01.461 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:01.630 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[@type='submit' and contains(text(),'Deposit')]]
+2026-02-21 19:43:01.794 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/account
+2026-02-21 19:43:01.827 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(@ng-click,'withdrawl')]]
+2026-02-21 19:43:02.033 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:02.071 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 50
+2026-02-21 19:43:02.086 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> css selector: input[ng-model='amount']]
+2026-02-21 19:43:02.583 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[@type='submit' and contains(text(),'Withdraw')]]
+2026-02-21 19:43:03.252 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (cb2346ef85aeee4c90aff8e92a6e6d83)] -> xpath: //button[contains(text(),'Transactions')]]
+2026-02-21 19:43:08.399 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/listTx
+2026-02-21 19:43:44.357 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:43:44.374 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify multiple transactions all appear in list
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.customer.CustomerTest$ViewingTransactions.multipleTransactions_allAppearInList(CustomerTest.java:143) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-21 19:43:44.512 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:43:47.805 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:43:47.817 [DEBUG] [main] TestDataGenerator - Generated customer name: Cary
+2026-02-21 19:43:47.819 [DEBUG] [main] TestDataGenerator - Generated postal code: 96532
+2026-02-21 19:43:47.819 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Cary', postalCode='96532'}
+2026-02-21 19:43:48.565 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:43:48.751 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:43:49.305 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:43:49.478 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:43:50.010 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Cary
+2026-02-21 19:43:50.018 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:43:50.276 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Cary
+2026-02-21 19:43:50.304 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:43:50.457 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 96532
+2026-02-21 19:43:50.502 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:43:50.757 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:43:50.923 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:43:50.977 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:43:51.188 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:43:53.039 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Cary Cary
+2026-02-21 19:43:53.383 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:43:53.620 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> id: currency]
+2026-02-21 19:43:54.296 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:43:54.808 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:43:54.862 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:43:55.155 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:43:55.214 [DEBUG] [main] TestDataGenerator - Generated customer name: Jame
+2026-02-21 19:43:55.214 [DEBUG] [main] TestDataGenerator - Generated postal code: 77536
+2026-02-21 19:43:55.214 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Jame', postalCode='77536'}
+2026-02-21 19:43:55.236 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:43:55.511 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:43:55.626 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:43:55.847 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:43:55.856 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Jame
+2026-02-21 19:43:55.870 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:43:56.188 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Jame
+2026-02-21 19:43:56.267 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:43:56.613 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 77536
+2026-02-21 19:43:56.742 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:43:57.793 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:43:58.019 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:43:58.061 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:43:58.269 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:43:58.306 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (d5493ed602a5f1a9668cd1bbab7d6e26)] -> xpath: //button[contains(text(),'Customer Login')]]
+2026-02-21 19:43:58.458 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/customer
+2026-02-21 19:44:13.040 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:44:13.049 [INFO ] [main] BaseTestWatcher - ✅ Test successful: Verify customer without account cannot reach account page
+2026-02-21 19:44:13.093 [INFO ] [main] BaseTest - ===== Starting Test: unknown =====
+2026-02-21 19:44:16.944 [INFO ] [main] BaseTest - Navigation to base URL successful
+2026-02-21 19:44:16.955 [DEBUG] [main] TestDataGenerator - Generated customer name: Phyliss
+2026-02-21 19:44:16.955 [DEBUG] [main] TestDataGenerator - Generated postal code: 04025
+2026-02-21 19:44:16.955 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Phyliss', postalCode='04025'}
+2026-02-21 19:44:17.572 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:44:17.719 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:44:18.283 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:44:18.448 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:44:18.971 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Phyliss
+2026-02-21 19:44:18.990 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:44:19.142 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Phyliss
+2026-02-21 19:44:19.162 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:44:19.378 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 04025
+2026-02-21 19:44:19.397 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:44:19.608 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:44:19.737 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:44:19.805 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:44:20.019 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:44:20.553 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Phyliss Phyliss
+2026-02-21 19:44:20.724 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:44:20.950 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> id: currency]
+2026-02-21 19:44:21.172 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:44:21.329 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:44:21.368 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Home')]]
+2026-02-21 19:44:21.639 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/login
+2026-02-21 19:44:21.654 [DEBUG] [main] TestDataGenerator - Generated customer name: Odell
+2026-02-21 19:44:21.654 [DEBUG] [main] TestDataGenerator - Generated postal code: 43510
+2026-02-21 19:44:21.654 [DEBUG] [main] TestDataGenerator - Generated customer test data: CustomerTestData{name='Odell', postalCode='43510'}
+2026-02-21 19:44:21.677 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Bank Manager Login')]]
+2026-02-21 19:44:21.827 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager
+2026-02-21 19:44:21.869 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Add Customer')]]
+2026-02-21 19:44:22.028 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/addCust
+2026-02-21 19:44:22.041 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Odell
+2026-02-21 19:44:22.052 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='fName']]
+2026-02-21 19:44:22.200 [DEBUG] [main] SeleniumUtils - Clearing field and typing: Odell
+2026-02-21 19:44:22.212 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='lName']]
+2026-02-21 19:44:22.391 [DEBUG] [main] SeleniumUtils - Clearing field and typing: 43510
+2026-02-21 19:44:22.417 [DEBUG] [main] SeleniumUtils - Waiting for element to be visible: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //input[@ng-model='postCd']]
+2026-02-21 19:44:22.617 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //form[.//input[@ng-model='postCd']]//button]
+2026-02-21 19:44:22.739 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:44:22.781 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Open Account')]]
+2026-02-21 19:44:22.972 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/openAccount
+2026-02-21 19:44:22.990 [DEBUG] [main] SeleniumUtils - Waiting for dropdown to contain option: Odell Odell
+2026-02-21 19:44:23.186 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //select[@id='currency']/preceding::select[1]]
+2026-02-21 19:44:23.453 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> id: currency]
+2026-02-21 19:44:23.684 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Process')]]
+2026-02-21 19:44:23.812 [DEBUG] [main] SeleniumUtils - Accepting alert
+2026-02-21 19:44:23.889 [DEBUG] [main] SeleniumUtils - Waiting for element to be clickable: [[ChromeDriver: chrome on windows (74f5f005f87bb69c93d83081f03a0ae8)] -> xpath: //button[contains(text(),'Customers')]]
+2026-02-21 19:44:24.104 [DEBUG] [main] SeleniumUtils - Waiting for URL to contain: #/manager/list
+2026-02-21 19:44:25.699 [DEBUG] [main] SeleniumUtils - Waiting for element to be present: By.xpath: //td[contains(text(),'Odell Odell')]/..//button[contains(text(),'Delete')]
+2026-02-21 19:44:47.245 [INFO ] [main] BaseTest - ===== Completed Test: unknown =====
+
+2026-02-21 19:44:47.246 [ERROR] [main] BaseTestWatcher - ❌ Test failed: Verify deleted customer cannot access account
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //td[contains(text(),'Odell Odell')]/..//button[contains(text(),'Delete')] (tried for 15 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84) ~[selenium-support-4.15.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229) ~[selenium-support-4.15.0.jar:?]
+	at org.example.utils.SeleniumUtils.waitForElementToBePresent(SeleniumUtils.java:95) ~[classes/:?]
+	at org.example.pages.manager.ManagerDashboardPage.deleteCustomer(ManagerDashboardPage.java:183) ~[classes/:?]
+	at org.example.tests.customer.CustomerTest$AccountAccess.deletedCustomer_cannotAccessAccount(CustomerTest.java:81) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//td[contains(text(),'Odell Odell')]/..//button[contains(text(),'Delete')]"}
+  (Session info: chrome=145.0.7632.109)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [74f5f005f87bb69c93d83081f03a0ae8, findElement {using=xpath, value=//td[contains(text(),'Odell Odell')]/..//button[contains(text(),'Delete')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.109, chrome: {chromedriverVersion: 145.0.7632.77 (da516187054a..., userDataDir: C:\Users\samue\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65012}, goog:processID: 4168, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65012/devtoo..., se:cdpVersion: 145.0.7632.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 74f5f005f87bb69c93d83081f03a0ae8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485) ~[?:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358) ~[selenium-remote-driver-4.15.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171) ~[selenium-support-4.15.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168) ~[selenium-support-4.15.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:204) ~[selenium-support-4.15.0.jar:?]
+	... 80 more

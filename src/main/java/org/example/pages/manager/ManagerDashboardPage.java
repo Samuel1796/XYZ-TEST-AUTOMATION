@@ -6,6 +6,9 @@ import org.example.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Manager area: Add Customer (#/manager/addCust), Open Account (#/manager/openAccount), Customers list (#/manager/list).
@@ -15,61 +18,87 @@ public class ManagerDashboardPage {
     private final WebDriver driver;
 
     // --- Navigation (visible on any manager view) ---
-    private static final By ADD_CUSTOMER_BUTTON = By.xpath("//button[contains(text(),'Add Customer')]");
-    private static final By OPEN_ACCOUNT_BUTTON = By.xpath("//button[contains(text(),'Open Account')]");
-    private static final By CUSTOMERS_BUTTON = By.xpath("//button[contains(text(),'Customers')]");
-    private static final By HOME_BUTTON = By.xpath("//button[contains(text(),'Home')]");
-    private static final By DASHBOARD_TITLE = By.cssSelector("div.center strong");
+    @FindBy(xpath = "//button[contains(text(),'Add Customer')]")
+    private WebElement addCustomerButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Open Account')]")
+    private WebElement openAccountButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Customers')]")
+    private WebElement customersButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Home')]")
+    private WebElement homeButton;
+
+    @FindBy(css = "div.center strong")
+    private WebElement dashboardTitle;
 
     // --- #/manager/addCust (Add Customer form) ---
-    private static final By FIRST_NAME_INPUT = By.xpath("//input[@ng-model='fName']");
-    private static final By LAST_NAME_INPUT = By.xpath("//input[@ng-model='lName']");
-    private static final By POSTAL_CODE_INPUT = By.xpath("//input[@ng-model='postCd']");
-    /** Submit button inside the Add Customer form (form contains postCd input) */
-    private static final By ADD_CUSTOMER_SUBMIT = By.xpath("//form[.//input[@ng-model='postCd']]//button");
+    @FindBy(xpath = "//input[@ng-model='fName']")
+    private WebElement firstNameInput;
+
+    @FindBy(xpath = "//input[@ng-model='lName']")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath = "//input[@ng-model='postCd']")
+    private WebElement postalCodeInput;
+
+    @FindBy(xpath = "//form[.//input[@ng-model='postCd']]//button")
+    private WebElement addCustomerSubmit;
 
     // --- #/manager/openAccount (Open Account form) ---
-    // Customer dropdown: use select that precedes currency on this page (avoids matching #/customer userSelect)
-    private static final By CUSTOMER_SELECT_OPEN_ACCOUNT = By.xpath("//select[@id='currency']/preceding::select[1]");
-    private static final By CURRENCY_SELECT = By.id("currency");
-    private static final By PROCESS_BUTTON = By.xpath("//button[contains(text(),'Process')]");
+    @FindBy(xpath = "//select[@id='currency']/preceding::select[1]")
+    private WebElement customerSelectOpenAccount;
+
+    @FindBy(id = "currency")
+    private WebElement currencySelect;
+
+    @FindBy(xpath = "//button[contains(text(),'Process')]")
+    private WebElement processButton;
 
     // --- Messages (context-dependent) ---
-    private static final By SUCCESS_MESSAGE = By.cssSelector("span.ng-binding.ng-scope");
-    private static final By ERROR_MESSAGE = By.cssSelector("span.error, .error-message");
+    @FindBy(css = "span.ng-binding.ng-scope")
+    private WebElement successMessage;
+
+    @FindBy(css = "span.error, .error-message")
+    private WebElement errorMessage;
+
+    /** By locator kept for waitForDropdownToContainOption (needs By) */
+    private static final By CUSTOMER_SELECT_OPEN_ACCOUNT_BY = By.xpath("//select[@id='currency']/preceding::select[1]");
 
     public ManagerDashboardPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Verify manager dashboard is displayed")
     public boolean isDashboardDisplayed() {
-        return SeleniumUtils.isElementDisplayed(driver, DASHBOARD_TITLE);
+        return SeleniumUtils.isElementDisplayed(dashboardTitle);
     }
 
     @Step("Click Add Customer (navigate to #/manager/addCust)")
     public ManagerDashboardPage clickAddCustomerButton() {
-        SeleniumUtils.click(driver, ADD_CUSTOMER_BUTTON);
+        SeleniumUtils.waitAndClick(driver, addCustomerButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_ADD_CUSTOMER);
         return this;
     }
 
     @Step("Enter customer name: {customerName}")
     public ManagerDashboardPage enterCustomerName(String customerName) {
-        SeleniumUtils.sendKeys(driver, FIRST_NAME_INPUT, customerName);
-        SeleniumUtils.sendKeys(driver, LAST_NAME_INPUT, customerName);
+        SeleniumUtils.clearAndType(driver, firstNameInput, customerName);
+        SeleniumUtils.clearAndType(driver, lastNameInput, customerName);
         return this;
     }
 
     @Step("Enter postal code: {postalCode}")
     public ManagerDashboardPage enterPostalCode(String postalCode) {
-        SeleniumUtils.sendKeys(driver, POSTAL_CODE_INPUT, postalCode);
+        SeleniumUtils.clearAndType(driver, postalCodeInput, postalCode);
         return this;
     }
 
     @Step("Submit Add Customer form")
     public ManagerDashboardPage submitCustomerForm() {
-        SeleniumUtils.click(driver, ADD_CUSTOMER_SUBMIT);
+        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
         SeleniumUtils.acceptAlert(driver);
         return this;
     }
@@ -85,29 +114,29 @@ public class ManagerDashboardPage {
 
     @Step("Click Open Account (navigate to #/manager/openAccount)")
     public ManagerDashboardPage clickOpenAccountButton() {
-        SeleniumUtils.click(driver, OPEN_ACCOUNT_BUTTON);
+        SeleniumUtils.waitAndClick(driver, openAccountButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_OPEN_ACCOUNT);
         return this;
     }
 
     @Step("Select customer for account: {customerName}")
     public ManagerDashboardPage selectCustomerForAccount(String customerName) {
-        SeleniumUtils.waitForDropdownToContainOption(driver, CUSTOMER_SELECT_OPEN_ACCOUNT, customerName);
-        WebElement dropdown = SeleniumUtils.waitForElementToBeClickable(driver, CUSTOMER_SELECT_OPEN_ACCOUNT);
-        new org.openqa.selenium.support.ui.Select(dropdown).selectByVisibleText(customerName);
+        SeleniumUtils.waitForDropdownToContainOption(driver, CUSTOMER_SELECT_OPEN_ACCOUNT_BY, customerName);
+        SeleniumUtils.waitUntilClickable(driver, customerSelectOpenAccount);
+        new Select(customerSelectOpenAccount).selectByVisibleText(customerName);
         return this;
     }
 
     @Step("Select currency: {currency}")
     public ManagerDashboardPage selectCurrency(String currency) {
-        WebElement dropdown = SeleniumUtils.waitForElementToBeClickable(driver, CURRENCY_SELECT);
-        new org.openqa.selenium.support.ui.Select(dropdown).selectByVisibleText(currency);
+        SeleniumUtils.waitUntilClickable(driver, currencySelect);
+        new Select(currencySelect).selectByVisibleText(currency);
         return this;
     }
 
     @Step("Click Process button")
     public ManagerDashboardPage clickProcessButton() {
-        SeleniumUtils.click(driver, PROCESS_BUTTON);
+        SeleniumUtils.waitAndClick(driver, processButton);
         return this;
     }
 
@@ -124,7 +153,8 @@ public class ManagerDashboardPage {
     @Step("Get success message")
     public String getSuccessMessage() {
         try {
-            return SeleniumUtils.getText(driver, SUCCESS_MESSAGE).trim();
+            SeleniumUtils.waitUntilVisible(driver, successMessage);
+            return successMessage.getText().trim();
         } catch (Exception e) {
             return "";
         }
@@ -133,7 +163,8 @@ public class ManagerDashboardPage {
     @Step("Get error message")
     public String getErrorMessage() {
         try {
-            return SeleniumUtils.getText(driver, ERROR_MESSAGE).trim();
+            SeleniumUtils.waitUntilVisible(driver, errorMessage);
+            return errorMessage.getText().trim();
         } catch (Exception e) {
             return "";
         }
@@ -141,7 +172,7 @@ public class ManagerDashboardPage {
 
     @Step("Click Customers (navigate to #/manager/list)")
     public ManagerDashboardPage clickCustomersButton() {
-        SeleniumUtils.click(driver, CUSTOMERS_BUTTON);
+        SeleniumUtils.waitAndClick(driver, customersButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_CUSTOMERS_LIST);
         return this;
     }
@@ -162,7 +193,7 @@ public class ManagerDashboardPage {
 
     @Step("Click Home button (back to #/login)")
     public ManagerDashboardPage clickHomeButton() {
-        SeleniumUtils.waitForElementToBeClickable(driver, HOME_BUTTON).click();
+        SeleniumUtils.waitAndClick(driver, homeButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
         return this;
     }
