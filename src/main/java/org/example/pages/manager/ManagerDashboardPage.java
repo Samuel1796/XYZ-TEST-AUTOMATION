@@ -4,11 +4,15 @@ import io.qameta.allure.Step;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 /**
  * Manager area: Add Customer (#/manager/addCust), Open Account (#/manager/openAccount), Customers list (#/manager/list).
@@ -63,7 +67,9 @@ public class ManagerDashboardPage {
     @FindBy(css = "span.error, .error-message")
     private WebElement errorMessage;
 
-    /** By locator kept for waitForDropdownToContainOption (needs By) */
+    /**
+     * By locator kept for waitForDropdownToContainOption (needs By)
+     */
     private static final By CUSTOMER_SELECT_OPEN_ACCOUNT_BY = By.xpath("//select[@id='currency']/preceding::select[1]");
 
     public ManagerDashboardPage(WebDriver driver) {
@@ -183,6 +189,26 @@ public class ManagerDashboardPage {
         WebElement deleteBtnElement = SeleniumUtils.waitForElementToBePresent(driver, deleteBtn);
         SeleniumUtils.scrollAndClick(driver, deleteBtnElement);
         return this;
+    }
+
+    @Step("Scroll to customer and delete: {customerName}")
+    public ManagerDashboardPage scrollToCustomerAndDelete(String customerName) {
+        WebElement customersTable = driver.findElement(By.cssSelector("table.table"));
+        List<WebElement> rows = customersTable.findElements(By.tagName("tr"));
+
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            if (!cells.isEmpty()) {
+                String rowName = cells.get(0).getText() + " " + cells.get(1).getText();
+                if (rowName.equals(customerName)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", row);
+                    WebElement deleteBtn = row.findElement(By.xpath(".//button[contains(text(),'Delete')]"));
+                    deleteBtn.click();
+                    return this;
+                }
+            }
+        }
+        throw new NoSuchElementException("Customer row not found for: " + customerName);
     }
 
     @Step("Check if customer exists: {customerName}")

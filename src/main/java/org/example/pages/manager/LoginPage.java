@@ -3,11 +3,14 @@ package org.example.pages.manager;
 import io.qameta.allure.Step;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 /**
  * Login page for XYZ Bank.
@@ -87,6 +90,14 @@ public class LoginPage {
     @Step("Verify login page is displayed (#/login)")
     public boolean isLoginPageDisplayed() {
         return SeleniumUtils.isElementDisplayed(pageTitle);
+    }
+
+    @Step("Check if customer is in dropdown: {customerName}")
+    public boolean isCustomerInDropdown(String customerName) {
+        SeleniumUtils.waitUntilVisible(driver, userSelect);
+        List<WebElement> options = userSelect.findElements(By.tagName("option"));
+        return options.stream()
+                .anyMatch(option -> option.getText().trim().equals(customerName));
     }
 
     @Step("Verify customer option is available")
