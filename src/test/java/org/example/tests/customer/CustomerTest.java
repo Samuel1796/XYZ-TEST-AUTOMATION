@@ -54,18 +54,26 @@ public class CustomerTest extends BaseTest {
     class AccountAccess {
 
         @Test
-        @DisplayName("Verify customer without account cannot reach account page")
+        @DisplayName("Verify customer without account cannot access transactions, deposit, or withdrawal")
         @Severity(SeverityLevel.CRITICAL)
-        void customerWithoutAccount_cannotReachAccount() {
+        void customerWithoutAccount_cannotAccessBankingActions() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getName() + " " + data.getName();
 
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(data.getName(), data.getPostalCode());
             managerPage.clickHomeButton();
 
-            loginPage.selectCustomerUserType();
-            assertTrue(loginPage.isLoginPageDisplayed());
+            loginPage.loginAsCustomer(displayName);
+
+            assertFalse(customerPage.isTransactionsButtonVisible(),
+                    "Transactions button should not be visible for customer without account");
+            assertFalse(customerPage.isDepositButtonVisible(),
+                    "Deposit button should not be visible for customer without account");
+            assertFalse(customerPage.isWithdrawButtonVisible(),
+                    "Withdrawal button should not be visible for customer without account");
         }
+
 
         @Test
         @DisplayName("Verify deleted customer cannot access account")

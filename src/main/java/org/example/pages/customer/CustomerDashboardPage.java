@@ -21,6 +21,8 @@ public class CustomerDashboardPage {
 
     private final WebDriver driver;
 
+
+
     // --- #/account – tab buttons ---
     @FindBy(xpath = "//button[contains(@ng-click,'deposit')]")
     private WebElement depositTabButton;
@@ -139,15 +141,7 @@ public class CustomerDashboardPage {
         return this;
     }
 
-    @Step("Get account number")
-    public String getAccountNumber() {
-        try {
-            SeleniumUtils.waitUntilVisible(driver, accountNumber);
-            return accountNumber.getText().trim();
-        } catch (Exception e) {
-            return "";
-        }
-    }
+
 
     @Step("Get account balance")
     public String getAccountBalance() {
@@ -169,25 +163,7 @@ public class CustomerDashboardPage {
         }
     }
 
-    @Step("Get success message")
-    public String getSuccessMessage() {
-        try {
-            SeleniumUtils.waitUntilVisible(driver, successMessage);
-            return successMessage.getText().trim();
-        } catch (Exception e) {
-            return "";
-        }
-    }
 
-    @Step("Get error message")
-    public String getErrorMessage() {
-        try {
-            SeleniumUtils.waitUntilVisible(driver, errorMessage);
-            return errorMessage.getText().trim();
-        } catch (Exception e) {
-            return "";
-        }
-    }
 
     @Step("Get transaction history (#/listTx)")
     public List<String> getTransactionHistory() {
@@ -213,5 +189,30 @@ public class CustomerDashboardPage {
     public CustomerDashboardPage logout() {
         SeleniumUtils.waitAndClick(driver, logoutButton);
         return this;
+    }
+
+
+    public boolean isTransactionsButtonVisible() {
+        try {
+            return transactionsButton.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public boolean isDepositButtonVisible() {
+        try {
+            return depositTabButton.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public boolean isWithdrawButtonVisible() {
+        try {
+            return withdrawTabButton.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 }

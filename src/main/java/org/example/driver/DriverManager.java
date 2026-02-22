@@ -46,10 +46,5 @@ public class DriverManager {
         }
     }
 
-    /**
-     * Returns a WebDriverWait using configured explicit wait.
-     */
-    public static WebDriverWait getWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-    }
+
 }
