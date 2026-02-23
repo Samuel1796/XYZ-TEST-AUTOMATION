@@ -80,8 +80,8 @@ public class TestDataGenerator {
      * @return a valid deposit amount
      */
     public static String generateValidDepositAmount() {
-        double amount = random.nextDouble(1000) + 1; // 1 to 1000
-        String amountStr = String.format("%.2f", amount);
+        int amount = random.nextInt(1000) + 1; // 1 to 1000
+        String amountStr = String.valueOf(amount);
         logger.debug("Generated deposit amount: " + amountStr);
         return amountStr;
     }
