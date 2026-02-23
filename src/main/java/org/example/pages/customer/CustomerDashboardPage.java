@@ -110,16 +110,20 @@ public class CustomerDashboardPage {
         return this;
     }
 
+    /** By for amount input. Deposit and Withdraw forms each have one; only the active form’s input is visible. */
+    private static final By AMOUNT_INPUT = By.cssSelector("input[ng-model='amount']");
+
     @Step("Click Withdraw tab (form appears on same #/account)")
     public CustomerDashboardPage clickWithdrawButton() {
         SeleniumUtils.waitAndClick(driver, withdrawTabButton);
-        SeleniumUtils.waitUntilVisible(driver, amountInput);
+        SeleniumUtils.waitForFirstVisible(driver, AMOUNT_INPUT);
         return this;
     }
 
     @Step("Enter withdrawal amount: {amount}")
     public CustomerDashboardPage enterWithdrawalAmount(String amount) {
-        SeleniumUtils.clearAndType(driver, amountInput, amount);
+        // Find and type in one flow to avoid stale element after Angular re-render on Withdraw tab
+        SeleniumUtils.waitFirstVisibleThenClearAndType(driver, AMOUNT_INPUT, amount);
         return this;
     }
 

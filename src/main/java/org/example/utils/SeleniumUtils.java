@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * Utility class for common Selenium operations and helper methods.
@@ -241,6 +242,38 @@ public class SeleniumUtils {
         waitUntilVisible(driver, element);
         element.clear();
         element.sendKeys(text);
+    }
+
+    /**
+     * When multiple elements match the locator (e.g. Deposit and Withdraw forms both have input[ng-model='amount']),
+     * waits for and returns the first one that is visible.
+     */
+    public static WebElement waitForFirstVisible(WebDriver driver, By locator) {
+        logger.debug("Wait first visible: {}", locator);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        return wait.until(d -> {
+            List<WebElement> elements = d.findElements(locator);
+            return elements.stream().filter(WebElement::isDisplayed).findFirst().orElse(null);
+        });
+    }
+
+    /**
+     * Waits for the first visible element matching the locator, then immediately clears and types.
+     * Retries once on stale element (e.g. Angular re-render after tab switch).
+     */
+    public static void waitFirstVisibleThenClearAndType(WebDriver driver, By locator, String text) {
+        logger.debug("Wait first visible then clear and type (length={})", text != null ? text.length() : 0);
+        for (int attempt = 0; attempt < 2; attempt++) {
+            try {
+                WebElement el = waitForFirstVisible(driver, locator);
+                el.clear();
+                el.sendKeys(text);
+                return;
+            } catch (StaleElementReferenceException e) {
+                if (attempt == 1) throw e;
+                logger.debug("Stale element, retrying: {}", locator);
+            }
+        }
     }
 }
 
