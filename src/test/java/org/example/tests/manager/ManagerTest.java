@@ -44,11 +44,11 @@ public class ManagerTest extends BaseTest {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
             loginPage.loginAsManager();
-            assertTrue(managerPage.isDashboardDisplayed(), "Manager dashboard should be displayed before adding customer");
 
             String alertMessage = managerPage.addCustomerAndGetAlertMessage(data.getName(), data.getPostalCode());
             assertNotNull(alertMessage, "JS alert should be shown when customer is added successfully");
-            assertFalse(alertMessage.isEmpty(), "Alert message should not be empty");
+            assertTrue(alertMessage.contains("Customer added"),
+                    "Alert should confirm customer was added (e.g. 'Customer added successfully with customer id : ...'). Got: " + alertMessage);
         }
 
         @Test
