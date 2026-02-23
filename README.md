@@ -70,11 +70,25 @@ src/test/java/org/example/
 mvn clean test
 ```
 
-Allure report:
+Allure report (local):
 
 ```bash
 mvn allure:serve
 ```
+
+### Allure report on GitHub Pages (CI)
+
+The CI workflow publishes the Allure report to the **gh-pages** branch. To serve it as a website:
+
+1. In GitHub: **Settings** → **Pages** (under "Code and automation").
+2. Under **Build and deployment** → **Source**, choose **Deploy from a branch**.
+3. **Branch:** select `gh-pages`, folder **/ (root)**. Click **Save**.
+
+The report will be available at:
+
+**`https://<your-username>.github.io/XYZ-TEST-AUTOMATION/`**
+
+(Replace `<your-username>` with your GitHub username and `XYZ-TEST-AUTOMATION` with your repo name if different.) Each CI run updates the report and keeps history for trends.
 
 ## Config
 
