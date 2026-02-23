@@ -63,7 +63,9 @@ public class CustomerDashboardPage {
     @FindBy(css = ".alert-danger, .error")
     private WebElement errorMessage;
 
-    /** By locator kept for findElements (transaction rows list) */
+    /** By locator for transaction table (wait for page ready before counting rows) */
+    private static final By TRANSACTION_TABLE = By.cssSelector("table.table");
+    /** By locator for transaction rows */
     private static final By TRANSACTION_ROWS = By.cssSelector("table tbody tr");
 
     public CustomerDashboardPage(WebDriver driver) {
@@ -168,8 +170,7 @@ public class CustomerDashboardPage {
     @Step("Get transaction history (#/listTx)")
     public List<String> getTransactionHistory() {
         try {
-            // Wait for transaction rows to be present before retrieving them
-            SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_ROWS);
+            waitForTransactionsPageReady();
             List<WebElement> rows = driver.findElements(TRANSACTION_ROWS);
             return rows.stream().map(WebElement::getText).collect(Collectors.toList());
         } catch (Exception e) {
@@ -184,13 +185,13 @@ public class CustomerDashboardPage {
 
     @Step("Get transaction count")
     public int getTransactionCount() {
-        try {
-            // Wait for transaction rows to be present before counting
-            SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_ROWS);
-        } catch (Exception e) {
-            // If no rows exist, this exception is expected for empty transaction lists
-        }
+        waitForTransactionsPageReady();
         return driver.findElements(TRANSACTION_ROWS).size();
+    }
+
+    /** Waits for transactions view to be ready (table present). Avoids long wait when list is empty. */
+    private void waitForTransactionsPageReady() {
+        SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_TABLE);
     }
 
     @Step("Verify transaction contains type: {transactionType}")

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Test failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*"
+  },
+  {
+    "name": "Broken tests",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*"
+  },
+  {
+    "name": "Validation / Assertion errors",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Assertion.*|.*expected.*|.*validation.*"
+  },
+  {
+    "name": "Element / UI not found",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": ".*NoSuchElement.*|.*element.*not found.*|.*not visible.*"
+  },
+  {
+    "name": "Passed",
+    "matchedStatuses": ["passed"]
+  }
+]

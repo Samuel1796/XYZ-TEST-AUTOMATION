@@ -48,10 +48,10 @@ public class SeleniumUtils {
             String filePath = SCREENSHOT_DIRECTORY + File.separator + fileName + "_" + timestamp + ".png";
 
             Files.copy(sourceFile.toPath(), Paths.get(filePath));
-            logger.info("Screenshot taken: " + filePath);
+            logger.info("Screenshot saved: {}", filePath);
             return filePath;
         } catch (IOException e) {
-            logger.error("Failed to take screenshot: " + e.getMessage(), e);
+            logger.error("Screenshot failed: {}", e.getMessage(), e);
             return null;
         }
     }
@@ -64,7 +64,7 @@ public class SeleniumUtils {
      * @return the WebElement when visible
      */
     public static WebElement waitForElementToBeVisible(WebDriver driver, By locator) {
-        logger.debug("Waiting for element to be visible: " + locator);
+        logger.debug("Wait visible: {}", locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
@@ -77,7 +77,7 @@ public class SeleniumUtils {
      * @return the WebElement when clickable
      */
     public static WebElement waitForElementToBeClickable(WebDriver driver, By locator) {
-        logger.debug("Waiting for element to be clickable: " + locator);
+        logger.debug("Wait clickable: {}", locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
@@ -90,7 +90,7 @@ public class SeleniumUtils {
      * @return the WebElement when present
      */
     public static WebElement waitForElementToBePresent(WebDriver driver, By locator) {
-        logger.debug("Waiting for element to be present: " + locator);
+        logger.debug("Wait present: {}", locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
@@ -102,7 +102,7 @@ public class SeleniumUtils {
      * @param locator the By locator for the element
      */
     public static void waitForElementToBeInvisible(WebDriver driver, By locator) {
-        logger.debug("Waiting for element to be invisible: " + locator);
+        logger.debug("Wait invisible: {}", locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
@@ -114,7 +114,7 @@ public class SeleniumUtils {
      * @param element the WebElement to click
      */
     public static void scrollAndClick(WebDriver driver, WebElement element) {
-        logger.debug("Scrolling to element and clicking");
+        logger.debug("Scroll and click element");
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         element.click();
     }
@@ -128,7 +128,7 @@ public class SeleniumUtils {
      * @return the script execution result
      */
     public static Object executeJavaScript(WebDriver driver, String script, Object... args) {
-        logger.debug("Executing JavaScript: " + script);
+        logger.debug("Execute script: {}", script);
         return ((JavascriptExecutor) driver).executeScript(script, args);
     }
 
@@ -140,7 +140,7 @@ public class SeleniumUtils {
      */
     public static String getElementText(WebElement element) {
         String text = element.getText().trim();
-        logger.debug("Element text: " + text);
+        logger.debug("Element text: {}", text);
         return text;
     }
 
@@ -154,7 +154,7 @@ public class SeleniumUtils {
         try {
             return element.isDisplayed();
         } catch (NoSuchElementException e) {
-            logger.debug("Element not found or displayed");
+            logger.debug("Element not displayed");
             return false;
         }
     }
@@ -170,7 +170,7 @@ public class SeleniumUtils {
         try {
             return waitForElementToBeVisible(driver, locator).isDisplayed();
         } catch (Exception e) {
-            logger.debug("Element not displayed: " + e.getMessage());
+            logger.debug("Element not displayed: {}", e.getMessage());
             return false;
         }
     }
@@ -204,7 +204,7 @@ public class SeleniumUtils {
      * @param driver the WebDriver instance
      */
     public static void acceptAlert(WebDriver driver) {
-        logger.debug("Accepting alert");
+        logger.debug("Accept alert");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
@@ -216,7 +216,7 @@ public class SeleniumUtils {
      * @param driver the WebDriver instance
      */
     public static void dismissAlert(WebDriver driver) {
-        logger.debug("Dismissing alert");
+        logger.debug("Dismiss alert");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.dismiss();
@@ -229,7 +229,7 @@ public class SeleniumUtils {
      * @return alert text
      */
     public static String getAlertText(WebDriver driver) {
-        logger.debug("Getting alert text");
+        logger.debug("Get alert text");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         return alert.getText();
@@ -241,9 +241,9 @@ public class SeleniumUtils {
     private static void createScreenshotDirectory() {
         try {
             Files.createDirectories(Paths.get(SCREENSHOT_DIRECTORY));
-            logger.debug("Screenshot directory created/verified: " + SCREENSHOT_DIRECTORY);
+            logger.debug("Screenshot directory: {}", SCREENSHOT_DIRECTORY);
         } catch (IOException e) {
-            logger.error("Failed to create screenshot directory: " + e.getMessage(), e);
+            logger.error("Screenshot directory creation failed: {}", e.getMessage(), e);
         }
     }
 
@@ -265,7 +265,7 @@ public class SeleniumUtils {
      * @param title the title text to wait for
      */
     public static void waitForPageTitle(WebDriver driver, String title) {
-        logger.debug("Waiting for page title: " + title);
+        logger.debug("Wait page title: {}", title);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         wait.until(ExpectedConditions.titleContains(title));
     }
@@ -277,7 +277,7 @@ public class SeleniumUtils {
      * @param urlFragment fragment that must appear in getCurrentUrl()
      */
     public static void waitForUrlContains(WebDriver driver, String urlFragment) {
-        logger.debug("Waiting for URL to contain: " + urlFragment);
+        logger.debug("Wait URL contains: {}", urlFragment);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         wait.until(ExpectedConditions.urlContains(urlFragment));
     }
@@ -286,7 +286,7 @@ public class SeleniumUtils {
      * Waits until the given select has an option with the exact visible text (for async-loaded dropdowns).
      */
     public static void waitForDropdownToContainOption(WebDriver driver, By selectLocator, String optionText) {
-        logger.debug("Waiting for dropdown to contain option: " + optionText);
+        logger.debug("Wait dropdown option: {}", optionText);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         wait.until(d -> {
             try {
@@ -306,7 +306,7 @@ public class SeleniumUtils {
      * @param text the text to send
      */
     public static void clearAndSendKeys(WebDriver driver, WebElement element, String text) {
-        logger.debug("Clearing field and sending text: " + text);
+        logger.debug("Clear and send keys (length={})", text != null ? text.length() : 0);
         element.clear();
         element.sendKeys(text);
     }
@@ -321,7 +321,7 @@ public class SeleniumUtils {
      * @return the WebElement when visible
      */
     public static WebElement waitUntilVisible(WebDriver driver, WebElement element) {
-        logger.debug("Waiting for element to be visible: " + element);
+        logger.debug("Wait element visible");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -334,7 +334,7 @@ public class SeleniumUtils {
      * @return the WebElement when clickable
      */
     public static WebElement waitUntilClickable(WebDriver driver, WebElement element) {
-        logger.debug("Waiting for element to be clickable: " + element);
+        logger.debug("Wait element clickable");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -357,7 +357,7 @@ public class SeleniumUtils {
      * @param text    the text to type
      */
     public static void clearAndType(WebDriver driver, WebElement element, String text) {
-        logger.debug("Clearing field and typing: " + text);
+        logger.debug("Clear and type (length={})", text != null ? text.length() : 0);
         waitUntilVisible(driver, element);
         element.clear();
         element.sendKeys(text);

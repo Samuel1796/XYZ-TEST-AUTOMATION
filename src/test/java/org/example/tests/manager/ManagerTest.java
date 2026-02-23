@@ -19,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("US1 – Bank Manager")
 @Epic("XYZ Bank")
 @Feature("Manager Account Management")
+//@Description("Bank Manager flows: add customer (valid/invalid), open account, delete customer. " +
+//        "Validates form validation and success/error messages.")
 public class ManagerTest extends BaseTest {
 
     private LoginPage loginPage;
@@ -94,14 +96,17 @@ public class ManagerTest extends BaseTest {
         @Test
         @DisplayName("Verify empty form submission shows validation")
         @Severity(SeverityLevel.MINOR)
+        @Description("Submit Add Customer form with no data; expect validation message or alert.")
         void emptyForm_showsValidation() {
             loginPage.loginAsManager("Manager");
             managerPage.clickAddCustomerButton();
             managerPage.submitCustomerForm();
 
             String error = managerPage.getErrorMessage();
-            assertTrue(!error.isEmpty() || managerPage.isDashboardDisplayed(),
-                    "Form validation or error expected");
+            boolean validationOrErrorShown = error != null && !error.isEmpty();
+            boolean stillOnAddCustomerView = managerPage.isDashboardDisplayed();
+            assertTrue(validationOrErrorShown || stillOnAddCustomerView,
+                    "Expected validation error or to remain on form; error='" + error + "'");
         }
     }
 

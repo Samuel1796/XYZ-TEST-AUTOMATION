@@ -38,10 +38,10 @@ public class BaseTest {
     @BeforeEach
     public void setUp() {
         testFailed = false;
-        logger.info("===== Starting Test: " + getTestMethodName() + " =====");
+        logger.info("Test started: {}", getTestMethodName());
         driver = DriverManager.createDriver();
         driver.navigate().to(ConfigManager.getBaseUrl());
-        logger.info("Navigation to base URL successful");
+        logger.info("Navigated to base URL: {}", ConfigManager.getBaseUrl());
     }
 
     /**
@@ -60,10 +60,10 @@ public class BaseTest {
                     }
                 }
             } catch (Exception e) {
-                logger.error("Error during teardown: " + e.getMessage(), e);
+                logger.error("Error during teardown: {}", e.getMessage(), e);
             } finally {
                 DriverManager.quitDriver(driver);
-                logger.info("===== Completed Test: " + getTestMethodName() + " =====\n");
+                logger.info("Test finished: {}", getTestMethodName());
             }
         }
     }
@@ -84,17 +84,18 @@ public class BaseTest {
     }
 
     /**
-     * Attaches screenshot to Allure report
+     * Attaches screenshot to Allure report so it appears under the failed test.
      *
      * @param screenshotPath path to the screenshot file
      */
     protected void attachScreenshotToAllure(String screenshotPath) {
-        try {
-            FileInputStream fis = new FileInputStream(screenshotPath);
-            Allure.addAttachment("Failure Screenshot", "image/png", fis, ".png");
-            logger.info("Screenshot attached to Allure report: " + screenshotPath);
+        try (FileInputStream fis = new FileInputStream(screenshotPath)) {
+            String testName = getTestMethodName();
+            String attachmentName = String.format("Screenshot on failure: %s", testName);
+            Allure.addAttachment(attachmentName, "image/png", fis, "png");
+            logger.info("Screenshot attached to Allure report for test [{}]", testName);
         } catch (Exception e) {
-            logger.error("Failed to attach screenshot to Allure: " + e.getMessage(), e);
+            logger.error("Failed to attach screenshot to Allure: {}", e.getMessage(), e);
         }
     }
 
@@ -106,31 +107,30 @@ public class BaseTest {
 
         @Override
         public void testFailed(ExtensionContext context, Throwable cause) {
-            logger.error("❌ Test failed: " + context.getDisplayName(), cause);
-            // Set test failed flag on the test instance
+            logger.error("Test FAILED: {} | {}", context.getDisplayName(), cause.getMessage(), cause);
             try {
                 Object testInstance = context.getTestInstance().orElse(null);
                 if (testInstance instanceof BaseTest) {
                     ((BaseTest) testInstance).testFailed = true;
                 }
             } catch (Exception e) {
-                logger.error("Failed to set test failed flag", e);
+                logger.error("Failed to set test failed flag: {}", e.getMessage(), e);
             }
         }
 
         @Override
         public void testSuccessful(ExtensionContext context) {
-            logger.info("✅ Test successful: " + context.getDisplayName());
+            logger.info("Test PASSED: {}", context.getDisplayName());
         }
 
         @Override
         public void testAborted(ExtensionContext context, Throwable cause) {
-            logger.warn("⚠️ Test aborted: " + context.getDisplayName());
+            logger.warn("Test ABORTED: {} | {}", context.getDisplayName(), cause.getMessage());
         }
 
         @Override
         public void testDisabled(ExtensionContext context, Optional<String> reason) {
-            logger.info("⏭️ Test disabled: " + context.getDisplayName());
+            logger.info("Test DISABLED: {}", context.getDisplayName());
         }
     }
 }

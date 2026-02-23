@@ -193,17 +193,17 @@ public class ManagerDashboardPage {
 
     @Step("Scroll to customer and delete: {customerName}")
     public ManagerDashboardPage scrollToCustomerAndDelete(String customerName) {
-        WebElement customersTable = driver.findElement(By.cssSelector("table.table"));
+        WebElement customersTable = SeleniumUtils.waitForElementToBeVisible(driver, By.cssSelector("table.table"));
         List<WebElement> rows = customersTable.findElements(By.tagName("tr"));
 
         for (WebElement row : rows) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
-            if (!cells.isEmpty()) {
-                String rowName = cells.get(0).getText() + " " + cells.get(1).getText();
+            if (cells.size() >= 2) {
+                String rowName = cells.get(0).getText().trim() + " " + cells.get(1).getText().trim();
                 if (rowName.equals(customerName)) {
                     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", row);
                     WebElement deleteBtn = row.findElement(By.xpath(".//button[contains(text(),'Delete')]"));
-                    deleteBtn.click();
+                    SeleniumUtils.waitUntilClickable(driver, deleteBtn).click();
                     return this;
                 }
             }
