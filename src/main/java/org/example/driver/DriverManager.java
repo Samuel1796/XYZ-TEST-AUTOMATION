@@ -21,11 +21,22 @@ public class DriverManager {
         ChromeOptions options = new ChromeOptions();
         if (ConfigManager.isHeadlessMode()) {
             options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-software-rasterizer");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-background-networking");
+            options.addArguments("--disable-default-apps");
+            options.addArguments("--disable-sync");
+            options.addArguments("--no-first-run");
         }
         options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");
+        if (!ConfigManager.isHeadlessMode()) {
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-gpu");
+        }
 
         WebDriver driver = new ChromeDriver(options);
 
