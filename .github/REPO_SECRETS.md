@@ -31,6 +31,12 @@ If `SEND_EMAIL` is not set or not `true`, the email step is skipped and no email
 
 ---
 
+## Serving the Allure report (gh-pages)
+
+CI publishes the Allure report to the **gh-pages** branch. To serve it: **Settings** → **Pages** → **Source**: Deploy from a branch → **gh-pages** / (root). The report will be at `https://<owner>.github.io/<repo>/`. See the main [README](../README.md#allure-report-on-github-pages-ci) for details.
+
+---
+
 ## Optional / provided by GitHub
 
 | Secret name | Notes |
