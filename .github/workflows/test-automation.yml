@@ -30,15 +30,25 @@ jobs:
         run: |
           echo "Testing URL: ${{ secrets.APP_BASE_URL }}"
 
-      - name: Install Chrome (stable) for Linux
+      - name: Install Chrome and ChromeDriver (matching versions)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/googlechrome-linux-keyring.gpg
-          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/googlechrome-linux-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          google-chrome --version
+          set -e
+          CHROME_JSON="https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json"
+          CHROME_VERSION=$(curl -sS "$CHROME_JSON" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['channels']['Stable']['version'])")
+          echo "Chrome/ChromeDriver version: $CHROME_VERSION"
+          BASE="https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64"
+          cd /tmp
+          curl -sSLO "$BASE/chrome-linux64.zip"
+          curl -sSLO "$BASE/chromedriver-linux64.zip"
+          unzip -o chrome-linux64.zip
+          unzip -o chromedriver-linux64.zip
+          sudo mv chrome-linux64 /opt/chrome-for-testing
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
+          echo "CHROME_BIN=/opt/chrome-for-testing/chrome" >> $GITHUB_ENV
+          echo "/opt/chrome-for-testing/chrome" >> $GITHUB_PATH
+          /opt/chrome-for-testing/chrome --version
+          chromedriver --version
 
       - name: Run Selenium tests
         run: |
@@ -46,6 +56,8 @@ jobs:
             -Dheadless.mode=true \
             -Dbase.url=${{ secrets.APP_BASE_URL }} \
             -DtrimStackTrace=false
+        env:
+          CHROME_BIN: ${{ env.CHROME_BIN }}
 
       # Human-friendly summary in GitHub Actions logs (non-technical)
       # NOTE: This step will show ❌ if there are failures/errors (by exiting 1),
@@ -83,7 +95,6 @@ jobs:
               if error is not None:
                 msg = (error.attrib.get("message") or "").strip()
                 failed_tests.append((name, "ERROR", msg))
-
           passed = total - failed - errors - skipped
           status_icon = "✅" if (failed == 0 and errors == 0) else "❌"
 
@@ -239,9 +250,9 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # Send Email (same content as Slack, plain-English)
+      # Send Email (same content as Slack). Only runs when EMAIL_TO is configured (set repo variable SEND_EMAIL to 'true' and secret EMAIL_TO).
       - name: Send Email report (only failed tests + totals)
-        if: always()
+        if: always() && vars.SEND_EMAIL == 'true'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: ${{ secrets.SMTP_SERVER }}

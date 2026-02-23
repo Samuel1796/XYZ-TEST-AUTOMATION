@@ -14,7 +14,20 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 | **SMTP_PORT** | SMTP port (Gmail TLS: `587`). | `587` |
 | **SMTP_USERNAME** | SMTP login / sender email (Gmail: your full Gmail address). | `your.email@gmail.com` |
 | **SMTP_PASSWORD** | SMTP password. **Gmail:** use an [App Password](#gmail-app-password), not your normal password. | 16-character app password |
-| **EMAIL_TO** | Comma-separated recipient email(s) for the test report. | `team@example.com` or `you@gmail.com,other@gmail.com` |
+| **EMAIL_TO** | Comma-separated recipient email(s) for the test report. **Required only if you enable email** (see below). | `team@example.com` or `you@gmail.com,other@gmail.com` |
+
+---
+
+## Enabling email reports
+
+Email is **optional**. To avoid the error *"At least one of 'to', 'cc' or 'bcc' must be specified"*, the workflow only sends email when you explicitly enable it:
+
+1. In **GitHub** → **Settings** → **Secrets and variables** → **Actions** → **Variables** tab, add a variable:
+   - **Name:** `SEND_EMAIL`
+   - **Value:** `true`
+2. Ensure the **Secrets** tab has **EMAIL_TO** set to the recipient(s) (e.g. `you@gmail.com`).
+
+If `SEND_EMAIL` is not set or not `true`, the email step is skipped and no email secret is required.
 
 ---
 

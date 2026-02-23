@@ -4,7 +4,6 @@ import org.example.config.ConfigManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -30,6 +29,16 @@ public class DriverManager {
             options.addArguments("--disable-default-apps");
             options.addArguments("--disable-sync");
             options.addArguments("--no-first-run");
+            options.addArguments("--disable-setuid-sandbox");
+            options.addArguments("--remote-debugging-port=0");
+            // Use explicit Chrome binary on Linux (CI often uses Chrome for Testing at /opt/chrome-for-testing/chrome)
+            String chromeBin = System.getenv("CHROME_BIN");
+            if (chromeBin == null && isLinux()) {
+                chromeBin = "/usr/bin/google-chrome";
+            }
+            if (chromeBin != null && !chromeBin.isEmpty()) {
+                options.setBinary(chromeBin);
+            }
         }
         options.addArguments("--disable-blink-features=AutomationControlled");
         if (!ConfigManager.isHeadlessMode()) {
@@ -42,7 +51,7 @@ public class DriverManager {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigManager.getImplicitWait()));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigManager.getPageLoadTimeout()));
-        if (ConfigManager.shouldMaximizeWindow()) {
+        if (!ConfigManager.isHeadlessMode() && ConfigManager.shouldMaximizeWindow()) {
             driver.manage().window().maximize();
         }
         return driver;
@@ -57,5 +66,8 @@ public class DriverManager {
         }
     }
 
-
+    private static boolean isLinux() {
+        String os = System.getProperty("os.name", "").toLowerCase();
+        return os.contains("linux");
+    }
 }
