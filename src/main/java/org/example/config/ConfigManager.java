@@ -69,11 +69,16 @@ public class ConfigManager {
     }
 
     /**
-     * Checks if headless mode is enabled
+     * Checks if headless mode is enabled.
+     * System property {@code headless.mode} overrides config (e.g. CI: -Dheadless.mode=true).
      *
      * @return true if headless mode is enabled
      */
     public static boolean isHeadlessMode() {
+        String fromSystem = System.getProperty("headless.mode");
+        if (fromSystem != null && !fromSystem.isEmpty()) {
+            return Boolean.parseBoolean(fromSystem);
+        }
         return Boolean.parseBoolean(getProperty("headless.mode", "false"));
     }
 

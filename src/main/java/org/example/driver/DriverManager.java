@@ -42,7 +42,7 @@ public class DriverManager {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigManager.getImplicitWait()));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigManager.getPageLoadTimeout()));
-        if (ConfigManager.shouldMaximizeWindow()) {
+        if (!ConfigManager.isHeadlessMode() && ConfigManager.shouldMaximizeWindow()) {
             driver.manage().window().maximize();
         }
         return driver;
