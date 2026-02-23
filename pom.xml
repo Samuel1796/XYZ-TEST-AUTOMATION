@@ -146,13 +146,15 @@
                 </configuration>
             </plugin>
 
-            <!-- Allure Maven Plugin: reads from target/allure-results, writes report to target/site/allure-maven-plugin -->
+            <!-- Allure Maven Plugin: report + serve use same paths for local and CI -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure.version}</version>
                 <configuration>
                     <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                    <!-- Same as allure.properties so allure:serve and allure:report work locally -->
+                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                 </configuration>
                 <executions>
                     <execution>

@@ -16,7 +16,7 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 | **SMTP_PASSWORD**  | Gmail **App Password** (not your normal password). | 16‑char app password for yoshninjas.1@gmail.com |
 | **EMAIL_TO**       | Recipient(s) for the test report email. | `sboakye1796@gmail.com` |
 
-**To enable email:** In **Variables** tab add **SEND_EMAIL** = `true`, or in **Secrets** add **SEND_EMAIL** = `true`. Then emails send from **yoshninjas.1@gmail.com** to **sboakye1796@gmail.com**.
+**To enable email:** In **Variables** tab add **SEND_EMAIL** = `true` (must be a Variable; secrets cannot be used in workflow conditions). In **Secrets** add **EMAIL_TO** = `sboakye1796@gmail.com`. Emails then send from **yoshninjas.1@gmail.com** to **sboakye1796@gmail.com**.
 
 ---
 
@@ -38,12 +38,10 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 
 Email is **optional**. The workflow only sends email when you enable it and set a recipient:
 
-1. **Enable sending:** Set `SEND_EMAIL` to `true` in **one** of these places (not both needed):
-   - **Variables** tab: **Name** `SEND_EMAIL`, **Value** `true` (recommended for non-sensitive flags), or
-   - **Secrets** tab: **Name** `SEND_EMAIL`, **Value** `true`
-2. **Recipient:** In **Secrets** tab, set **EMAIL_TO** to the recipient(s), e.g. `you@gmail.com` (comma-separated for multiple).
+1. **Enable sending:** In **Variables** tab (Actions), add **Name** `SEND_EMAIL`, **Value** `true`. (Must be a Variable; GitHub does not allow secrets in step conditions.)
+2. **Recipient:** In **Secrets** tab, add **EMAIL_TO** with the recipient(s), e.g. `sboakye1796@gmail.com` (comma-separated for multiple).
 
-If `SEND_EMAIL` is not `true` (as variable or secret) or **EMAIL_TO** is empty, the email step is skipped.
+If the Variable **SEND_EMAIL** is not `true`, the email step is skipped. If **EMAIL_TO** is not set, the send-mail step will fail with “At least one of 'to', 'cc' or 'bcc' must be specified”.
 
 **If you see *"At least one of 'to', 'cc' or 'bcc' must be specified"*:** Add a **Secret** named exactly **EMAIL_TO** (case-sensitive, no extra spaces) with value `sboakye1796@gmail.com` (or your recipient). The workflow only sends when this secret is set.
 
