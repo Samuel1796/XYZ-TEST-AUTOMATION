@@ -140,14 +140,20 @@
                     <parallel>methods</parallel>
                     <threadCount>1</threadCount>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
-            <!-- Allure Maven Plugin: automatically generates fresh report after tests -->
+            <!-- Allure Maven Plugin: reads from target/allure-results, writes report to target/site/allure-maven-plugin -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure.version}</version>
+                <configuration>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>test</phase>

@@ -55,7 +55,11 @@ jobs:
           mvn -B -e test \
             -Dheadless.mode=true \
             -Dbase.url=${{ secrets.APP_BASE_URL }} \
-            -DtrimStackTrace=false
+            -DtrimStackTrace=false \
+            -Dallure.executor.url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \
+            -Dallure.executor.reportUrl=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/ \
+            -Dallure.executor.buildName="CI #${{ github.run_number }} ${{ github.ref_name }}" \
+            -Dallure.executor.buildOrder=${{ github.run_number }}
         env:
           CHROME_BIN: ${{ env.CHROME_BIN }}
 
@@ -250,9 +254,9 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # Send Email (same content as Slack). Only runs when EMAIL_TO is configured (set repo variable SEND_EMAIL to 'true' and secret EMAIL_TO).
+      # Send Email (same content as Slack). Requires: SEND_EMAIL = 'true' (Variable or Secret) AND secret EMAIL_TO set (exact name).
       - name: Send Email report (only failed tests + totals)
-        if: always() && vars.SEND_EMAIL == 'true'
+        if: always() && (vars.SEND_EMAIL == 'true' || secrets.SEND_EMAIL == 'true') && secrets.EMAIL_TO != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: ${{ secrets.SMTP_SERVER }}
@@ -302,6 +306,21 @@ jobs:
           mkdir -p target/allure-results/history
           if [ -d "gh-pages/history" ]; then cp -r gh-pages/history/* target/allure-results/history/ || true; fi
 
+      - name: Verify Allure results before building report
+        if: always()
+        run: |
+          if [ ! -d "target/allure-results" ]; then
+            echo "::error::target/allure-results not found. Tests may not have produced Allure results."
+            exit 1
+          fi
+          COUNT=$(find target/allure-results -maxdepth 1 -type f \( -name "*-result.json" -o -name "*-container.json" \) 2>/dev/null | wc -l)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::No Allure result files (*-result.json or *-container.json) in target/allure-results. Report would be empty."
+            ls -la target/allure-results || true
+            exit 1
+          fi
+          echo "Allure results: $COUNT result/container file(s) found."
+
       - name: Build Allure Report
         if: always()
         run: mvn allure:report
@@ -329,13 +348,13 @@ jobs:
           D="allure-report-with-history"
           INDEX="$D/index.html"
           if [ ! -f "$INDEX" ]; then exit 0; fi
-          # Base href for HTML links/resources
-          sed -i "s|<head\\([^>]*\\)>|<head\\1><base href=\"/${REPO_NAME}/\">|" "$INDEX"
-          # JS fetch() ignores base href; replace root-relative paths in all .js and .html
+          # Base href: use single-quoted sed so ( ) are not interpreted by bash
+          sed -i 's|<head[^>]*>|&<base href="/'"$REPO_NAME"'/">|' "$INDEX"
+          # JS: replace root-relative paths; use find -name with two invocations to avoid YAML/shell ( ) escaping
           for path in data plugins styles history widgets config; do
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}/|\"/${REPO_NAME}/${path}/|g" {} \\;
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|'/${path}/|'/${REPO_NAME}/${path}/|g" {} \\;
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}\"|\"/${REPO_NAME}/${path}\"|g" {} \\;
+            while IFS= read -r -d '' f; do
+              sed -i "s|\"/${path}/|\"/${REPO_NAME}/${path}/|g; s|'/${path}/|'/${REPO_NAME}/${path}/|g; s|\"/${path}\"|\"/${REPO_NAME}/${path}\"|g" "$f"
+            done < <(find "$D" -type f -name "*.js" -print0; find "$D" -type f -name "*.html" -print0)
           done
           echo "Patched report for base path /${REPO_NAME}/"
 

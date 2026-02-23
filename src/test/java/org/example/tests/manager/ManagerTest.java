@@ -1,13 +1,14 @@
 package org.example.tests.manager;
 
 import io.qameta.allure.*;
-import org.example.base.BaseTest;
+import org.example.setup.BaseTest;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
 import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +20,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("US1 – Bank Manager")
 @Epic("XYZ Bank")
 @Feature("Manager Account Management")
+@Tag("manager")
+@Tag("us1")
 public class ManagerTest extends BaseTest {
 
     private LoginPage loginPage;

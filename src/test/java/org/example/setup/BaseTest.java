@@ -1,16 +1,18 @@
-package org.example.base;
+package org.example.setup;
 
 import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.config.ConfigManager;
 import org.example.driver.DriverManager;
+import org.example.utils.AllureReportWriter;
 import org.example.utils.SeleniumUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.TestWatcher;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
 
 import java.io.ByteArrayInputStream;
@@ -21,12 +23,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 /**
- * Base test class that provides WebDriver setup, teardown, and common functionality.
- * All test classes should extend this class.
- * Implements TestWatcher interface for automatic failure detection.
- *
- * @author QA Team
- * @version 1.0
+ * Base test class (setup layer) for WebDriver lifecycle, teardown, and Allure integration.
+ * All test classes extend this. Lives in {@code org.example.setup} to keep test setup separate from tests.
+ * Implements TestWatcher for failure detection and attachments.
  */
 @ExtendWith(BaseTest.BaseTestWatcher.class)
 public class BaseTest {
@@ -37,10 +36,11 @@ public class BaseTest {
     /** Set by TestWatcher when test fails; used for Error overview attachment. */
     protected Throwable lastFailure;
 
-    /**
-     * Setup method that runs before each test
-     * Initializes WebDriver and navigates to base URL
-     */
+    @BeforeAll
+    static void writeAllureEnvironmentAndExecutor() {
+        AllureReportWriter.writeAllureEnvironmentAndExecutor();
+    }
+
     @BeforeEach
     public void setUp() {
         testFailed = false;
@@ -51,10 +51,6 @@ public class BaseTest {
         logger.info("Navigated to base URL: {}", ConfigManager.getBaseUrl());
     }
 
-    /**
-     * Teardown method that runs after each test
-     * Takes screenshot on failure and quits WebDriver
-     */
     @AfterEach
     public void tearDown() {
         if (driver != null) {
@@ -80,24 +76,17 @@ public class BaseTest {
         }
     }
 
-    /**
-     * Gets the current test method name
-     *
-     * @return test method name
-     */
+    /** Detects test method name from stack (supports BDD-style should* and legacy test*). */
     protected String getTestMethodName() {
-        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        for (StackTraceElement element : stackTrace) {
-            if (element.getMethodName().startsWith("test")) {
-                return element.getMethodName();
+        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            String name = element.getMethodName();
+            if (name != null && (name.startsWith("test") || name.startsWith("should"))) {
+                return name;
             }
         }
         return "unknown";
     }
 
-    /**
-     * Attaches an Error overview (exception message + stack trace) to the Allure report for failed tests.
-     */
     protected void attachErrorOverviewToAllure(Throwable cause) {
         if (cause == null) return;
         String overview = "Test: " + getTestMethodName() + "\n\n"
@@ -114,11 +103,6 @@ public class BaseTest {
         return sw.toString();
     }
 
-    /**
-     * Attaches the failure screenshot to Allure (bug report). Shown with the failed test.
-     *
-     * @param screenshotPath path to the screenshot file
-     */
     protected void attachScreenshotToAllure(String screenshotPath) {
         try (FileInputStream fis = new FileInputStream(screenshotPath)) {
             String testName = getTestMethodName();
@@ -130,9 +114,6 @@ public class BaseTest {
         }
     }
 
-    /**
-     * Test watcher implementation for detecting test failures
-     */
     public static class BaseTestWatcher implements TestWatcher {
         private static final Logger logger = LogManager.getLogger(BaseTestWatcher.class);
 
@@ -167,5 +148,3 @@ public class BaseTest {
         }
     }
 }
-
-
