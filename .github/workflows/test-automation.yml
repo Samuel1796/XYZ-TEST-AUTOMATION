@@ -321,16 +321,23 @@ jobs:
             exit 1
           fi
 
-      # Fix base path so report data/JS load when served at https://owner.github.io/REPO_NAME/
-      - name: Set Allure report base href for GitHub Pages
+      # Fix paths so report loads at https://owner.github.io/REPO_NAME/ (base href + patch root-relative paths in JS)
+      - name: Patch Allure report for GitHub Pages subpath
         if: always()
         run: |
           REPO_NAME="${{ github.event.repository.name }}"
-          INDEX="allure-report-with-history/index.html"
-          if [ -f "$INDEX" ]; then
-            sed -i "s|<head\([^>]*\)>|<head\1><base href=\"/${REPO_NAME}/\">|" "$INDEX"
-            echo "Injected base href for /${REPO_NAME}/"
-          fi
+          D="allure-report-with-history"
+          INDEX="$D/index.html"
+          if [ ! -f "$INDEX" ]; then exit 0; fi
+          # Base href for HTML links/resources
+          sed -i "s|<head\\([^>]*\\)>|<head\\1><base href=\"/${REPO_NAME}/\">|" "$INDEX"
+          # JS fetch() ignores base href; replace root-relative paths in all .js and .html
+          for path in data plugins styles history widgets config; do
+            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}/|\"/${REPO_NAME}/${path}/|g" {} \\;
+            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|'/${path}/|'/${REPO_NAME}/${path}/|g" {} \\;
+            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}\"|\"/${REPO_NAME}/${path}\"|g" {} \\;
+          done
+          echo "Patched report for base path /${REPO_NAME}/"
 
       - name: Publish Allure Report to GitHub Pages
         if: always()
