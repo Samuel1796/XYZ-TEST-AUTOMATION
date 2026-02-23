@@ -96,55 +96,6 @@ public class SeleniumUtils {
     }
 
     /**
-     * Waits for element to be invisible
-     *
-     * @param driver the WebDriver instance
-     * @param locator the By locator for the element
-     */
-    public static void waitForElementToBeInvisible(WebDriver driver, By locator) {
-        logger.debug("Wait invisible: {}", locator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-    }
-
-    /**
-     * Scrolls to element and clicks it
-     *
-     * @param driver the WebDriver instance
-     * @param element the WebElement to click
-     */
-    public static void scrollAndClick(WebDriver driver, WebElement element) {
-        logger.debug("Scroll and click element");
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        element.click();
-    }
-
-    /**
-     * Executes JavaScript in the browser
-     *
-     * @param driver the WebDriver instance
-     * @param script the JavaScript code to execute
-     * @param args arguments for the script
-     * @return the script execution result
-     */
-    public static Object executeJavaScript(WebDriver driver, String script, Object... args) {
-        logger.debug("Execute script: {}", script);
-        return ((JavascriptExecutor) driver).executeScript(script, args);
-    }
-
-    /**
-     * Gets text from an element with trimming
-     *
-     * @param element the WebElement to get text from
-     * @return trimmed text content
-     */
-    public static String getElementText(WebElement element) {
-        String text = element.getText().trim();
-        logger.debug("Element text: {}", text);
-        return text;
-    }
-
-    /**
      * Checks if element is displayed
      *
      * @param element the WebElement to check
@@ -176,29 +127,6 @@ public class SeleniumUtils {
     }
 
     /**
-     * Clicks element after waiting for it to be clickable.
-     */
-    public static void click(WebDriver driver, By locator) {
-        waitForElementToBeClickable(driver, locator).click();
-    }
-
-    /**
-     * Clears and sends keys to element.
-     */
-    public static void sendKeys(WebDriver driver, By locator, String text) {
-        WebElement el = waitForElementToBeVisible(driver, locator);
-        el.clear();
-        el.sendKeys(text);
-    }
-
-    /**
-     * Gets visible text of element.
-     */
-    public static String getText(WebDriver driver, By locator) {
-        return getElementText(waitForElementToBeVisible(driver, locator));
-    }
-
-    /**
      * Switches to alert and accepts it
      *
      * @param driver the WebDriver instance
@@ -208,18 +136,6 @@ public class SeleniumUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
-    }
-
-    /**
-     * Switches to alert and dismisses it
-     *
-     * @param driver the WebDriver instance
-     */
-    public static void dismissAlert(WebDriver driver) {
-        logger.debug("Dismiss alert");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.dismiss();
     }
 
     /**
@@ -248,29 +164,6 @@ public class SeleniumUtils {
     }
 
     /**
-     * Navigates to a URL
-     *
-     * @param driver the WebDriver instance
-     * @param url the URL to navigate to
-     */
-    public static void navigateTo(WebDriver driver, String url) {
-        logger.info("Navigating to: " + url);
-        driver.navigate().to(url);
-    }
-
-    /**
-     * Waits for page title to contain a specific text
-     *
-     * @param driver the WebDriver instance
-     * @param title the title text to wait for
-     */
-    public static void waitForPageTitle(WebDriver driver, String title) {
-        logger.debug("Wait page title: {}", title);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-        wait.until(ExpectedConditions.titleContains(title));
-    }
-
-    /**
      * Waits for current URL to contain the given fragment (e.g. "#/manager/addCust").
      *
      * @param driver   the WebDriver instance
@@ -296,19 +189,6 @@ public class SeleniumUtils {
                 return false;
             }
         });
-    }
-
-    /**
-     * Clears and sends text to an input field
-     *
-     * @param driver the WebDriver instance
-     * @param element the input element
-     * @param text the text to send
-     */
-    public static void clearAndSendKeys(WebDriver driver, WebElement element, String text) {
-        logger.debug("Clear and send keys (length={})", text != null ? text.length() : 0);
-        element.clear();
-        element.sendKeys(text);
     }
 
     // ─── WebElement-based overloads (Page Factory support) ───────────────

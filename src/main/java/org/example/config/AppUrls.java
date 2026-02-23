@@ -11,6 +11,9 @@ public final class AppUrls {
     /** Home / Login page – Customer Login, Bank Manager Login, Home */
     public static final String LOGIN = "#/login";
 
+    /** Manager area root (after Bank Manager Login) */
+    public static final String MANAGER_HOME = "#/manager";
+
     /** Add Customer form – First Name, Last Name, Postal Code, Add Customer submit */
     public static final String MANAGER_ADD_CUSTOMER = "#/manager/addCust";
 

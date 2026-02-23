@@ -133,17 +133,6 @@ public class TestDataGenerator {
     }
 
     /**
-     * Generates a very small positive amount (boundary test, smallest whole number)
-     *
-     * @return a very small amount
-     */
-    public static String generateSmallAmount() {
-        String amountStr = "1";
-        logger.debug("Generated small amount: " + amountStr);
-        return amountStr;
-    }
-
-    /**
      * Generates test customer data
      *
      * @return CustomerTestData object with generated values
@@ -153,32 +142,6 @@ public class TestDataGenerator {
         data.setName(generateValidCustomerName());
         data.setPostalCode(generateValidPostalCode());
         logger.debug("Generated customer test data: " + data);
-        return data;
-    }
-
-    /**
-     * Generates test customer data with invalid name
-     *
-     * @return CustomerTestData with invalid name
-     */
-    public static CustomerTestData generateCustomerTestDataInvalidName() {
-        CustomerTestData data = new CustomerTestData();
-        data.setName(generateInvalidCustomerNameWithNumbers());
-        data.setPostalCode(generateValidPostalCode());
-        logger.debug("Generated customer test data with invalid name");
-        return data;
-    }
-
-    /**
-     * Generates test customer data with invalid postal code
-     *
-     * @return CustomerTestData with invalid postal code
-     */
-    public static CustomerTestData generateCustomerTestDataInvalidPostalCode() {
-        CustomerTestData data = new CustomerTestData();
-        data.setName(generateValidCustomerName());
-        data.setPostalCode(generateInvalidPostalCodeWithLetters());
-        logger.debug("Generated customer test data with invalid postal code");
         return data;
     }
 

@@ -40,7 +40,7 @@ public class CustomerTest extends BaseTest {
         String name = data.getName();
         testCustomerName = name + " " + name;
 
-        loginPage.loginAsManager("Manager");
+        loginPage.loginAsManager();
         managerPage.addCustomer(name, data.getPostalCode());
         managerPage.createAccount(testCustomerName, "Dollar");
         managerPage.clickHomeButton();
@@ -60,7 +60,7 @@ public class CustomerTest extends BaseTest {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(data.getName(), data.getPostalCode());
             managerPage.clickHomeButton();
 
@@ -82,7 +82,7 @@ public class CustomerTest extends BaseTest {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(data.getName(), data.getPostalCode());
             managerPage.createAccount(displayName, "Dollar");
             managerPage.clickCustomersButton();

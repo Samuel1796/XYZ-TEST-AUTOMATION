@@ -18,20 +18,14 @@ public class DriverManager {
      */
     public static WebDriver createDriver() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-blink-features=AutomationControlled");
+        options.addArguments("--disable-dev-shm-usage", "--no-sandbox", "--disable-gpu");
+
         if (ConfigManager.isHeadlessMode()) {
             options.addArguments("--headless=new");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-software-rasterizer");
-            options.addArguments("--disable-extensions");
-            options.addArguments("--disable-background-networking");
-            options.addArguments("--disable-default-apps");
-            options.addArguments("--disable-sync");
-            options.addArguments("--no-first-run");
-            options.addArguments("--disable-setuid-sandbox");
-            options.addArguments("--remote-debugging-port=0");
-            // Use explicit Chrome binary on Linux (CI often uses Chrome for Testing at /opt/chrome-for-testing/chrome)
+            options.addArguments("--disable-software-rasterizer", "--disable-extensions");
+            options.addArguments("--disable-background-networking", "--disable-default-apps", "--disable-sync");
+            options.addArguments("--no-first-run", "--disable-setuid-sandbox", "--remote-debugging-port=0");
             String chromeBin = System.getenv("CHROME_BIN");
             if (chromeBin == null && isLinux()) {
                 chromeBin = "/usr/bin/google-chrome";
@@ -39,12 +33,6 @@ public class DriverManager {
             if (chromeBin != null && !chromeBin.isEmpty()) {
                 options.setBinary(chromeBin);
             }
-        }
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        if (!ConfigManager.isHeadlessMode()) {
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-gpu");
         }
 
         WebDriver driver = new ChromeDriver(options);

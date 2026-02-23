@@ -61,9 +61,6 @@ public class ManagerDashboardPage {
     private WebElement processButton;
 
     // --- Messages (context-dependent) ---
-    @FindBy(css = "span.ng-binding.ng-scope")
-    private WebElement successMessage;
-
     @FindBy(css = "span.error, .error-message")
     private WebElement errorMessage;
 
@@ -130,16 +127,6 @@ public class ManagerDashboardPage {
                 .enterCustomerName(customerName)
                 .enterPostalCode(postalCode);
         return submitCustomerFormAndGetAlertMessage();
-    }
-
-    /**
-     * Clicks the Add Customer submit button only (no alert handling).
-     * Use when testing HTML5 validation: empty form will show browser tooltip and not submit.
-     */
-    @Step("Click Add Customer submit button (no alert)")
-    public ManagerDashboardPage clickAddCustomerSubmitButtonOnly() {
-        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
-        return this;
     }
 
     @Step("Verify still on Add Customer page (#/manager/addCust)")
@@ -213,16 +200,6 @@ public class ManagerDashboardPage {
         return alertText;
     }
 
-    @Step("Get success message")
-    public String getSuccessMessage() {
-        try {
-            SeleniumUtils.waitUntilVisible(driver, successMessage);
-            return successMessage.getText().trim();
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
     @Step("Get error message")
     public String getErrorMessage() {
         try {
@@ -237,14 +214,6 @@ public class ManagerDashboardPage {
     public ManagerDashboardPage clickCustomersButton() {
         SeleniumUtils.waitAndClick(driver, customersButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_CUSTOMERS_LIST);
-        return this;
-    }
-
-    @Step("Delete customer: {customerName}")
-    public ManagerDashboardPage deleteCustomer(String customerName) {
-        By deleteBtn = By.xpath("//td[contains(text(),'" + customerName + "')]/..//button[contains(text(),'Delete')]");
-        WebElement deleteBtnElement = SeleniumUtils.waitForElementToBePresent(driver, deleteBtn);
-        SeleniumUtils.scrollAndClick(driver, deleteBtnElement);
         return this;
     }
 

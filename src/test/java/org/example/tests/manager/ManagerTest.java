@@ -43,7 +43,7 @@ public class ManagerTest extends BaseTest {
         void addNewCustomer_withValidData() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             assertTrue(managerPage.isDashboardDisplayed(), "Manager dashboard should be displayed before adding customer");
 
             String alertMessage = managerPage.addCustomerAndGetAlertMessage(data.getName(), data.getPostalCode());
@@ -58,7 +58,7 @@ public class ManagerTest extends BaseTest {
             String invalidName = TestDataGenerator.generateInvalidCustomerNameWithNumbers();
             String postalCode = TestDataGenerator.generateValidPostalCode();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(invalidName, postalCode);
 
             String error = managerPage.getErrorMessage();
@@ -73,7 +73,7 @@ public class ManagerTest extends BaseTest {
             String invalidName = TestDataGenerator.generateInvalidCustomerNameWithSpecialChars();
             String postalCode = TestDataGenerator.generateValidPostalCode();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(invalidName, postalCode);
 
             String error = managerPage.getErrorMessage();
@@ -88,7 +88,7 @@ public class ManagerTest extends BaseTest {
             String name = TestDataGenerator.generateValidCustomerName();
             String invalidPostal = TestDataGenerator.generateInvalidPostalCodeWithLetters();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(name, invalidPostal);
 
             String error = managerPage.getErrorMessage();
@@ -113,7 +113,7 @@ public class ManagerTest extends BaseTest {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
             String displayName = data.getName() + " " + data.getName();
 
-            loginPage.loginAsManager("Manager");
+            loginPage.loginAsManager();
             managerPage.addCustomer(data.getName(), data.getPostalCode());
             String alertMessage = managerPage.createAccountAndGetAlertMessage(displayName, "Dollar");
 

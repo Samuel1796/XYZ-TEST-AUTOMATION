@@ -31,9 +31,6 @@ public class LoginPage {
     @FindBy(xpath = "//button[contains(text(),'Home')]")
     private WebElement homeButton;
 
-    @FindBy(css = "strong")
-    private WebElement pageTitle;
-
     // --- #/customer (after Customer Login clicked) ---
     @FindBy(id = "userSelect")
     private WebElement userSelect;
@@ -56,7 +53,7 @@ public class LoginPage {
     @Step("Select Manager user type (navigates to manager)")
     public LoginPage selectManagerUserType() {
         SeleniumUtils.waitAndClick(driver, managerLoginButton);
-        SeleniumUtils.waitForUrlContains(driver, "#/manager");
+        SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_HOME);
         return this;
     }
 
@@ -82,14 +79,9 @@ public class LoginPage {
     }
 
     @Step("Login as manager")
-    public LoginPage loginAsManager(String managerName) {
+    public LoginPage loginAsManager() {
         selectManagerUserType();
         return this;
-    }
-
-    @Step("Verify login page is displayed (#/login)")
-    public boolean isLoginPageDisplayed() {
-        return SeleniumUtils.isElementDisplayed(pageTitle);
     }
 
     @Step("Check if customer is in dropdown: {customerName}")
@@ -100,24 +92,10 @@ public class LoginPage {
                 .anyMatch(option -> option.getText().trim().equals(customerName));
     }
 
-    @Step("Verify customer option is available")
-    public boolean isCustomerOptionAvailable() {
-        return SeleniumUtils.isElementDisplayed(customerLoginButton);
-    }
-
-    @Step("Verify manager option is available")
-    public boolean isManagerOptionAvailable() {
-        return SeleniumUtils.isElementDisplayed(managerLoginButton);
-    }
-
     @Step("Click Home button (back to #/login)")
     public LoginPage clickHomeButton() {
         SeleniumUtils.waitAndClick(driver, homeButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
         return this;
-    }
-
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
     }
 }
