@@ -182,6 +182,8 @@ public class CustomerTest extends BaseTest {
                 customerPage.deposit(amount);
                 int balanceAfter = customerPage.getBalanceAsInt();
 
+                assertTrue(balanceAfter > balanceBefore,
+                        "Balance should increase after deposit: before=" + balanceBefore + ", after=" + balanceAfter);
                 assertEquals(balanceBefore + Integer.parseInt(amount), balanceAfter,
                         "Balance should increase by " + amount);
             }
@@ -230,11 +232,14 @@ public class CustomerTest extends BaseTest {
 
                 loginPage.loginAsCustomer(testCustomerName);
                 customerPage.deposit(depositAmount);
-                int balanceBefore = customerPage.getBalanceAsInt();
+                int balanceAfterDeposit = customerPage.getBalanceAsInt();
                 customerPage.withdraw(withdrawAmount);
-                int balanceAfter = customerPage.getBalanceAsInt();
+                int balanceAfterWithdrawal = customerPage.getBalanceAsInt();
 
-                assertEquals(balanceBefore - Integer.parseInt(withdrawAmount), balanceAfter,
+                assertTrue(balanceAfterWithdrawal < balanceAfterDeposit,
+                        "Balance should reduce after withdrawal: afterDeposit=" + balanceAfterDeposit
+                                + ", afterWithdrawal=" + balanceAfterWithdrawal);
+                assertEquals(balanceAfterDeposit - Integer.parseInt(withdrawAmount), balanceAfterWithdrawal,
                         "Balance should decrease by " + withdrawAmount);
             }
 

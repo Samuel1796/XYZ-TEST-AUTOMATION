@@ -109,6 +109,49 @@ public class ManagerDashboardPage {
         return this;
     }
 
+    /**
+     * Submits the Add Customer form, captures the JS alert text, accepts the alert, and returns the text.
+     * Use for assertions when a customer is added successfully.
+     */
+    @Step("Submit Add Customer form and get alert message")
+    public String submitCustomerFormAndGetAlertMessage() {
+        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
+        String alertText = SeleniumUtils.getAlertText(driver);
+        SeleniumUtils.acceptAlert(driver);
+        return alertText;
+    }
+
+    /**
+     * Adds a customer and returns the JS alert message shown on success.
+     */
+    @Step("Add customer and get alert message: {customerName}")
+    public String addCustomerAndGetAlertMessage(String customerName, String postalCode) {
+        clickAddCustomerButton()
+                .enterCustomerName(customerName)
+                .enterPostalCode(postalCode);
+        return submitCustomerFormAndGetAlertMessage();
+    }
+
+    /**
+     * Clicks the Add Customer submit button only (no alert handling).
+     * Use when testing HTML5 validation: empty form will show browser tooltip and not submit.
+     */
+    @Step("Click Add Customer submit button (no alert)")
+    public ManagerDashboardPage clickAddCustomerSubmitButtonOnly() {
+        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
+        return this;
+    }
+
+    @Step("Verify still on Add Customer page (#/manager/addCust)")
+    public boolean isOnAddCustomerPage() {
+        return driver.getCurrentUrl().contains(AppUrls.MANAGER_ADD_CUSTOMER);
+    }
+
+    @Step("Verify on Customers list page (#/manager/list)")
+    public boolean isOnCustomersListPage() {
+        return driver.getCurrentUrl().contains(AppUrls.MANAGER_CUSTOMERS_LIST);
+    }
+
     @Step("Add customer: {customerName} with postal code: {postalCode}")
     public ManagerDashboardPage addCustomer(String customerName, String postalCode) {
         clickAddCustomerButton()
@@ -154,6 +197,20 @@ public class ManagerDashboardPage {
                 .clickProcessButton();
         SeleniumUtils.acceptAlert(driver);
         return this;
+    }
+
+    /**
+     * Creates an account and returns the JS alert message shown on success.
+     */
+    @Step("Create account and get alert message: {customerName} / {currency}")
+    public String createAccountAndGetAlertMessage(String customerName, String currency) {
+        clickOpenAccountButton()
+                .selectCustomerForAccount(customerName)
+                .selectCurrency(currency)
+                .clickProcessButton();
+        String alertText = SeleniumUtils.getAlertText(driver);
+        SeleniumUtils.acceptAlert(driver);
+        return alertText;
     }
 
     @Step("Get success message")

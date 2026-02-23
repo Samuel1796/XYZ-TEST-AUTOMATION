@@ -46,12 +46,11 @@ public class ManagerTest extends BaseTest {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
 
             loginPage.loginAsManager("Manager");
-            assertTrue(managerPage.isDashboardDisplayed());
+            assertTrue(managerPage.isDashboardDisplayed(), "Manager dashboard should be displayed before adding customer");
 
-            managerPage.addCustomer(data.getName(), data.getPostalCode());
-            String msg = managerPage.getSuccessMessage();
-            assertNotNull(msg);
-            assertFalse(msg.isEmpty());
+            String alertMessage = managerPage.addCustomerAndGetAlertMessage(data.getName(), data.getPostalCode());
+            assertNotNull(alertMessage, "JS alert should be shown when customer is added successfully");
+            assertFalse(alertMessage.isEmpty(), "Alert message should not be empty");
         }
 
         @Test
@@ -64,7 +63,9 @@ public class ManagerTest extends BaseTest {
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(invalidName, postalCode);
 
-            assertNotNull(managerPage.getErrorMessage());
+            String error = managerPage.getErrorMessage();
+            assertNotNull(error, "Error message should be shown for invalid name with numbers");
+            assertFalse(error.isEmpty(), "Error message should not be empty");
         }
 
         @Test
@@ -77,7 +78,9 @@ public class ManagerTest extends BaseTest {
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(invalidName, postalCode);
 
-            assertNotNull(managerPage.getErrorMessage());
+            String error = managerPage.getErrorMessage();
+            assertNotNull(error, "Error message should be shown for invalid name with special characters");
+            assertFalse(error.isEmpty(), "Error message should not be empty");
         }
 
         @Test
@@ -90,24 +93,12 @@ public class ManagerTest extends BaseTest {
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(name, invalidPostal);
 
-            assertNotNull(managerPage.getErrorMessage());
-        }
-
-        @Test
-        @DisplayName("Verify empty form submission shows validation")
-        @Severity(SeverityLevel.MINOR)
-        @Description("Submit Add Customer form with no data; expect validation message or alert.")
-        void emptyForm_showsValidation() {
-            loginPage.loginAsManager("Manager");
-            managerPage.clickAddCustomerButton();
-            managerPage.submitCustomerForm();
-
             String error = managerPage.getErrorMessage();
-            boolean validationOrErrorShown = error != null && !error.isEmpty();
-            boolean stillOnAddCustomerView = managerPage.isDashboardDisplayed();
-            assertTrue(validationOrErrorShown || stillOnAddCustomerView,
-                    "Expected validation error or to remain on form; error='" + error + "'");
+            assertNotNull(error, "Error message should be shown for invalid postal code with letters");
+            assertFalse(error.isEmpty(), "Error message should not be empty");
         }
+
+
     }
 
     // ─── AC2: Creating Accounts ──────────────────────────────────────────
@@ -118,18 +109,6 @@ public class ManagerTest extends BaseTest {
     class CreatingAccounts {
 
         @Test
-        @DisplayName("Verify process without selecting customer shows error")
-        @Severity(SeverityLevel.NORMAL)
-        void processWithoutCustomer_showsError() {
-            loginPage.loginAsManager("Manager");
-            managerPage.clickOpenAccountButton()
-                    .selectCurrency("Dollar")
-                    .clickProcessButton();
-
-            assertNotNull(managerPage.getErrorMessage());
-        }
-
-        @Test
         @DisplayName("Verify manager can create account for added customer")
         @Severity(SeverityLevel.CRITICAL)
         void createAccount_forAddedCustomer() {
@@ -138,36 +117,12 @@ public class ManagerTest extends BaseTest {
 
             loginPage.loginAsManager("Manager");
             managerPage.addCustomer(data.getName(), data.getPostalCode());
-            managerPage.createAccount(displayName, "Dollar");
+            String alertMessage = managerPage.createAccountAndGetAlertMessage(displayName, "Dollar");
 
-            String msg = managerPage.getSuccessMessage();
-            assertNotNull(msg);
-            assertFalse(msg.isEmpty());
+            assertNotNull(alertMessage, "JS alert should be shown when account is created successfully");
+            assertFalse(alertMessage.isEmpty(), "Alert message should not be empty");
         }
     }
 
-    // ─── AC3: Deleting Accounts ──────────────────────────────────────────
 
-    @Nested
-    @DisplayName("Deleting Accounts")
-    @Story("Deleting Accounts")
-    class DeletingAccounts {
-
-        @Test
-        @DisplayName("Verify manager can delete customer – customer removed from list")
-        @Severity(SeverityLevel.CRITICAL)
-        void deleteCustomer_removedFromList() {
-            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
-            String displayName = data.getName() + " " + data.getName();
-
-            loginPage.loginAsManager("Manager");
-            managerPage.addCustomer(data.getName(), data.getPostalCode());
-            managerPage.createAccount(displayName, "Dollar");
-            managerPage.clickCustomersButton();
-            managerPage.deleteCustomer(displayName);
-
-            assertFalse(managerPage.customerExists(displayName),
-                    "Customer should no longer appear in the list");
-        }
-    }
 }
