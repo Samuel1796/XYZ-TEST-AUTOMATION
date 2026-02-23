@@ -1,26 +1,24 @@
 package org.example.config;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Configuration manager to load properties from config.properties file.
+ * Configuration manager to load properties from config.properties (classpath).
  * Provides centralized access to configuration values used throughout the test framework.
- *
- * @author QA Team
- * @version 1.0
  */
 public class ConfigManager {
 
     private static final Properties properties = new Properties();
-    private static final String CONFIG_FILE_PATH = "src/main/resources/config.properties";
 
     static {
-        try (FileInputStream fileInputStream = new FileInputStream(CONFIG_FILE_PATH)) {
-            properties.load(fileInputStream);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load configuration properties: " + e.getMessage(), e);
+        try (InputStream in = ConfigManager.class.getResourceAsStream("/config.properties")) {
+            if (in == null) {
+                throw new RuntimeException("config.properties not found on classpath");
+            }
+            properties.load(in);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load config.properties: " + e.getMessage(), e);
         }
     }
 
@@ -46,15 +44,6 @@ public class ConfigManager {
     }
 
     /**
-     * Gets browser name from configuration
-     *
-     * @return browser name (chrome, firefox, etc.)
-     */
-    public static String getBrowser() {
-        return getProperty("browser", "chrome");
-    }
-
-    /**
      * Gets base URL for the application.
      * System property {@code base.url} overrides config (e.g. CI: -Dbase.url=...).
      *
@@ -65,7 +54,7 @@ public class ConfigManager {
         if (fromSystem != null && !fromSystem.isEmpty()) {
             return fromSystem;
         }
-        return getProperty("base.url");
+        return getProperty("base.url", "https://www.globalsqa.com/angularJs-protractor/BankingProject");
     }
 
     /**

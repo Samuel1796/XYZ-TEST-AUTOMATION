@@ -35,24 +35,23 @@ Tests use `@DisplayName` and `@Story` aligned to these AC. Tags: `us1`, `us2`, `
 ```
 src/main/java/org/example/
 ├── config/
-│   └── ConfigManager.java      # Reads config.properties (URL, timeouts, etc.)
+│   ├── ConfigManager.java      # Loads config from classpath (base URL, timeouts, headless, etc.)
+│   └── AppUrls.java            # URL fragments (#/login, #/manager/..., #/customer, ...)
 ├── driver/
-│   └── DriverManager.java      # Creates/quits ChromeDriver only (no WebDriverManager)
+│   └── DriverManager.java      # Chrome only: creates/quits ChromeDriver (headless support for CI)
 ├── pages/
 │   ├── manager/
-│   │   ├── LoginPage.java
+│   │   ├── LoginPage.java      # Home, Customer/Manager login, user select
 │   │   └── ManagerDashboardPage.java
 │   └── customer/
 │       └── CustomerDashboardPage.java
 └── utils/
-    ├── SeleniumUtils.java      # Helper methods: click, sendKeys, wait, screenshot
-    ├── WaitUtils.java          # Thread sleep helpers (e.g. for alerts)
-    ├── FileUtils.java          # File/dir operations
-    └── TestDataGenerator.java  # Test data (Faker): names, amounts, postal codes
+    ├── SeleniumUtils.java      # Waits, click, clearAndType, screenshot, alerts, URL/dropdown helpers
+    └── TestDataGenerator.java  # Test data (Faker): names, postal codes, amounts
 
 src/test/java/org/example/
 ├── base/
-│   └── BaseTest.java           # All setup/teardown: driver, navigate, screenshot on failure
+│   └── BaseTest.java           # Driver setup, navigate to base URL, tearDown (screenshot on failure)
 └── tests/
     ├── manager/
     │   └── ManagerTest.java
@@ -60,9 +59,9 @@ src/test/java/org/example/
         └── CustomerTest.java
 ```
 
-- **BaseTest**: Every test extends this. Driver creation, open base URL, and tearDown (screenshot on failure, quit driver) are done here. Test classes only add a small `@BeforeEach` to create page objects and, if needed, test data.
-- **No base page**: Page classes take `WebDriver` in the constructor and use `SeleniumUtils` for clicks, sends, and waits.
-- **Driver**: Chrome only, via `DriverManager`. Use ChromeDriver on PATH.
+- **BaseTest**: All UI tests extend this; driver creation, navigation, and tearDown (screenshot on failure, quit) are centralised here.
+- **Page objects**: Take `WebDriver` in the constructor and use `SeleniumUtils` for waits, clicks, and typing.
+- **Driver**: Chrome only via `DriverManager`. ChromeDriver must be on PATH (or set `webdriver.chrome.driver`); CI uses Chrome for Testing for a matching Chrome/ChromeDriver pair.
 
 ## Run tests
 
@@ -92,9 +91,11 @@ The report will be available at:
 
 ## Config
 
-Edit `src/main/resources/config.properties` for:
+Edit `src/main/resources/config.properties` (loaded from classpath). Main options:
 
-- `base.url` – application URL (default: XYZ Bank login)
-- `headless.mode` – run Chrome headless
-- `implicit.wait` / `explicit.wait` / `page.load.timeout`
-- `screenshot.on.failure` and `screenshot.path`
+- **base.url** – application under test (default: GlobalSQA XYZ Bank). Override in CI with `-Dbase.url=...`
+- **headless.mode** – run Chrome headless (CI uses `-Dheadless.mode=true`)
+- **implicit.wait** / **explicit.wait** / **page.load.timeout** – wait timeouts (seconds)
+- **screenshot.on.failure**, **screenshot.path** – failure screenshots
+
+CI and secrets are documented in [.github/REPO_SECRETS.md](.github/REPO_SECRETS.md).
