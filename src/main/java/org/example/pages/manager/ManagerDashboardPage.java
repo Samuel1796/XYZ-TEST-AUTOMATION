@@ -109,6 +109,49 @@ public class ManagerDashboardPage {
         return this;
     }
 
+    /**
+     * Submits the Add Customer form, captures the JS alert text, accepts the alert, and returns the text.
+     * Use for assertions when a customer is added successfully.
+     */
+    @Step("Submit Add Customer form and get alert message")
+    public String submitCustomerFormAndGetAlertMessage() {
+        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
+        String alertText = SeleniumUtils.getAlertText(driver);
+        SeleniumUtils.acceptAlert(driver);
+        return alertText;
+    }
+
+    /**
+     * Adds a customer and returns the JS alert message shown on success.
+     */
+    @Step("Add customer and get alert message: {customerName}")
+    public String addCustomerAndGetAlertMessage(String customerName, String postalCode) {
+        clickAddCustomerButton()
+                .enterCustomerName(customerName)
+                .enterPostalCode(postalCode);
+        return submitCustomerFormAndGetAlertMessage();
+    }
+
+    /**
+     * Clicks the Add Customer submit button only (no alert handling).
+     * Use when testing HTML5 validation: empty form will show browser tooltip and not submit.
+     */
+    @Step("Click Add Customer submit button (no alert)")
+    public ManagerDashboardPage clickAddCustomerSubmitButtonOnly() {
+        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
+        return this;
+    }
+
+    @Step("Verify still on Add Customer page (#/manager/addCust)")
+    public boolean isOnAddCustomerPage() {
+        return driver.getCurrentUrl().contains(AppUrls.MANAGER_ADD_CUSTOMER);
+    }
+
+    @Step("Verify on Customers list page (#/manager/list)")
+    public boolean isOnCustomersListPage() {
+        return driver.getCurrentUrl().contains(AppUrls.MANAGER_CUSTOMERS_LIST);
+    }
+
     @Step("Add customer: {customerName} with postal code: {postalCode}")
     public ManagerDashboardPage addCustomer(String customerName, String postalCode) {
         clickAddCustomerButton()
@@ -156,6 +199,20 @@ public class ManagerDashboardPage {
         return this;
     }
 
+    /**
+     * Creates an account and returns the JS alert message shown on success.
+     */
+    @Step("Create account and get alert message: {customerName} / {currency}")
+    public String createAccountAndGetAlertMessage(String customerName, String currency) {
+        clickOpenAccountButton()
+                .selectCustomerForAccount(customerName)
+                .selectCurrency(currency)
+                .clickProcessButton();
+        String alertText = SeleniumUtils.getAlertText(driver);
+        SeleniumUtils.acceptAlert(driver);
+        return alertText;
+    }
+
     @Step("Get success message")
     public String getSuccessMessage() {
         try {
@@ -193,17 +250,17 @@ public class ManagerDashboardPage {
 
     @Step("Scroll to customer and delete: {customerName}")
     public ManagerDashboardPage scrollToCustomerAndDelete(String customerName) {
-        WebElement customersTable = driver.findElement(By.cssSelector("table.table"));
+        WebElement customersTable = SeleniumUtils.waitForElementToBeVisible(driver, By.cssSelector("table.table"));
         List<WebElement> rows = customersTable.findElements(By.tagName("tr"));
 
         for (WebElement row : rows) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
-            if (!cells.isEmpty()) {
-                String rowName = cells.get(0).getText() + " " + cells.get(1).getText();
+            if (cells.size() >= 2) {
+                String rowName = cells.get(0).getText().trim() + " " + cells.get(1).getText().trim();
                 if (rowName.equals(customerName)) {
                     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", row);
                     WebElement deleteBtn = row.findElement(By.xpath(".//button[contains(text(),'Delete')]"));
-                    deleteBtn.click();
+                    SeleniumUtils.waitUntilClickable(driver, deleteBtn).click();
                     return this;
                 }
             }

@@ -87,6 +87,53 @@
 
     <build>
         <plugins>
+            <!-- Clean plugin: automatically deletes target folder (including old allure reports) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+
+            <!-- Clean Allure results before each test run so report reflects latest run only -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>clean-allure-before-test</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <delete dir="${project.build.directory}/allure-results" failonerror="false"/>
+                                <delete dir="${project.build.directory}/allure-report" failonerror="false"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>prepare-allure-results</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${project.build.directory}/allure-results"/>
+                                <copy file="${project.basedir}/src/test/resources/allure/categories.json"
+                                      todir="${project.build.directory}/allure-results" failonerror="false"/>
+                                <copy file="${project.basedir}/src/test/resources/allure/environment.properties"
+                                      todir="${project.build.directory}/allure-results" failonerror="false"/>
+                                <copy file="${project.basedir}/src/test/resources/allure/executor.json"
+                                      todir="${project.build.directory}/allure-results" failonerror="false"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -101,11 +148,22 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>
+
+            <!-- Allure Maven Plugin: automatically generates fresh report after tests -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure.version}</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

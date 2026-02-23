@@ -4,10 +4,9 @@
 1. [Local Setup](#local-setup)
 2. [Configuration](#configuration)
 3. [Running Tests](#running-tests)
-4. [Docker Setup](#docker-setup)
-5. [CI/CD Pipeline](#cicd-pipeline)
-6. [Reports & Logs](#reports--logs)
-7. [Troubleshooting](#troubleshooting)
+4. [CI/CD Pipeline](#cicd-pipeline)
+5. [Reports & Logs](#reports--logs)
+6. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -231,69 +230,6 @@ mvn clean test \
 
 ---
 
-## Docker Setup
-
-### Build Docker Image
-```bash
-# Build image with default tag
-docker build -t xyz-bank-test-automation .
-
-# Build image with version tag
-docker build -t xyz-bank-test-automation:1.0 .
-
-# Build with specific Java version
-docker build --build-arg JAVA_VERSION=17 -t xyz-bank-test-automation .
-```
-
-### Run Tests in Docker
-```bash
-# Simple test run
-docker run --rm xyz-bank-test-automation
-
-# Run with volume mounting (save reports locally)
-docker run --rm \
-  -v $(pwd)/target:/app/target \
-  -v $(pwd)/screenshots:/app/screenshots \
-  xyz-bank-test-automation
-
-# Run specific tests
-docker run --rm \
-  xyz-bank-test-automation \
-  mvn clean test -Dtest=ManagerTest
-
-# Run with environment variables
-docker run --rm \
-  -e BROWSER=chrome \
-  -e HEADLESS_MODE=true \
-  xyz-bank-test-automation
-```
-
-### Using Docker Compose
-```bash
-# Start all services (Test + Selenoid + Allure)
-docker-compose up --build
-
-# Run tests only
-docker-compose up test-automation
-
-# View Allure Report
-# Navigate to http://localhost:4040
-
-# View Selenoid UI
-# Navigate to http://localhost:8080
-
-# Cleanup
-docker-compose down -v
-```
-
-### Docker Compose Services
-- **test-automation**: Main test service
-- **selenoid**: Browser grid server on port 4444
-- **selenoid-ui**: Selenoid dashboard on port 8080
-- **allure**: Allure report server on port 4040
-
----
-
 ## CI/CD Pipeline
 
 ### GitHub Actions Workflow
@@ -301,22 +237,20 @@ docker-compose down -v
 
 The pipeline automatically:
 1. Checks out code
-2. Sets up JDK 17
-3. Runs tests in headless mode
-4. Generates Allure report
-5. Publishes report to GitHub Pages
-6. Comments on PRs with results
-7. Uploads artifacts
+2. Sets up Java 17 and Chrome/ChromeDriver
+3. Runs Selenium tests (headless)
+4. Generates Allure report and publishes to GitHub Pages
+5. Sends Slack and email reports
+6. Uploads Surefire and Allure artifacts
 
 ### Triggering the Pipeline
 ```bash
 # Automatically triggered on:
-- Push to main/develop branches
-- Pull requests to main/develop
-- Schedule: Daily at 2 AM UTC
+- Push to master
+- Pull requests targeting master
 
-# Manual trigger (if configured):
-# Navigate to Actions tab > Workflow > Run workflow
+# Manual trigger:
+# Actions tab > CI - Selenium UI Tests > Run workflow
 ```
 
 ### Viewing Results
@@ -527,29 +461,12 @@ screenshot.path=screenshots      # Path must exist
 # chmod 755 screenshots  (Linux/Mac)
 ```
 
-#### 8. Docker Build Fails
-```bash
-# Solution 1: Clear Docker cache
-docker system prune -a
-
-# Solution 2: Build with no cache
-docker build --no-cache -t xyz-bank-test-automation .
-
-# Solution 3: Check Docker version
-docker --version
-docker-compose --version
-# Should be: Docker 20.10+, Compose 2.0+
-```
-
-#### 9. Permission Denied Errors
+#### 8. Permission Denied Errors
 ```bash
 # macOS/Linux solution:
 chmod +x logs/
 chmod +x screenshots/
 chmod 755 target/
-
-# Or fix during build:
-docker build --user root -t xyz-bank-test-automation .
 ```
 
 ### Getting Help

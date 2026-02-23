@@ -20,11 +20,11 @@ public class WaitUtils {
      * @param milliseconds the time to wait in milliseconds
      */
     public static void waitForMilliseconds(long milliseconds) {
-        logger.debug("Waiting for " + milliseconds + " milliseconds");
+        logger.debug("Sleep {} ms", milliseconds);
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
-            logger.warn("Thread interrupted during wait: " + e.getMessage());
+            logger.warn("Wait interrupted: {}", e.getMessage());
             Thread.currentThread().interrupt();
         }
     }
@@ -35,7 +35,7 @@ public class WaitUtils {
      * @param seconds the time to wait in seconds
      */
     public static void waitForSeconds(long seconds) {
-        logger.debug("Waiting for " + seconds + " seconds");
+        logger.debug("Sleep {} s", seconds);
         waitForMilliseconds(seconds * 1000);
     }
 
