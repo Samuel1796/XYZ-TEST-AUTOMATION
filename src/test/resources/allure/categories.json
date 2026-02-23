@@ -1,26 +1,31 @@
 [
   {
-    "name": "Test failures",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*"
-  },
-  {
-    "name": "Broken tests",
-    "matchedStatuses": ["broken"],
-    "messageRegex": ".*"
-  },
-  {
-    "name": "Validation / Assertion errors",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*Assertion.*|.*expected.*|.*validation.*"
-  },
-  {
-    "name": "Element / UI not found",
-    "matchedStatuses": ["failed", "broken"],
-    "messageRegex": ".*NoSuchElement.*|.*element.*not found.*|.*not visible.*"
-  },
-  {
     "name": "Passed",
     "matchedStatuses": ["passed"]
+  },
+  {
+    "name": "Failed – Assertion / Validation (screenshot in test)",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Assertion.*|.*expected.*|.*validation.*|.*should.*"
+  },
+  {
+    "name": "Failed – Element / UI not found (screenshot in test)",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": ".*NoSuchElement.*|.*element.*not found.*|.*not visible.*|.*StaleElement.*"
+  },
+  {
+    "name": "Failed – Timeout / Wait (screenshot in test)",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": ".*Timeout.*|.*timed out.*|.*wait.*"
+  },
+  {
+    "name": "Failed – Other (screenshot in test)",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*"
+  },
+  {
+    "name": "Broken",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*"
   }
 ]

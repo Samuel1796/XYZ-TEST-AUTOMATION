@@ -20,8 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("US2 – Customer Banking")
 @Epic("XYZ Bank")
 @Feature("Customer Banking")
-//@Description("Customer flows: login, deposit, withdraw, view transactions. " +
-//        "Validates balance updates, transaction list, and access control (no account / deleted customer).")
 public class CustomerTest extends BaseTest {
 
     private LoginPage loginPage;

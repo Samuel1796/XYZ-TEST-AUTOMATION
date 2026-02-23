@@ -126,6 +126,8 @@
                                       todir="${project.build.directory}/allure-results" failonerror="false"/>
                                 <copy file="${project.basedir}/src/test/resources/allure/environment.properties"
                                       todir="${project.build.directory}/allure-results" failonerror="false"/>
+                                <copy file="${project.basedir}/src/test/resources/allure/executor.json"
+                                      todir="${project.build.directory}/allure-results" failonerror="false"/>
                             </target>
                         </configuration>
                     </execution>

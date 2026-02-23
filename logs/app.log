@@ -9007,3 +9007,434 @@ org.opentest4j.AssertionFailedError: Balance should reduce after withdrawal: aft
 2026-02-23 11:41:52.231 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
 2026-02-23 11:42:08.081 [INFO ] org.example.base.BaseTest - Test finished: unknown
 2026-02-23 11:42:08.083 [INFO ] org.example.base.BaseTest.BaseTestWatcher - Test PASSED: Verify withdrawal exceeding balance does not change balance
+2026-02-23 11:50:46.869 [INFO ] org.example.base.BaseTest - Test started: unknown
+2026-02-23 11:50:50.670 [INFO ] org.example.base.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-23 11:50:50.884 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Marina
+2026-02-23 11:50:50.885 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 19649
+2026-02-23 11:50:50.885 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Marina', postalCode='19649'}
+2026-02-23 11:50:50.888 [DEBUG] org.example.utils.SeleniumUtils - Screenshot directory: screenshots
+2026-02-23 11:50:50.888 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:52.077 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-23 11:50:54.305 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:54.431 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-23 11:50:54.953 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-23 11:50:54.953 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:50:55.111 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-23 11:50:55.111 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:50:55.332 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-23 11:50:55.332 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:50:55.547 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:55.729 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-23 11:50:55.745 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:55.929 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-23 11:50:56.447 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Marina Marina
+2026-02-23 11:50:56.581 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:56.771 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:57.019 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:50:57.193 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-23 11:50:57.199 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-23 11:50:57.754 [INFO ] org.example.base.BaseTest - Test finished: unknown
+2026-02-23 11:50:57.768 [INFO ] org.example.base.BaseTest.BaseTestWatcher - Test PASSED: Verify manager can create account for added customer
+2026-02-23 11:50:57.930 [INFO ] org.example.base.BaseTest - Test started: unknown
+2026-02-23 11:51:02.584 [INFO ] org.example.base.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-23 11:51:02.587 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid customer name with numbers: Rachele123
+2026-02-23 11:51:02.587 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 04845
+2026-02-23 11:51:02.587 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:03.238 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-23 11:51:03.754 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:03.848 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-23 11:51:04.367 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=10)
+2026-02-23 11:51:04.368 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:04.539 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=10)
+2026-02-23 11:51:04.540 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:04.819 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-23 11:51:04.821 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:05.037 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:05.249 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-23 11:51:05.264 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:21.104 [INFO ] org.example.base.BaseTest - Test finished: unknown
+2026-02-23 11:51:21.106 [ERROR] org.example.base.BaseTest.BaseTestWatcher - Test FAILED: Verify customer name with numbers is rejected | Error message should not be empty ==> expected: <false> but was: <true>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.customerName_withNumbers_rejected(ManagerTest.java:66) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-23 11:51:21.141 [INFO ] org.example.base.BaseTest - Test started: unknown
+2026-02-23 11:51:24.653 [INFO ] org.example.base.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-23 11:51:24.654 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Gregorio
+2026-02-23 11:51:24.654 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid postal code with letters: 12345ABC
+2026-02-23 11:51:24.654 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:25.358 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-23 11:51:25.873 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:25.961 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-23 11:51:26.483 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-23 11:51:26.483 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:26.600 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-23 11:51:26.600 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:26.788 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-23 11:51:26.788 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:26.980 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:27.222 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-23 11:51:27.242 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:43.069 [INFO ] org.example.base.BaseTest - Test finished: unknown
+2026-02-23 11:51:43.069 [ERROR] org.example.base.BaseTest.BaseTestWatcher - Test FAILED: Verify postal code with letters is rejected | Error message should not be empty ==> expected: <false> but was: <true>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.postalCode_withLetters_rejected(ManagerTest.java:96) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-23 11:51:43.087 [INFO ] org.example.base.BaseTest - Test started: unknown
+2026-02-23 11:51:46.068 [INFO ] org.example.base.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-23 11:51:46.070 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Arnita
+2026-02-23 11:51:46.072 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 77035
+2026-02-23 11:51:46.072 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Arnita', postalCode='77035'}
+2026-02-23 11:51:46.072 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:46.754 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-23 11:51:52.289 [DEBUG] org.example.utils.SeleniumUtils - Element not displayed
+2026-02-23 11:51:52.642 [INFO ] org.example.base.BaseTest - Test finished: unknown
+2026-02-23 11:51:52.643 [ERROR] org.example.base.BaseTest.BaseTestWatcher - Test FAILED: Verify manager can add new customer with valid data | Manager dashboard should be displayed before adding customer ==> expected: <true> but was: <false>
+org.opentest4j.AssertionFailedError: Manager dashboard should be displayed before adding customer ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.addNewCustomer_withValidData(ManagerTest.java:47) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+2026-02-23 11:51:52.668 [INFO ] org.example.base.BaseTest - Test started: unknown
+2026-02-23 11:51:56.131 [INFO ] org.example.base.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-23 11:51:56.133 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid customer name with special characters: Ines@#$
+2026-02-23 11:51:56.135 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 48563
+2026-02-23 11:51:56.136 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:56.839 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-23 11:51:57.357 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:57.522 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-23 11:51:58.042 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-23 11:51:58.042 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:58.296 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-23 11:51:58.296 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:58.610 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-23 11:51:58.610 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:51:58.914 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-23 11:51:59.140 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-23 11:51:59.154 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-23 11:52:15.207 [INFO ] org.example.base.BaseTest - Test finished: unknown
+2026-02-23 11:52:15.208 [ERROR] org.example.base.BaseTest.BaseTestWatcher - Test FAILED: Verify customer name with special characters is rejected | Error message should not be empty ==> expected: <false> but was: <true>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:235) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.customerName_withSpecialCharacters_rejected(ManagerTest.java:81) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]

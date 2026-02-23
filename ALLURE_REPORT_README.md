@@ -5,8 +5,10 @@
 Your Allure report is automatically configured to:
 - **Update on every run** – `target/allure-results` and `target/allure-report` are cleared at the start of each run (no need for `mvn clean` for a fresh report)
 - **Generate fresh reports** in `target/allure-report/`
-- **Attach failure screenshots** – when a test fails, a screenshot is attached to that test in the report
-- **Categories and environment** – report includes defect categories and environment (browser, app URL)
+- **Bug report on failure** – each failed test gets: (1) **Error overview** (exception type, message, stack trace) and (2) **Bug report – failure screenshot** image
+- **Categories (error overview)** – failures are grouped by type: Assertion/Validation, Element/UI not found, Timeout, Other; each category notes "(screenshot in test)"
+- **User Stories & AC in report** – environment tab shows User Story 1 & 2 and their acceptance criteria
+- **Report title** – Overview shows "XYZ Bank – Test Report" (via executor.json)
 - **Work seamlessly with IntelliJ** – no scripts needed
 
 ## How to Use
@@ -47,7 +49,7 @@ Result: Fresh report ready in target/allure-report/index.html
 
 ### pom.xml ✅
 - **maven-clean-plugin**: Deletes `target/` on `mvn clean`
-- **maven-antrun-plugin**: Cleans `target/allure-results` and `target/allure-report` at start of every run (so re-running tests updates the report); copies `categories.json` and `environment.properties` into results for a readable report
+- **maven-antrun-plugin**: Cleans allure dirs at start of every run; copies `categories.json`, `environment.properties`, and `executor.json` into results (report title, user stories, defect categories)
 - **allure-maven**: Generates the report after tests
 
 ### allure.properties ✅

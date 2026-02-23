@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("US1 – Bank Manager")
 @Epic("XYZ Bank")
 @Feature("Manager Account Management")
-//@Description("Bank Manager flows: add customer (valid/invalid), open account, delete customer. " +
-//        "Validates form validation and success/error messages.")
 public class ManagerTest extends BaseTest {
 
     private LoginPage loginPage;

@@ -1,0 +1,7 @@
+{
+  "reportName": "XYZ Bank – Test Report",
+  "name": "Maven",
+  "type": "maven",
+  "buildName": "XYZ Bank Automation",
+  "buildOrder": 1
+}
