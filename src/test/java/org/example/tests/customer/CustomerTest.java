@@ -131,13 +131,17 @@ public class CustomerTest extends BaseTest {
             @Severity(SeverityLevel.NORMAL)
             void transactionList_showsCorrectType() {
                 loginPage.loginAsCustomer(testCustomerName);
-                customerPage.deposit("500");
+                String depositAmount = "500";
+                customerPage.deposit(depositAmount);
                 customerPage.clickTransactionsButton();
 
                 var list = customerPage.getTransactionHistory();
-                assertFalse(list.isEmpty());
-                assertTrue(list.stream().anyMatch(t -> t.contains("Credit")),
+                assertFalse(list.isEmpty(), "Transaction list should not be empty after deposit");
+                assertTrue(customerPage.transactionContainsType("Credit"),
                         "Transaction list should contain a Credit entry after deposit");
+                assertTrue(customerPage.transactionContainsAmount(depositAmount),
+                        "Transaction list should contain the deposited amount: " + depositAmount);
+
             }
 
             @Test

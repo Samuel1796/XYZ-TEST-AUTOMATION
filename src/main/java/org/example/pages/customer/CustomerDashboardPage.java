@@ -168,6 +168,8 @@ public class CustomerDashboardPage {
     @Step("Get transaction history (#/listTx)")
     public List<String> getTransactionHistory() {
         try {
+            // Wait for transaction rows to be present before retrieving them
+            SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_ROWS);
             List<WebElement> rows = driver.findElements(TRANSACTION_ROWS);
             return rows.stream().map(WebElement::getText).collect(Collectors.toList());
         } catch (Exception e) {
@@ -182,8 +184,27 @@ public class CustomerDashboardPage {
 
     @Step("Get transaction count")
     public int getTransactionCount() {
+        try {
+            // Wait for transaction rows to be present before counting
+            SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_ROWS);
+        } catch (Exception e) {
+            // If no rows exist, this exception is expected for empty transaction lists
+        }
         return driver.findElements(TRANSACTION_ROWS).size();
     }
+
+    @Step("Verify transaction contains type: {transactionType}")
+    public boolean transactionContainsType(String transactionType) {
+        var list = getTransactionHistory();
+        return list.stream().anyMatch(t -> t.contains(transactionType));
+    }
+
+    @Step("Verify transaction contains amount: {amount}")
+    public boolean transactionContainsAmount(String amount) {
+        var list = getTransactionHistory();
+        return list.stream().anyMatch(t -> t.contains(amount));
+    }
+
 
     @Step("Click Logout")
     public CustomerDashboardPage logout() {
