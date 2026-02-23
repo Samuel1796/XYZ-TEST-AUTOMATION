@@ -45,6 +45,8 @@ Email is **optional**. The workflow only sends email when you enable it and set 
 
 If `SEND_EMAIL` is not `true` (as variable or secret) or **EMAIL_TO** is empty, the email step is skipped.
 
+**If you see *"At least one of 'to', 'cc' or 'bcc' must be specified"*:** Add a **Secret** named exactly **EMAIL_TO** (case-sensitive, no extra spaces) with value `sboakye1796@gmail.com` (or your recipient). The workflow only sends when this secret is set.
+
 ---
 
 ## Serving the Allure report (gh-pages)

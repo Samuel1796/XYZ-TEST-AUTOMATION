@@ -254,7 +254,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # Send Email (same content as Slack). Enable by setting SEND_EMAIL to 'true' as a Variable OR Secret, and set secret EMAIL_TO.
+      # Send Email (same content as Slack). Requires: SEND_EMAIL = 'true' (Variable or Secret) AND secret EMAIL_TO set (exact name).
       - name: Send Email report (only failed tests + totals)
         if: always() && (vars.SEND_EMAIL == 'true' || secrets.SEND_EMAIL == 'true') && secrets.EMAIL_TO != ''
         uses: dawidd6/action-send-mail@v3
@@ -348,13 +348,13 @@ jobs:
           D="allure-report-with-history"
           INDEX="$D/index.html"
           if [ ! -f "$INDEX" ]; then exit 0; fi
-          # Base href for HTML links/resources
-          sed -i "s|<head\\([^>]*\\)>|<head\\1><base href=\"/${REPO_NAME}/\">|" "$INDEX"
-          # JS fetch() ignores base href; replace root-relative paths in all .js and .html
+          # Base href: use single-quoted sed so ( ) are not interpreted by bash
+          sed -i 's|<head[^>]*>|&<base href="/'"$REPO_NAME"'/">|' "$INDEX"
+          # JS: replace root-relative paths; use find -name with two invocations to avoid YAML/shell ( ) escaping
           for path in data plugins styles history widgets config; do
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}/|\"/${REPO_NAME}/${path}/|g" {} \\;
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|'/${path}/|'/${REPO_NAME}/${path}/|g" {} \\;
-            find "$D" -type f \\( -name "*.js" -o -name "*.html" \\) -exec sed -i "s|\"/${path}\"|\"/${REPO_NAME}/${path}\"|g" {} \\;
+            while IFS= read -r -d '' f; do
+              sed -i "s|\"/${path}/|\"/${REPO_NAME}/${path}/|g; s|'/${path}/|'/${REPO_NAME}/${path}/|g; s|\"/${path}\"|\"/${REPO_NAME}/${path}\"|g" "$f"
+            done < <(find "$D" -type f -name "*.js" -print0; find "$D" -type f -name "*.html" -print0)
           done
           echo "Patched report for base path /${REPO_NAME}/"
 
