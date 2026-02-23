@@ -1,7 +1,7 @@
 package org.example.tests.customer;
 
 import io.qameta.allure.*;
-import org.example.base.BaseTest;
+import org.example.setup.BaseTest;
 import org.example.pages.customer.CustomerDashboardPage;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
@@ -9,6 +9,7 @@ import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("US2 – Customer Banking")
 @Epic("XYZ Bank")
 @Feature("Customer Banking")
+@Tag("customer")
+@Tag("us2")
 public class CustomerTest extends BaseTest {
 
     private LoginPage loginPage;

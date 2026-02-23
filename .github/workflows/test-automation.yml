@@ -55,7 +55,11 @@ jobs:
           mvn -B -e test \
             -Dheadless.mode=true \
             -Dbase.url=${{ secrets.APP_BASE_URL }} \
-            -DtrimStackTrace=false
+            -DtrimStackTrace=false \
+            -Dallure.executor.url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \
+            -Dallure.executor.reportUrl=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/ \
+            -Dallure.executor.buildName="CI #${{ github.run_number }} ${{ github.ref_name }}" \
+            -Dallure.executor.buildOrder=${{ github.run_number }}
         env:
           CHROME_BIN: ${{ env.CHROME_BIN }}
 
@@ -250,9 +254,9 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # Send Email (same content as Slack). Only runs when EMAIL_TO is configured (set repo variable SEND_EMAIL to 'true' and secret EMAIL_TO).
+      # Send Email (same content as Slack). Enable by setting SEND_EMAIL to 'true' as a Variable OR Secret, and set secret EMAIL_TO.
       - name: Send Email report (only failed tests + totals)
-        if: always() && vars.SEND_EMAIL == 'true'
+        if: always() && (vars.SEND_EMAIL == 'true' || secrets.SEND_EMAIL == 'true') && secrets.EMAIL_TO != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: ${{ secrets.SMTP_SERVER }}
@@ -301,6 +305,21 @@ jobs:
         run: |
           mkdir -p target/allure-results/history
           if [ -d "gh-pages/history" ]; then cp -r gh-pages/history/* target/allure-results/history/ || true; fi
+
+      - name: Verify Allure results before building report
+        if: always()
+        run: |
+          if [ ! -d "target/allure-results" ]; then
+            echo "::error::target/allure-results not found. Tests may not have produced Allure results."
+            exit 1
+          fi
+          COUNT=$(find target/allure-results -maxdepth 1 -type f \( -name "*-result.json" -o -name "*-container.json" \) 2>/dev/null | wc -l)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::No Allure result files (*-result.json or *-container.json) in target/allure-results. Report would be empty."
+            ls -la target/allure-results || true
+            exit 1
+          fi
+          echo "Allure results: $COUNT result/container file(s) found."
 
       - name: Build Allure Report
         if: always()

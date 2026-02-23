@@ -50,16 +50,16 @@ src/main/java/org/example/
     └── TestDataGenerator.java  # Test data (Faker): names, postal codes, amounts
 
 src/test/java/org/example/
-├── base/
-│   └── BaseTest.java           # Driver setup, navigate to base URL, tearDown (screenshot on failure)
-└── tests/
+├── setup/
+│   └── BaseTest.java            # Driver setup, navigate to base URL, tearDown (screenshot on failure)
+├── tests/
     ├── manager/
     │   └── ManagerTest.java
     └── customer/
         └── CustomerTest.java
 ```
 
-- **BaseTest**: All UI tests extend this; driver creation, navigation, and tearDown (screenshot on failure, quit) are centralised here.
+- **BaseTest** (in `setup` package): All UI tests extend this; driver creation, navigation, and tearDown (screenshot on failure, quit) are centralised here. Kept in a dedicated setup package (not mixed with tests).
 - **Page objects**: Take `WebDriver` in the constructor and use `SeleniumUtils` for waits, clicks, and typing.
 - **Driver**: Chrome only via `DriverManager`. ChromeDriver must be on PATH (or set `webdriver.chrome.driver`); CI uses Chrome for Testing for a matching Chrome/ChromeDriver pair.
 

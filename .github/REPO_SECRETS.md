@@ -4,6 +4,22 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 
 ---
 
+## Repo secrets checklist (what to add)
+
+| Secret name        | What to put | Your scenario |
+|--------------------|-------------|----------------|
+| **APP_BASE_URL**   | Base URL of the app under test (no trailing slash). | e.g. `https://www.globalsqa.com/angularJs-protractor/BankingProject` |
+| **SLACK_WEBHOOK_URL** | Slack Incoming Webhook URL. | From Slack → Incoming Webhooks (optional if you don’t use Slack). |
+| **SMTP_SERVER**    | Gmail SMTP host. | `smtp.gmail.com` |
+| **SMTP_PORT**      | Gmail SMTP port. | `587` |
+| **SMTP_USERNAME**  | Sender (sender email = “from” address). | `yoshninjas.1@gmail.com` |
+| **SMTP_PASSWORD**  | Gmail **App Password** (not your normal password). | 16‑char app password for yoshninjas.1@gmail.com |
+| **EMAIL_TO**       | Recipient(s) for the test report email. | `sboakye1796@gmail.com` |
+
+**To enable email:** In **Variables** tab add **SEND_EMAIL** = `true`, or in **Secrets** add **SEND_EMAIL** = `true`. Then emails send from **yoshninjas.1@gmail.com** to **sboakye1796@gmail.com**.
+
+---
+
 ## Required secrets
 
 | Secret name | Description | Example / How to get |
@@ -20,14 +36,14 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 
 ## Enabling email reports
 
-Email is **optional**. To avoid the error *"At least one of 'to', 'cc' or 'bcc' must be specified"*, the workflow only sends email when you explicitly enable it:
+Email is **optional**. The workflow only sends email when you enable it and set a recipient:
 
-1. In **GitHub** → **Settings** → **Secrets and variables** → **Actions** → **Variables** tab, add a variable:
-   - **Name:** `SEND_EMAIL`
-   - **Value:** `true`
-2. Ensure the **Secrets** tab has **EMAIL_TO** set to the recipient(s) (e.g. `you@gmail.com`).
+1. **Enable sending:** Set `SEND_EMAIL` to `true` in **one** of these places (not both needed):
+   - **Variables** tab: **Name** `SEND_EMAIL`, **Value** `true` (recommended for non-sensitive flags), or
+   - **Secrets** tab: **Name** `SEND_EMAIL`, **Value** `true`
+2. **Recipient:** In **Secrets** tab, set **EMAIL_TO** to the recipient(s), e.g. `you@gmail.com` (comma-separated for multiple).
 
-If `SEND_EMAIL` is not set or not `true`, the email step is skipped and no email secret is required.
+If `SEND_EMAIL` is not `true` (as variable or secret) or **EMAIL_TO** is empty, the email step is skipped.
 
 ---
 
