@@ -27,7 +27,7 @@ jobs:
           cache: maven
 
       - name: Print target URL
-        run: echo "Testing URL: ${{ secrets.APP_BASE_URL }}"
+        run: 'echo "Testing URL: ${{ secrets.APP_BASE_URL }}"'
 
       - name: Install Chrome and ChromeDriver (matching versions)
         run: |
@@ -241,12 +241,12 @@ jobs:
         if: always()
         run: |
           mkdir -p allure-report-with-history
-          if [ -d "target/site/allure-maven-plugin" ]; then
-            cp -r target/site/allure-maven-plugin/* allure-report-with-history/
-            [ -d "target/site/allure-maven-plugin/history" ] && cp -r target/site/allure-maven-plugin/history allure-report-with-history/
-          elif [ -d "target/allure-report" ]; then
+          if [ -d "target/allure-report" ]; then
             cp -r target/allure-report/* allure-report-with-history/
             [ -d "target/allure-report/history" ] && cp -r target/allure-report/history allure-report-with-history/
+          elif [ -d "target/site/allure-maven-plugin" ]; then
+            cp -r target/site/allure-maven-plugin/* allure-report-with-history/
+            [ -d "target/site/allure-maven-plugin/history" ] && cp -r target/site/allure-maven-plugin/history allure-report-with-history/
           else
             echo "::error::No Allure report directory found."
             exit 1

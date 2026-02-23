@@ -69,11 +69,18 @@ src/test/java/org/example/
 mvn clean test
 ```
 
-Allure report (local):
+### Allure report (local)
 
-```bash
-mvn allure:serve
-```
+Reports are generated into `target/allure-report`. To view:
+
+1. **Serve (opens in browser):**  
+   ```bash
+   mvn allure:serve
+   ```  
+   Runs a local server and opens the report. Run after `mvn test` so `target/allure-results` exists.
+
+2. **Or open the report file:**  
+   After `mvn test` (or `mvn allure:report`), open `target/allure-report/index.html` in your browser.
 
 ### Allure report on GitHub Pages (CI)
 
