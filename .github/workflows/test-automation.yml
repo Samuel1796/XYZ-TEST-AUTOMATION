@@ -83,7 +83,6 @@ jobs:
               if error is not None:
                 msg = (error.attrib.get("message") or "").strip()
                 failed_tests.append((name, "ERROR", msg))
-
           passed = total - failed - errors - skipped
           status_icon = "✅" if (failed == 0 and errors == 0) else "❌"
 
