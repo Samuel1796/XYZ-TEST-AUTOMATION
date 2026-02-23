@@ -1,109 +1,312 @@
-name: XYZ Bank Test Automation CI/CD
+name: CI - Selenium UI Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - master
   pull_request:
-    branches: [ main, develop ]
-  schedule:
-    - cron: '0 2 * * *'  # Daily run at 2 AM
-
-env:
-  MAVEN_VERSION: 3.8.1
-  JAVA_VERSION: 17
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
-  test:
+  ui-tests-xyz-bank:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        java-version: [17]
+    permissions:
+      contents: write
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Set up JDK ${{ matrix.java-version }}
-      uses: actions/setup-java@v3
-      with:
-        java-version: ${{ matrix.java-version }}
-        distribution: 'temurin'
-        cache: maven
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
 
-    - name: Run tests with Maven (Headless Mode)
-      run: |
-        mvn clean test \
-          -Dbrowser=chrome \
-          -Dheadless.mode=true \
-          -Dwindow.maximize=true
-      env:
-        MAVEN_OPTS: -Xmx1024m -Xms512m
+      - name: Print target URL
+        run: |
+          echo "Testing URL: ${{ secrets.APP_BASE_URL }}"
 
-    - name: Generate Allure Report
-      if: always()
-      run: mvn allure:report
+      - name: Install Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
 
-    - name: Upload Allure Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-results
-        path: target/allure-results
-        retention-days: 30
+      - name: Run Selenium tests
+        run: |
+          mvn -B -e test \
+            -Dheadless.mode=true \
+            -Dbase.url=${{ secrets.APP_BASE_URL }} \
+            -DtrimStackTrace=false
 
-    - name: Upload Allure Report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-report
-        path: target/allure-report
-        retention-days: 30
+      # Human-friendly summary in GitHub Actions logs (non-technical)
+      # NOTE: This step will show ❌ if there are failures/errors (by exiting 1),
+      # but it still prints the readable summary first.
+      - name: Test summary (Readable logs)
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import glob, xml.etree.ElementTree as ET, sys, re
 
-    - name: Publish Allure Report to GitHub Pages
-      if: always()
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: target/allure-report
-        destination_dir: allure-report
+          files = glob.glob("target/surefire-reports/TEST-*.xml")
+          total = failed = errors = skipped = 0
+          failed_tests = []
 
-    - name: Comment PR with Test Results
-      if: always() && github.event_name == 'pull_request'
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: '✅ Test Automation Pipeline Completed\n\n📊 Allure Report: Check the Artifacts section'
-          })
+          if not files:
+            print("❌ No Surefire XML reports found in target/surefire-reports.")
+            print("This usually means tests did not run, or Maven failed before producing reports.")
+            sys.exit(1)
 
-    - name: Upload Screenshots on Failure
-      if: failure()
-      uses: actions/upload-artifact@v3
-      with:
-        name: screenshots
-        path: screenshots/
-        retention-days: 7
+          for f in files:
+            root = ET.parse(f).getroot()
+            total += int(root.attrib.get("tests", 0))
+            failed += int(root.attrib.get("failures", 0))
+            errors += int(root.attrib.get("errors", 0))
+            skipped += int(root.attrib.get("skipped", 0))
 
-  sonar:
-    runs-on: ubuntu-latest
-    needs: test
+            for tc in root.findall("testcase"):
+              name = tc.attrib.get("name", "unknown")
+              failure = tc.find("failure")
+              error = tc.find("error")
 
-    steps:
-    - uses: actions/checkout@v3
+              if failure is not None:
+                msg = (failure.attrib.get("message") or "").strip()
+                failed_tests.append((name, "FAIL", msg))
+              if error is not None:
+                msg = (error.attrib.get("message") or "").strip()
+                failed_tests.append((name, "ERROR", msg))
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: 17
-        distribution: 'temurin'
-        cache: maven
+          passed = total - failed - errors - skipped
+          status_icon = "✅" if (failed == 0 and errors == 0) else "❌"
 
-    - name: SonarCloud Scan
-      run: mvn clean verify sonar:sonar -Dsonar.projectKey=QAM06_XYZ_TEST_AUTOMATION
-      env:
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
+          print("==================================")
+          print(f"SELENIUM UI TEST SUMMARY (Readable) {status_icon}")
+          print("==================================")
+          print(f"Total tests : {total}")
+          print(f"Passed      : {passed}")
+          print(f"Failed      : {failed}")
+          print(f"Errors      : {errors}")
+          print(f"Skipped     : {skipped}")
+          print("")
+          print("What failed and why")
+          print("-------------------")
 
+          if not failed_tests:
+            print("- None (all tests passed ✅)")
+          else:
+            for (name, kind, msg) in failed_tests:
+              icon = "❌" if kind == "FAIL" else "⚠️"
+              
+              # Clean up message for "reasons"
+              clean_msg = msg.replace("failures)", "reasons)")
+              # Strip exception class names for cleaner output
+              clean_msg = re.sub(r'org\.opentest4j\.AssertionFailedError: ', '', clean_msg)
+              
+              lines = clean_msg.splitlines()
+              short = "\n".join(lines[:6])
+              if len(lines) > 6: short += "\n  ..."
+              
+              formatted_reason = short.replace("\n", "\n  ")
+              print(f"- {name} ({icon} {kind})")
+              print(f"  Reason: {formatted_reason}")
+
+          print("==================================")
+
+          # Make this STEP show ❌ when tests failed
+          if failed > 0 or errors > 0:
+            sys.exit(1)
+          PY
+
+      # Build Slack payload:
+      # - totals (total, passed, failed, errors, skipped)
+      # - ONLY failed/error tests listed with plain reasons
+      - name: Build Slack payload (only failed tests + totals)
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import glob, json, xml.etree.ElementTree as ET, os, re
+
+          files = glob.glob("target/surefire-reports/TEST-*.xml")
+
+          total = failed = errors = skipped = 0
+          failed_items = []  # (name, kind, reason)
+
+          repo = os.environ.get("GITHUB_REPOSITORY", "")
+          branch = os.environ.get("GITHUB_REF_NAME", "")
+          run_url = f"{os.environ.get('GITHUB_SERVER_URL')}/{repo}/actions/runs/{os.environ.get('GITHUB_RUN_ID')}"
+
+          if not files:
+            text = (
+              "*Selenium UI Tests: FAIL ❌*\n"
+              "I could not find test reports. This usually means tests did not run or the build stopped early.\n\n"
+              f"Repo: `{repo}` | Branch: `{branch}`\n"
+              f"Run details: {run_url}"
+            )
+            with open("slack_payload.json", "w", encoding="utf-8") as f:
+              json.dump({"text": text}, f)
+            raise SystemExit(0)
+
+          for fpath in files:
+            root = ET.parse(fpath).getroot()
+            total += int(root.attrib.get("tests", 0))
+            failed += int(root.attrib.get("failures", 0))
+            errors += int(root.attrib.get("errors", 0))
+            skipped += int(root.attrib.get("skipped", 0))
+
+            for tc in root.findall("testcase"):
+              name = tc.attrib.get("name", "unknown")
+              failure = tc.find("failure")
+              error = tc.find("error")
+
+              if failure is not None:
+                msg = (failure.attrib.get("message") or "").strip()
+                
+                # Replace "failures)" with "reasons)"
+                clean_msg = msg.replace("failures)", "reasons)")
+                # Remove class names for cleaner output
+                clean_msg = re.sub(r'org\.opentest4j\.AssertionFailedError: ', '', clean_msg)
+                
+                lines = clean_msg.splitlines()
+                short = "\n".join(lines[:6])
+                if len(lines) > 6: short += "\n..."
+                failed_items.append((name, "FAILED", short))
+
+              if error is not None:
+                msg = (error.attrib.get("message") or "").strip()
+                
+                # Clean up error messages too
+                clean_msg = msg.replace("failures)", "reasons)")
+                clean_msg = re.sub(r'org\.opentest4j\.AssertionFailedError: ', '', clean_msg)
+                
+                lines = clean_msg.splitlines()
+                short = "\n".join(lines[:6])
+                if len(lines) > 6: short += "\n..."
+                failed_items.append((name, "ERROR", short))
+
+          passed = total - failed - errors - skipped
+          status = "PASS ✅" if (failed == 0 and errors == 0) else "FAIL ❌"
+
+          lines = []
+          lines.append(f"*Selenium UI Tests: {status}*")
+          lines.append(f"Total: *{total}* | Passed: *{passed}* | Failed: *{failed}* | Errors: *{errors}* | Skipped: *{skipped}*")
+          lines.append("")
+
+          if failed_items:
+            lines.append("*Failed test(s) and why:*")
+            MAX_SHOW = 12
+            for (name, kind, reason) in failed_items[:MAX_SHOW]:
+              lines.append(f"• *{name}*")
+              lines.append(f"  {reason}") 
+            if len(failed_items) > MAX_SHOW:
+              lines.append(f"• …and {len(failed_items) - MAX_SHOW} more failed/error tests (see run for full list)")
+          else:
+            lines.append("✅ No failed tests.")
+
+          lines.append("")
+          lines.append(f"Repo: `{repo}` | Branch: `{branch}`")
+          lines.append(f"Run details: {run_url}")
+
+          with open("slack_payload.json", "w", encoding="utf-8") as f:
+            json.dump({"text": "\n".join(lines)}, f)
+
+          # Also write a plain text version to reuse for email
+          with open("email_body.txt", "w", encoding="utf-8") as f:
+            f.write("\n".join([
+              f"Selenium UI Tests: {status}",
+              f"Total: {total} | Passed: {passed} | Failed: {failed} | Errors: {errors} | Skipped: {skipped}",
+              "",
+              "Failed test(s) and why:" if failed_items else "Failed test(s) and why: None",
+              *([f"- {name}:\n{reason}" for (name, _, reason) in failed_items[:12]] if failed_items else []),
+              "",
+              f"Repo: {repo} | Branch: {branch}",
+              f"Run details: {run_url}"
+            ]))
+          PY
+
+      - name: Notify Slack (only failed tests + totals)
+        if: always()
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload-file-path: slack_payload.json
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      # Send Email (same content as Slack, plain-English)
+      - name: Send Email report (only failed tests + totals)
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: Selenium UI Tests - ${{ job.status == 'success' && 'PASS ✅' || 'FAIL ❌' }} - ${{ github.repository }} - ${{ github.ref_name }}
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.SMTP_USERNAME }}
+          secure: false
+          body: file://email_body.txt
+
+      # Technical reports for evidence (prints only when failing)
+      - name: Print Surefire reports (on failure)
+        if: failure()
+        run: |
+          echo "=== Surefire Reports Directory ==="
+          ls -la target/surefire-reports || true
+
+          echo "=== Dumping Surefire .txt reports (test failures/errors) ==="
+          for f in target/surefire-reports/*.txt; do
+            if [ -f "$f" ]; then
+              echo "----- $f -----"
+              cat "$f"
+              echo
+            fi
+          done
+
+      - name: Upload Surefire test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/**
+
+      - name: Load test report history
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+        continue-on-error: true
+
+      - name: Copy history to allure-results
+        if: always()
+        run: |
+          mkdir -p target/allure-results/history
+          if [ -d "gh-pages/history" ]; then cp -r gh-pages/history/* target/allure-results/history/ || true; fi
+
+      - name: Build Allure Report
+        if: always()
+        run: mvn allure:report
+
+      - name: Prepare History for Next Run
+        if: always()
+        run: |
+          mkdir -p allure-report-with-history
+          if [ -d "target/site/allure-maven-plugin" ]; then
+            cp -r target/site/allure-maven-plugin/* allure-report-with-history/
+            cp -r target/site/allure-maven-plugin/history allure-report-with-history/ 2>/dev/null || true
+          elif [ -d "target/allure-report" ]; then
+            cp -r target/allure-report/* allure-report-with-history/
+            cp -r target/allure-report/history allure-report-with-history/ 2>/dev/null || true
+          else
+            echo "No Allure report directory found (tried site/allure-maven-plugin and allure-report)"
+            exit 1
+          fi
+
+      - name: Publish Allure Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report-with-history

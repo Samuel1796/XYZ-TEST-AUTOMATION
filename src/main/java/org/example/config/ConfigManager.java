@@ -55,11 +55,16 @@ public class ConfigManager {
     }
 
     /**
-     * Gets base URL for the application
+     * Gets base URL for the application.
+     * System property {@code base.url} overrides config (e.g. CI: -Dbase.url=...).
      *
      * @return the base URL
      */
     public static String getBaseUrl() {
+        String fromSystem = System.getProperty("base.url");
+        if (fromSystem != null && !fromSystem.isEmpty()) {
+            return fromSystem;
+        }
         return getProperty("base.url");
     }
 
