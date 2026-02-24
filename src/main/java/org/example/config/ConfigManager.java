@@ -4,13 +4,15 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Configuration manager to load properties from config.properties (classpath).
- * Provides centralized access to configuration values used throughout the test framework.
+ * Central configuration for the test framework. Loads {@code config.properties} from the classpath
+ * once at startup. System properties (e.g. {@code -Dbase.url=...}, {@code -Dheadless.mode=true})
+ * override config file values, which is used in CI to inject URL and headless mode without changing code.
  */
 public class ConfigManager {
 
     private static final Properties properties = new Properties();
 
+    /** Load config from classpath; fails fast if file is missing or unreadable. */
     static {
         try (InputStream in = ConfigManager.class.getResourceAsStream("/config.properties")) {
             if (in == null) {
@@ -45,7 +47,8 @@ public class ConfigManager {
 
     /**
      * Gets base URL for the application.
-     * System property {@code base.url} overrides config (e.g. CI: -Dbase.url=...).
+     * System property {@code base.url} overrides config file (e.g. CI: -Dbase.url=...).
+     * Otherwise uses {@code base.url} from config.properties.
      *
      * @return the base URL
      */
@@ -54,7 +57,7 @@ public class ConfigManager {
         if (fromSystem != null && !fromSystem.isEmpty()) {
             return fromSystem;
         }
-        return getProperty("base.url", "https://www.globalsqa.com/angularJs-protractor/BankingProject");
+        return getProperty("base.url");
     }
 
     /**
@@ -108,21 +111,18 @@ public class ConfigManager {
     }
 
     /**
-     * Checks if screenshots should be taken on test failure
+     * Gets the Selenium Grid / standalone remote WebDriver URL when running tests in Docker.
+     * System property {@code selenium.remote.url} overrides config.
+     * When null or empty, tests use a local ChromeDriver.
      *
-     * @return true if screenshots should be taken on failure
+     * @return remote URL (e.g. http://localhost:4444/wd/hub) or null/empty for local
      */
-    public static boolean takeScreenshotOnFailure() {
-        return Boolean.parseBoolean(getProperty("screenshot.on.failure", "true"));
-    }
-
-    /**
-     * Gets screenshot directory path
-     *
-     * @return screenshot directory path
-     */
-    public static String getScreenshotPath() {
-        return getProperty("screenshot.path", "screenshots");
+    public static String getSeleniumRemoteUrl() {
+        String fromSystem = System.getProperty("selenium.remote.url");
+        if (fromSystem != null && !fromSystem.isEmpty()) {
+            return fromSystem;
+        }
+        return getProperty("selenium.remote.url", "");
     }
 }
 

@@ -1,61 +1,61 @@
 package org.example.driver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.config.ConfigManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.time.Duration;
 
 /**
- * Manages ChromeDriver creation, configuration, and quit.
- * Uses ChromeDriver (must be on PATH or set webdriver.chrome.driver).
+ * Creates and quits the Chrome WebDriver for UI tests. Headless when env HEADLESS or CI is set,
+ * or when {@code -Dheadless.mode=true}. Supports remote driver when {@link ConfigManager#getSeleniumRemoteUrl()} is set.
  */
 public class DriverManager {
 
+    private static final Logger logger = LogManager.getLogger(DriverManager.class);
+
     /**
-     * Creates and configures a Chrome WebDriver instance.
+     * Creates a new Chrome WebDriver. Call {@link #quitDriver(WebDriver)} when done.
      */
     public static WebDriver createDriver() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--disable-dev-shm-usage", "--no-sandbox", "--disable-gpu");
+        boolean headless = Boolean.parseBoolean(
+                System.getenv().getOrDefault("HEADLESS",
+                        System.getenv().getOrDefault("CI", "false")))
+                || ConfigManager.isHeadlessMode();
 
-        if (ConfigManager.isHeadlessMode()) {
+        ChromeOptions options = new ChromeOptions();
+        if (headless) {
+            logger.info("Running Chrome in headless mode (CI/headless environment detected).");
             options.addArguments("--headless=new");
-            options.addArguments("--disable-software-rasterizer", "--disable-extensions");
-            options.addArguments("--disable-background-networking", "--disable-default-apps", "--disable-sync");
-            options.addArguments("--no-first-run", "--disable-setuid-sandbox", "--remote-debugging-port=0");
-            String chromeBin = System.getenv("CHROME_BIN");
-            if (chromeBin == null && isLinux()) {
-                chromeBin = "/usr/bin/google-chrome";
-            }
-            if (chromeBin != null && !chromeBin.isEmpty()) {
-                options.setBinary(chromeBin);
-            }
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+        } else {
+            logger.info("Running Chrome in headed mode.");
         }
 
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver;
+        driver = new ChromeDriver(options);
+
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigManager.getImplicitWait()));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigManager.getPageLoadTimeout()));
-        if (!ConfigManager.isHeadlessMode() && ConfigManager.shouldMaximizeWindow()) {
+        if (!headless && ConfigManager.shouldMaximizeWindow()) {
             driver.manage().window().maximize();
         }
         return driver;
     }
 
-    /**
-     * Quits the given driver.
-     */
+    /** Quits the driver; no-op if null. */
     public static void quitDriver(WebDriver driver) {
         if (driver != null) {
             driver.quit();
         }
-    }
-
-    private static boolean isLinux() {
-        String os = System.getProperty("os.name", "").toLowerCase();
-        return os.contains("linux");
     }
 }

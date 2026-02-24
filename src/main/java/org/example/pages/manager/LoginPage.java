@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 /**
- * Login page for XYZ Bank.
- * #/login – Home, Customer Login, Bank Manager Login.
- * #/customer – Customer dropdown (userSelect) and Login button (after clicking Customer Login).
+ * Page object for the XYZ Bank login flow. Covers two views: (1) Home (#/login) with Customer Login and
+ * Bank Manager Login buttons; (2) Customer selection (#/customer) with dropdown {@code userSelect} and Login button.
+ * Manager login goes directly to manager home after clicking Bank Manager Login.
  */
 public class LoginPage {
 
@@ -28,9 +28,6 @@ public class LoginPage {
     @FindBy(xpath = "//button[contains(text(),'Bank Manager Login')]")
     private WebElement managerLoginButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Home')]")
-    private WebElement homeButton;
-
     // --- #/customer (after Customer Login clicked) ---
     @FindBy(id = "userSelect")
     private WebElement userSelect;
@@ -38,11 +35,17 @@ public class LoginPage {
     @FindBy(xpath = "//button[normalize-space(text())='Login']")
     private WebElement loginButton;
 
+    /**
+     * Creates the page object and initializes PageFactory elements for the current driver.
+     *
+     * @param driver the WebDriver instance (must be on the app base URL)
+     */
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    /** Clicks Customer Login and waits until URL contains #/customer (dropdown page). */
     @Step("Select Customer user type (navigates to #/customer)")
     public LoginPage selectCustomerUserType() {
         SeleniumUtils.waitAndClick(driver, customerLoginButton);
@@ -70,6 +73,7 @@ public class LoginPage {
         return this;
     }
 
+    /** Full customer login: select Customer Login → choose customer from dropdown → click Login. Lands on #/account. */
     @Step("Login as customer: {customerName}")
     public LoginPage loginAsCustomer(String customerName) {
         selectCustomerUserType();
@@ -78,24 +82,19 @@ public class LoginPage {
         return this;
     }
 
+    /** Clicks Bank Manager Login and waits for manager home (#/manager). No customer selection. */
     @Step("Login as manager")
     public LoginPage loginAsManager() {
         selectManagerUserType();
         return this;
     }
 
+    /** Returns true if the given display name (e.g. "First Last") appears in the customer dropdown on #/customer. */
     @Step("Check if customer is in dropdown: {customerName}")
     public boolean isCustomerInDropdown(String customerName) {
         SeleniumUtils.waitUntilVisible(driver, userSelect);
         List<WebElement> options = userSelect.findElements(By.tagName("option"));
         return options.stream()
                 .anyMatch(option -> option.getText().trim().equals(customerName));
-    }
-
-    @Step("Click Home button (back to #/login)")
-    public LoginPage clickHomeButton() {
-        SeleniumUtils.waitAndClick(driver, homeButton);
-        SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
-        return this;
     }
 }

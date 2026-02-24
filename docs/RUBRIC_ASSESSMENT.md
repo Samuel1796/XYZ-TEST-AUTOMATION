@@ -26,14 +26,14 @@ This document critiques the project and assigns scores using the provided rubric
 
 ### Test structure
 
-- **Base test:** `BaseTest` in `org.example.setup`; single place for driver creation, navigation, tearDown, failure handling (screenshot + error attachment), and Allure env/executor write.
+- **Base test:** `BaseTest` in `org.example.setup`; single place for driver creation, navigation, tearDown, failure handling (error overview attachment to Allure), and Allure env/executor write.
 - **Test classes:** `ManagerTest` and `CustomerTest` extend `BaseTest`; nested by acceptance criteria; consistent use of `@DisplayName`, `@Story`, `@Tag`, `@Severity`.
 - **Verdict:** Consistent, maintainable test structure. **Full marks.**
 
 ### Test data
 
 - **TestDataGenerator:** Centralized utility using JavaFaker and Random for customer names (valid/invalid), postal codes (valid/invalid), and amounts (deposit, withdrawal, zero, negative, large). No hardcoded credentials; data generated per test.
-- **Config:** `config.properties` for environment (base URL, timeouts, headless, screenshots); overridable via system properties in CI.
+- **Config:** `config.properties` for environment (base URL, timeouts, headless); overridable via system properties in CI.
 - **Verdict:** Test data is managed in one place and is CI-friendly. **Full marks.**
 
 ### GitHub Actions CI pipeline
@@ -79,7 +79,7 @@ This document critiques the project and assigns scores using the provided rubric
 
 - **Allure integration:** `allure-junit5` and `allure-java-commons` in POM; Surefire configured with `allure.results.directory`; allure-maven plugin with `resultsDirectory` and `reportDirectory`; report generated in `test` phase and on demand via `mvn allure:report` / `mvn allure:serve`.
 - **Results:** Tests write Allure results to `target/allure-results`; categories, environment, and executor are present (categories.json copied; environment and executor written at runtime by `AllureReportWriter` with app URL, Java, OS, headless, build name/URL/report URL in CI).
-- **Report content:** Suites, test names, status, steps (Allure `@Step` on page and utils), failure details, attachments (error overview, failure screenshot), categories, environment, executor.
+- **Report content:** Suites, test names, status, steps (Allure `@Step` on page and utils), failure details, attachments (error overview), categories, environment, executor.
 - **Local:** Report generated to `target/allure-report`; view via `mvn allure:serve` or by opening `index.html`.
 - **CI:** Report built after tests, prepared for GitHub Pages (history, base-path patch for repo subpath), published to `gh-pages`; executor includes link to run and link to published report URL.
 - **Verdict:** Allure is correctly set up, reports are generated and published, and include the expected widgets and metadata. **Full marks.**

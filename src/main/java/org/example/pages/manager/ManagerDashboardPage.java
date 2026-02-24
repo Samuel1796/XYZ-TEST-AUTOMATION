@@ -15,7 +15,10 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 /**
- * Manager area: Add Customer (#/manager/addCust), Open Account (#/manager/openAccount), Customers list (#/manager/list).
+ * Page object for the Bank Manager area. Covers three views: Add Customer (#/manager/addCust) – first name, last name,
+ * postal code and submit; Open Account (#/manager/openAccount) – customer dropdown, currency dropdown, Process;
+ * Customers list (#/manager/list) – table of customers with Delete buttons. Navigation buttons (Add Customer, Open Account,
+ * Customers, Home) are visible on all manager views.
  */
 public class ManagerDashboardPage {
 
@@ -34,9 +37,6 @@ public class ManagerDashboardPage {
     @FindBy(xpath = "//button[contains(text(),'Home')]")
     private WebElement homeButton;
 
-    @FindBy(css = "div.center strong")
-    private WebElement dashboardTitle;
-
     // --- #/manager/addCust (Add Customer form) ---
     @FindBy(xpath = "//input[@ng-model='fName']")
     private WebElement firstNameInput;
@@ -51,8 +51,7 @@ public class ManagerDashboardPage {
     private WebElement addCustomerSubmit;
 
     // --- #/manager/openAccount (Open Account form) ---
-    @FindBy(xpath = "//select[@id='currency']/preceding::select[1]")
-    private WebElement customerSelectOpenAccount;
+    private static final By CUSTOMER_SELECT_OPEN_ACCOUNT_BY = By.xpath("//select[@id='currency']/preceding::select[1]");
 
     @FindBy(id = "currency")
     private WebElement currencySelect;
@@ -65,18 +64,13 @@ public class ManagerDashboardPage {
     private WebElement errorMessage;
 
     /**
-     * By locator kept for waitForDropdownToContainOption (needs By)
+     * Creates the page object and initializes PageFactory locators.
+     *
+     * @param driver the WebDriver instance (expected on a manager view or base URL)
      */
-    private static final By CUSTOMER_SELECT_OPEN_ACCOUNT_BY = By.xpath("//select[@id='currency']/preceding::select[1]");
-
     public ManagerDashboardPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-    }
-
-    @Step("Verify manager dashboard is displayed")
-    public boolean isDashboardDisplayed() {
-        return SeleniumUtils.isElementDisplayed(dashboardTitle);
     }
 
     @Step("Click Add Customer (navigate to #/manager/addCust)")
@@ -99,10 +93,10 @@ public class ManagerDashboardPage {
         return this;
     }
 
+    /** Clicks Add Customer submit, accepts alert. Use when success message is not needed. */
     @Step("Submit Add Customer form")
     public ManagerDashboardPage submitCustomerForm() {
-        SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
-        SeleniumUtils.acceptAlert(driver);
+        submitAddCustomerFormAndAcceptAlert();
         return this;
     }
 
@@ -112,6 +106,10 @@ public class ManagerDashboardPage {
      */
     @Step("Submit Add Customer form and get alert message")
     public String submitCustomerFormAndGetAlertMessage() {
+        return submitAddCustomerFormAndAcceptAlert();
+    }
+
+    private String submitAddCustomerFormAndAcceptAlert() {
         SeleniumUtils.waitAndClick(driver, addCustomerSubmit);
         String alertText = SeleniumUtils.getAlertText(driver);
         SeleniumUtils.acceptAlert(driver);
@@ -127,16 +125,6 @@ public class ManagerDashboardPage {
                 .enterCustomerName(customerName)
                 .enterPostalCode(postalCode);
         return submitCustomerFormAndGetAlertMessage();
-    }
-
-    @Step("Verify still on Add Customer page (#/manager/addCust)")
-    public boolean isOnAddCustomerPage() {
-        return driver.getCurrentUrl().contains(AppUrls.MANAGER_ADD_CUSTOMER);
-    }
-
-    @Step("Verify on Customers list page (#/manager/list)")
-    public boolean isOnCustomersListPage() {
-        return driver.getCurrentUrl().contains(AppUrls.MANAGER_CUSTOMERS_LIST);
     }
 
     @Step("Add customer: {customerName} with postal code: {postalCode}")
@@ -158,8 +146,8 @@ public class ManagerDashboardPage {
     @Step("Select customer for account: {customerName}")
     public ManagerDashboardPage selectCustomerForAccount(String customerName) {
         SeleniumUtils.waitForDropdownToContainOption(driver, CUSTOMER_SELECT_OPEN_ACCOUNT_BY, customerName);
-        SeleniumUtils.waitUntilClickable(driver, customerSelectOpenAccount);
-        new Select(customerSelectOpenAccount).selectByVisibleText(customerName);
+        WebElement selectEl = SeleniumUtils.waitForElementToBeVisible(driver, CUSTOMER_SELECT_OPEN_ACCOUNT_BY);
+        new Select(selectEl).selectByVisibleText(customerName);
         return this;
     }
 
@@ -178,11 +166,7 @@ public class ManagerDashboardPage {
 
     @Step("Create account for customer: {customerName} with currency: {currency}")
     public ManagerDashboardPage createAccount(String customerName, String currency) {
-        clickOpenAccountButton()
-                .selectCustomerForAccount(customerName)
-                .selectCurrency(currency)
-                .clickProcessButton();
-        SeleniumUtils.acceptAlert(driver);
+        createAccountAndGetAlertMessage(customerName, currency);
         return this;
     }
 
@@ -217,6 +201,14 @@ public class ManagerDashboardPage {
         return this;
     }
 
+    /**
+     * Finds the customer row in the Customers table by matching display name (first cell + " " + second cell),
+     * scrolls the row into view (so Delete is visible in viewport), then clicks the row's Delete button.
+     *
+     * @param customerName display name as shown in table (e.g. "FirstName LastName")
+     * @return this for chaining
+     * @throws NoSuchElementException if no row matches the name
+     */
     @Step("Scroll to customer and delete: {customerName}")
     public ManagerDashboardPage scrollToCustomerAndDelete(String customerName) {
         WebElement customersTable = SeleniumUtils.waitForElementToBeVisible(driver, By.cssSelector("table.table"));
@@ -237,6 +229,7 @@ public class ManagerDashboardPage {
         throw new NoSuchElementException("Customer row not found for: " + customerName);
     }
 
+    /** Returns true if any table cell contains the given customer name (used after delete to confirm removal). */
     @Step("Check if customer exists: {customerName}")
     public boolean customerExists(String customerName) {
         By row = By.xpath("//td[contains(text(),'" + customerName + "')]");

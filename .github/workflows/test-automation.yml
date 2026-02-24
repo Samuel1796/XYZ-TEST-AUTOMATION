@@ -1,3 +1,5 @@
+# CI pipeline for XYZ Bank Selenium UI tests: run on push to master or manual dispatch.
+# Produces Allure report, publishes to GitHub Pages, optionally sends email (when SEND_EMAIL variable is true).
 name: CI - Selenium UI Tests
 
 on:
@@ -10,9 +12,10 @@ jobs:
   ui-tests-xyz-bank:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write  # Required for peaceiris/actions-gh-pages to push to gh-pages
 
     steps:
+      # --- Source and environment ---
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -23,9 +26,11 @@ jobs:
           java-version: "17"
           cache: maven
 
+      # Log the app URL under test (value comes from repo secret APP_BASE_URL)
       - name: Print target URL
         run: 'echo "Testing URL: ${{ secrets.APP_BASE_URL }}"'
 
+      # Download Chrome and ChromeDriver of the same version so Selenium works; set CHROME_BIN for headless
       - name: Install Chrome and ChromeDriver (matching versions)
         run: |
           set -e
@@ -46,6 +51,7 @@ jobs:
           /opt/chrome-for-testing/chrome --version
           chromedriver --version
 
+      # Run all tests; pass base URL and Allure executor props so report shows CI build and link to GitHub Pages
       - name: Run Selenium tests
         env:
           CHROME_BIN: ${{ env.CHROME_BIN }}
@@ -59,6 +65,7 @@ jobs:
             -Dallure.executor.buildName="CI #${{ github.run_number }} ${{ github.ref_name }}" \
             -Dallure.executor.buildOrder=${{ github.run_number }}
 
+      # Parse Surefire XML and print human-readable summary; exit 1 if any failures/errors (so job fails)
       - name: Test summary (Readable logs)
         if: always()
         run: |
@@ -103,6 +110,7 @@ jobs:
             sys.exit(1)
           PY
 
+      # Build slack_payload.json and email_body.txt from same Surefire data for notifications
       - name: Build Slack payload and email body
         if: always()
         run: |
@@ -161,6 +169,7 @@ jobs:
             f.write("\n".join(email_lines))
           PY
 
+      # Optional: send to Slack if SLACK_WEBHOOK_URL secret is set; continue-on-error so missing secret does not fail job
       - name: Notify Slack
         if: always()
         continue-on-error: true
@@ -170,6 +179,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
+      # Send email only when repo variable SEND_EMAIL is 'true' (vars.* used because secrets cannot be used in 'if')
       - name: Send Email report
         if: always() && vars.SEND_EMAIL == 'true'
         uses: dawidd6/action-send-mail@v3
@@ -184,12 +194,14 @@ jobs:
           secure: false
           body: file://email_body.txt
 
+      # Debug: list and print Surefire .txt outputs when the test step failed
       - name: Print Surefire reports (on failure)
         if: failure()
         run: |
           ls -la target/surefire-reports || true
-          for f in target/surefire-reports/*.txt; do [ -f "$f" ] && cat "$f"; done
+          for f in target/surefire-reports/*.txt; do [ -f "$f" ] && cat "$f";           done
 
+      # Persist Surefire artifacts for download from Actions run
       - name: Upload Surefire test reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -197,14 +209,16 @@ jobs:
           name: surefire-reports
           path: target/surefire-reports/
 
+      # Checkout gh-pages into gh-pages/ to copy existing Allure history (trends, history widget)
       - name: Load test report history
         if: always()
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
-        continue-on-error: true
+        continue-on-error: true  # First run or if gh-pages does not exist yet
 
+      # Merge previous report's history into this run's results so the new report shows trends
       - name: Copy history to allure-results
         if: always()
         run: |
@@ -213,6 +227,7 @@ jobs:
             cp -r gh-pages/history/* target/allure-results/history/ 2>/dev/null || true
           fi
 
+      # Fail fast if no Allure result/container JSON (e.g. tests did not run or Surefire misconfigured)
       - name: Verify Allure results before building report
         if: always()
         run: |
@@ -230,10 +245,12 @@ jobs:
           fi
           echo "Allure results: $N file(s)."
 
+      # Generate the HTML report from target/allure-results (includes history we copied)
       - name: Build Allure Report
         if: always()
         run: mvn allure:report
 
+      # Copy report from target/allure-report or target/site/allure-maven-plugin into a single dir for publishing
       - name: Prepare report for GitHub Pages
         if: always()
         run: |
@@ -249,6 +266,7 @@ jobs:
             exit 1
           fi
 
+      # Rewrite report assets so they work when served at https://<owner>.github.io/<repo>/ (add base href and path prefix)
       - name: Patch Allure report for GitHub Pages subpath
         if: always()
         run: |
@@ -269,6 +287,7 @@ jobs:
           done
           echo "Patched for base path /$REPO_NAME/"
 
+      # Push allure-report-with-history to gh-pages branch; GitHub serves it at <owner>.github.io/<repo>/
       - name: Publish Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3

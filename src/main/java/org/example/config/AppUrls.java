@@ -1,11 +1,16 @@
 package org.example.config;
 
 /**
- * XYZ Bank URL fragments. Base URL is in config.properties.
- * Views: #/login | #/manager/addCust | #/manager/openAccount | #/manager/list | #/customer | #/account | #/listTx
+ * URL hash fragments for the XYZ Bank AngularJS app. The base URL (e.g. https://.../BankingProject/)
+ * is configured in {@link ConfigManager}; these constants are appended for navigation (e.g. base + LOGIN).
+ * <p>
+ * Flow: LOGIN → MANAGER_HOME / CUSTOMER_LOGIN → MANAGER_ADD_CUSTOMER, MANAGER_OPEN_ACCOUNT, MANAGER_CUSTOMERS_LIST,
+ * or CUSTOMER_ACCOUNT, CUSTOMER_TRANSACTIONS.
+ * </p>
  */
 public final class AppUrls {
 
+    /** Prevent instantiation; all members are static constants. */
     private AppUrls() {}
 
     /** Home / Login page – Customer Login, Bank Manager Login, Home */

@@ -12,13 +12,15 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Writes Allure environment.properties and executor.json into the Allure results directory
- * so the report shows Environment and Executor widgets with current run values.
+ * Writes Allure {@code environment.properties} and {@code executor.json} into the Allure results directory
+ * (default {@code target/allure-results}) so the report shows Environment and Executor widgets with current run values.
+ * CI can pass {@code allure.executor.buildName}, {@code allure.executor.reportUrl}, etc. via Maven {@code -D} or env.
  */
 public final class AllureReportWriter {
 
     private static final String RESULTS_DIR = System.getProperty("allure.results.directory", "target/allure-results");
 
+    /** Utility class; not instantiable. */
     private AllureReportWriter() {
     }
 
@@ -38,6 +40,7 @@ public final class AllureReportWriter {
         }
     }
 
+    /** Writes key-value pairs (app, URL, browser, Java/OS, headless, framework) for the Allure Environment widget. */
     private static void writeEnvironmentProperties(Path dir) throws IOException {
         Properties p = new Properties();
         p.setProperty("Application", "XYZ Bank");
@@ -57,6 +60,7 @@ public final class AllureReportWriter {
         }
     }
 
+    /** Writes executor.json (buildName, buildOrder, reportUrl, url) for the Allure Executor widget; values from system properties. */
     private static void writeExecutorJson(Path dir) throws IOException {
         String buildName = System.getProperty("allure.executor.buildName", "XYZ Bank Automation");
         String buildOrder = System.getProperty("allure.executor.buildOrder", "1");
@@ -89,6 +93,7 @@ public final class AllureReportWriter {
         Files.writeString(file, sb.toString(), StandardCharsets.UTF_8);
     }
 
+    /** Escapes backslash, quote, newline, carriage return, tab for use inside JSON string values. */
     private static String escapeJson(String s) {
         if (s == null) return "";
         return s.replace("\\", "\\\\")

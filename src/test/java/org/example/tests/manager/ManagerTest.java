@@ -2,11 +2,7 @@ package org.example.tests.manager;
 
 import io.qameta.allure.*;
 import org.example.setup.BaseTest;
-import org.example.pages.manager.LoginPage;
-import org.example.pages.manager.ManagerDashboardPage;
-import org.example.utils.SeleniumUtils;
 import org.example.utils.TestDataGenerator;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
@@ -29,15 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @Tag("manager")
 @Tag("us1")
 public class ManagerTest extends BaseTest {
-
-    private LoginPage loginPage;
-    private ManagerDashboardPage managerPage;
-
-    @BeforeEach
-    void setUpManager() {
-        loginPage = new LoginPage(driver);
-        managerPage = new ManagerDashboardPage(driver);
-    }
 
     // ─── AC1: Adding Customers ───────────────────────────────────────────
 
@@ -77,6 +64,7 @@ public class ManagerTest extends BaseTest {
             assertFalse(error.isEmpty(), "Error message should not be empty");
         }
 
+        /** Feeds {@link #invalidCustomerData_rejected}; one Arguments per invalid case from TestDataGenerator. */
         static Stream<Arguments> invalidAddCustomerData() {
             return TestDataGenerator.invalidAddCustomerCases().stream()
                     .map(c -> Arguments.of(c.getDescription(), c.getName(), c.getPostalCode()));
@@ -95,7 +83,7 @@ public class ManagerTest extends BaseTest {
         @Severity(SeverityLevel.CRITICAL)
         void createAccount_forAddedCustomer() {
             TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
-            String displayName = data.getName() + " " + data.getName();
+            String displayName = data.getDisplayName();
 
             loginPage.loginAsManager();
             managerPage.addCustomer(data.getName(), data.getPostalCode());
@@ -120,38 +108,33 @@ public class ManagerTest extends BaseTest {
         @DisplayName("Verify manager can delete customer and customer is removed from list")
         @Severity(SeverityLevel.CRITICAL)
         void managerCanDeleteCustomer_removedFromList() {
-            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
-            String displayName = data.getName() + " " + data.getName();
-
-            loginPage.loginAsManager();
-            managerPage.addCustomer(data.getName(), data.getPostalCode());
-            managerPage.createAccount(displayName, "Dollar");
-            managerPage.clickCustomersButton();
-            managerPage.scrollToCustomerAndDelete(displayName);
-
+            String displayName = createCustomerWithAccountAndDelete();
             assertFalse(managerPage.customerExists(displayName),
                     "Deleted customer should not appear in the Customers table");
         }
-
 
         @Test
         @DisplayName("Verify deleted customer no longer appears in Customer login dropdown")
         @Severity(SeverityLevel.NORMAL)
         void managerCanDeleteCustomer_notInCustomerDropdown() {
-            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
-            String displayName = data.getName() + " " + data.getName();
+            String displayName = createCustomerWithAccountAndDelete();
+            assertFalse(managerPage.customerExists(displayName), "Customer should be removed from list");
+            managerPage.clickHomeButton();
+            loginPage.selectCustomerUserType();
+            assertFalse(loginPage.isCustomerInDropdown(displayName),
+                    "Deleted customer should not appear in Customer login dropdown");
+        }
 
+        /** Adds a customer, creates Dollar account, opens Customers list, deletes the customer. Returns display name. */
+        private String createCustomerWithAccountAndDelete() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getDisplayName();
             loginPage.loginAsManager();
             managerPage.addCustomer(data.getName(), data.getPostalCode());
             managerPage.createAccount(displayName, "Dollar");
             managerPage.clickCustomersButton();
             managerPage.scrollToCustomerAndDelete(displayName);
-            assertFalse(managerPage.customerExists(displayName), "Customer should be removed from list");
-
-            managerPage.clickHomeButton();
-            loginPage.selectCustomerUserType();
-            assertFalse(loginPage.isCustomerInDropdown(displayName),
-                    "Deleted customer should not appear in Customer login dropdown");
+            return displayName;
         }
     }
 }
