@@ -144,7 +144,10 @@ public class CustomerTest extends BaseTest {
                 customerPage.deposit("100");
                 customerPage.deposit("200");
                 customerPage.withdraw("50");
+                // Wait for balance to reflect last action so transaction list is updated before we open it
+                customerPage.waitForBalanceEqualTo(250);
                 customerPage.clickTransactionsButton();
+//                customerPage.waitForTransactionCountAtLeast(3);
 
                 assertTrue(customerPage.getTransactionCount() >= 3);
             }

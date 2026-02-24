@@ -1,6 +1,7 @@
 package org.example.pages.customer;
 
 import io.qameta.allure.Step;
+import org.example.config.ConfigManager;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
 import org.openqa.selenium.By;
@@ -8,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +30,7 @@ public class CustomerDashboardPage {
     @FindBy(xpath = "//button[contains(@ng-click,'deposit')]")
     private WebElement depositTabButton;
 
-    @FindBy(xpath = "//button[contains(@ng-click,'withdrawl')]")
+    @FindBy(xpath = "//button[normalize-space(text())=\"Withdrawl\"]")
     private WebElement withdrawTabButton;
 
     @FindBy(xpath = "//button[contains(text(),'Transactions')]")
@@ -40,17 +43,17 @@ public class CustomerDashboardPage {
     @FindBy(css = "input[ng-model='amount']")
     private WebElement amountInput;
 
-    @FindBy(xpath = "//button[@type='submit' and contains(text(),'Deposit')]")
+    @FindBy(xpath = "//button[text()='Deposit']")
     private WebElement depositSubmitButton;
 
-    @FindBy(xpath = "//button[@type='submit' and contains(text(),'Withdraw')]")
+    @FindBy(xpath = "//button[text()='Withdraw']")
     private WebElement withdrawSubmitButton;
 
     // --- #/account – account info ---
     @FindBy(xpath = "//div[contains(.,'Account Number')]//span[@class='ng-binding']")
     private WebElement accountNumber;
 
-    @FindBy(xpath = "//div[contains(.,'Balance')]//span[@class='ng-binding']")
+    @FindBy(xpath = "//div/strong[2]")
     private WebElement accountBalance;
 
     @FindBy(xpath = "//strong[contains(text(),'Account')]")
@@ -112,10 +115,13 @@ public class CustomerDashboardPage {
 
     /** By for amount input. Deposit and Withdraw forms each have one; only the active form’s input is visible. */
     private static final By AMOUNT_INPUT = By.cssSelector("input[ng-model='amount']");
+    private static final By WITHDRAW_SUBMIT_BUTTON = By.xpath("//button[text()='Withdraw']");
 
     @Step("Click Withdraw tab (form appears on same #/account)")
     public CustomerDashboardPage clickWithdrawButton() {
         SeleniumUtils.waitAndClick(driver, withdrawTabButton);
+        // Wait for Withdraw form to be shown so the visible amount input is the withdraw one
+        SeleniumUtils.waitForElementToBeVisible(driver, WITHDRAW_SUBMIT_BUTTON);
         SeleniumUtils.waitForFirstVisible(driver, AMOUNT_INPUT);
         return this;
     }
@@ -124,6 +130,8 @@ public class CustomerDashboardPage {
     public CustomerDashboardPage enterWithdrawalAmount(String amount) {
         // Find and type in one flow to avoid stale element after Angular re-render on Withdraw tab
         SeleniumUtils.waitFirstVisibleThenClearAndType(driver, AMOUNT_INPUT, amount);
+        // Let the UI update balance before we read it
+        SeleniumUtils.waitForElementToBeVisible(driver, By.xpath("//div/strong[2]"));
         return this;
     }
 
@@ -169,6 +177,17 @@ public class CustomerDashboardPage {
         }
     }
 
+    /**
+     * Waits until the displayed balance equals the expected value (e.g. after deposit/withdraw).
+     * Use before navigating to Transactions so the app has applied the last transaction.
+     */
+    @Step("Wait for balance to equal {expected}")
+    public CustomerDashboardPage waitForBalanceEqualTo(int expected) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        wait.until(d -> getBalanceAsInt() == expected);
+        return this;
+    }
+
 
 
     @Step("Get transaction history (#/listTx)")
@@ -196,6 +215,18 @@ public class CustomerDashboardPage {
     /** Waits for transactions view to be ready (table present). Avoids long wait when list is empty. */
     private void waitForTransactionsPageReady() {
         SeleniumUtils.waitForElementToBePresent(driver, TRANSACTION_TABLE);
+    }
+
+    /**
+     * Waits until the transaction list has at least the given number of rows (Angular may render after the table is in DOM).
+     * Use this after navigating to Transactions to avoid flaky "empty table" assertions.
+     */
+    @Step("Wait for transaction list to have at least {minCount} row(s)")
+    public CustomerDashboardPage waitForTransactionCountAtLeast(int minCount) {
+        waitForTransactionsPageReady();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        wait.until(d -> d.findElements(TRANSACTION_ROWS).size() >= minCount);
+        return this;
     }
 
     @Step("Verify transaction contains type: {transactionType}")
