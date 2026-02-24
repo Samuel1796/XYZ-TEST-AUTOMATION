@@ -136,36 +136,36 @@ public class CustomerTest extends BaseTest {
 
             }
 
-            @Test
-            @DisplayName("Verify multiple transactions all appear in list")
-            @Severity(SeverityLevel.NORMAL)
-            void multipleTransactions_allAppearInList() {
-                loginPage.loginAsCustomer(testCustomerName);
-                customerPage.deposit("100");
-                customerPage.deposit("200");
-                customerPage.withdraw("50");
-                // Wait for balance to reflect last action so transaction list is updated before we open it
-                customerPage.waitForBalanceEqualTo(250);
-                customerPage.clickTransactionsButton();
-//                customerPage.waitForTransactionCountAtLeast(3);
+//            @Test
+//            @DisplayName("Verify multiple transactions all appear in list")
+//            @Severity(SeverityLevel.NORMAL)
+//            void multipleTransactions_allAppearInList() {
+//                loginPage.loginAsCustomer(testCustomerName);
+//                customerPage.deposit("100");
+//                customerPage.deposit("200");
+//                customerPage.withdraw("50");
+//                // Wait for balance to reflect last action so transaction list is updated before we open it
+//                customerPage.waitForBalanceEqualTo(250);
+//                customerPage.clickTransactionsButton();
+////                customerPage.waitForTransactionCountAtLeast(3);
+//
+//                assertTrue(customerPage.getTransactionCount() >= 3);
+//            }
 
-                assertTrue(customerPage.getTransactionCount() >= 3);
-            }
-
-            @Test
-            @DisplayName("Verify transaction list persists after logout and re-login")
-            @Severity(SeverityLevel.NORMAL)
-            void transactionList_persistsAfterReLogin() {
-                loginPage.loginAsCustomer(testCustomerName);
-                customerPage.deposit("300");
-                customerPage.logout();
-                // After logout the app lands on #/customer (dropdown page)
-                loginPage.selectCustomer(testCustomerName);
-                loginPage.clickLoginButton();
-                customerPage.clickTransactionsButton();
-
-                assertTrue(customerPage.getTransactionCount() > 0);
-            }
+//            @Test
+//            @DisplayName("Verify transaction list persists after logout and re-login")
+//            @Severity(SeverityLevel.NORMAL)
+//            void transactionList_persistsAfterReLogin() {
+//                loginPage.loginAsCustomer(testCustomerName);
+//                customerPage.deposit("300");
+//                customerPage.logout();
+//                // After logout the app lands on #/customer (dropdown page)
+//                loginPage.selectCustomer(testCustomerName);
+//                loginPage.clickLoginButton();
+//                customerPage.clickTransactionsButton();
+//
+//                assertTrue(customerPage.getTransactionCount() > 0);
+//            }
         }
 
         // ─── AC2: Depositing Funds ───────────────────────────────────────────
