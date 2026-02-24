@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Utility class for common Selenium operations and helper methods.
@@ -150,6 +151,26 @@ public class SeleniumUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         return alert.getText();
+    }
+
+    /**
+     * Waits up to timeoutSeconds for an alert; if present, returns its text and accepts it.
+     * Use for validation flows where alert may or may not appear (e.g. Open Account without selection).
+     *
+     * @param driver the WebDriver instance
+     * @param timeoutSeconds max seconds to wait for alert
+     * @return Optional with alert text if alert appeared, empty otherwise
+     */
+    public static Optional<String> getAlertTextIfPresent(WebDriver driver, int timeoutSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            String text = alert.getText();
+            alert.accept();
+            return Optional.of(text);
+        } catch (TimeoutException e) {
+            return Optional.empty();
+        }
     }
 
     /**

@@ -4,12 +4,18 @@ import io.qameta.allure.*;
 import org.example.setup.BaseTest;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
+import org.example.utils.SeleniumUtils;
 import org.example.utils.TestDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,52 +60,27 @@ public class ManagerTest extends BaseTest {
                     "Alert should confirm customer was added (e.g. 'Customer added successfully with customer id : ...'). Got: " + alertMessage);
         }
 
-        @Test
-        @DisplayName("Verify customer name with numbers is rejected")
+        /**
+         * Parameterized test fed by TestDataGenerator.invalidAddCustomerCases().
+         * Covers: name with numbers, name with special characters, postal code with letters.
+         */
+        @ParameterizedTest(name = "Invalid add customer: {0}")
+        @MethodSource("invalidAddCustomerData")
+        @DisplayName("Verify invalid customer data is rejected")
         @Severity(SeverityLevel.NORMAL)
-        void customerName_withNumbers_rejected() {
-            String invalidName = TestDataGenerator.generateInvalidCustomerNameWithNumbers();
-            String postalCode = TestDataGenerator.generateValidPostalCode();
-
+        void invalidCustomerData_rejected(String description, String name, String postalCode) {
             loginPage.loginAsManager();
-            managerPage.addCustomer(invalidName, postalCode);
+            managerPage.addCustomer(name, postalCode);
 
             String error = managerPage.getErrorMessage();
-            assertNotNull(error, "Error message should be shown for invalid name with numbers");
+            assertNotNull(error, "Error message should be shown for invalid data: " + description);
             assertFalse(error.isEmpty(), "Error message should not be empty");
         }
 
-        @Test
-        @DisplayName("Verify customer name with special characters is rejected")
-        @Severity(SeverityLevel.NORMAL)
-        void customerName_withSpecialCharacters_rejected() {
-            String invalidName = TestDataGenerator.generateInvalidCustomerNameWithSpecialChars();
-            String postalCode = TestDataGenerator.generateValidPostalCode();
-
-            loginPage.loginAsManager();
-            managerPage.addCustomer(invalidName, postalCode);
-
-            String error = managerPage.getErrorMessage();
-            assertNotNull(error, "Error message should be shown for invalid name with special characters");
-            assertFalse(error.isEmpty(), "Error message should not be empty");
+        static Stream<Arguments> invalidAddCustomerData() {
+            return TestDataGenerator.invalidAddCustomerCases().stream()
+                    .map(c -> Arguments.of(c.getDescription(), c.getName(), c.getPostalCode()));
         }
-
-        @Test
-        @DisplayName("Verify postal code with letters is rejected")
-        @Severity(SeverityLevel.NORMAL)
-        void postalCode_withLetters_rejected() {
-            String name = TestDataGenerator.generateValidCustomerName();
-            String invalidPostal = TestDataGenerator.generateInvalidPostalCodeWithLetters();
-
-            loginPage.loginAsManager();
-            managerPage.addCustomer(name, invalidPostal);
-
-            String error = managerPage.getErrorMessage();
-            assertNotNull(error, "Error message should be shown for invalid postal code with letters");
-            assertFalse(error.isEmpty(), "Error message should not be empty");
-        }
-
-
     }
 
     // ─── AC2: Creating Accounts ──────────────────────────────────────────
@@ -123,7 +104,54 @@ public class ManagerTest extends BaseTest {
             assertNotNull(alertMessage, "JS alert should be shown when account is created successfully");
             assertFalse(alertMessage.isEmpty(), "Alert message should not be empty");
         }
+
     }
 
 
+
+    // ─── AC3: Deleting Accounts ──────────────────────────────────────────
+
+    @Nested
+    @DisplayName("Deleting Accounts")
+    @Story("Deleting Accounts")
+    class DeletingAccounts {
+
+        @Test
+        @DisplayName("Verify manager can delete customer and customer is removed from list")
+        @Severity(SeverityLevel.CRITICAL)
+        void managerCanDeleteCustomer_removedFromList() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getName() + " " + data.getName();
+
+            loginPage.loginAsManager();
+            managerPage.addCustomer(data.getName(), data.getPostalCode());
+            managerPage.createAccount(displayName, "Dollar");
+            managerPage.clickCustomersButton();
+            managerPage.scrollToCustomerAndDelete(displayName);
+
+            assertFalse(managerPage.customerExists(displayName),
+                    "Deleted customer should not appear in the Customers table");
+        }
+
+
+        @Test
+        @DisplayName("Verify deleted customer no longer appears in Customer login dropdown")
+        @Severity(SeverityLevel.NORMAL)
+        void managerCanDeleteCustomer_notInCustomerDropdown() {
+            TestDataGenerator.CustomerTestData data = TestDataGenerator.generateCustomerTestData();
+            String displayName = data.getName() + " " + data.getName();
+
+            loginPage.loginAsManager();
+            managerPage.addCustomer(data.getName(), data.getPostalCode());
+            managerPage.createAccount(displayName, "Dollar");
+            managerPage.clickCustomersButton();
+            managerPage.scrollToCustomerAndDelete(displayName);
+            assertFalse(managerPage.customerExists(displayName), "Customer should be removed from list");
+
+            managerPage.clickHomeButton();
+            loginPage.selectCustomerUserType();
+            assertFalse(loginPage.isCustomerInDropdown(displayName),
+                    "Deleted customer should not appear in Customer login dropdown");
+        }
+    }
 }

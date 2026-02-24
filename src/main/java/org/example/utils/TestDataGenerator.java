@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -130,6 +132,49 @@ public class TestDataGenerator {
         String amountStr = String.valueOf(amount);
         logger.debug("Generated large amount: " + amountStr);
         return amountStr;
+    }
+
+    /**
+     * Data for one invalid "Add Customer" case (for parameterized tests).
+     * Holds a description and the invalid name/postalCode to submit.
+     */
+    public static class InvalidAddCustomerCase {
+        private final String description;
+        private final String name;
+        private final String postalCode;
+
+        public InvalidAddCustomerCase(String description, String name, String postalCode) {
+            this.description = description;
+            this.name = name;
+            this.postalCode = postalCode;
+        }
+
+        public String getDescription() { return description; }
+        public String getName() { return name; }
+        public String getPostalCode() { return postalCode; }
+    }
+
+    /**
+     * Provides invalid add-customer data for parameterized tests.
+     * Each case has a description and (name, postalCode) that should be rejected by the Add Customer form.
+     *
+     * @return list of invalid add-customer cases
+     */
+    public static List<InvalidAddCustomerCase> invalidAddCustomerCases() {
+        List<InvalidAddCustomerCase> cases = new ArrayList<>();
+        cases.add(new InvalidAddCustomerCase(
+                "name with numbers",
+                generateInvalidCustomerNameWithNumbers(),
+                generateValidPostalCode()));
+        cases.add(new InvalidAddCustomerCase(
+                "name with special characters",
+                generateInvalidCustomerNameWithSpecialChars(),
+                generateValidPostalCode()));
+        cases.add(new InvalidAddCustomerCase(
+                "postal code with letters",
+                generateValidCustomerName(),
+                generateInvalidPostalCodeWithLetters()));
+        return cases;
     }
 
     /**
