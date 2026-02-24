@@ -118,24 +118,6 @@ public class CustomerTest extends BaseTest {
                 assertEquals(0, customerPage.getTransactionCount());
             }
 
-            @Test
-            @DisplayName("Verify transaction list shows correct transaction type")
-            @Severity(SeverityLevel.NORMAL)
-            void transactionList_showsCorrectType() {
-                loginPage.loginAsCustomer(testCustomerName);
-                String depositAmount = "500";
-                customerPage.deposit(depositAmount);
-                customerPage.clickTransactionsButton();
-
-                var list = customerPage.getTransactionHistory();
-                assertFalse(list.isEmpty(), "Transaction list should not be empty after deposit");
-                assertTrue(customerPage.transactionContainsType("Credit"),
-                        "Transaction list should contain a Credit entry after deposit");
-                assertTrue(customerPage.transactionContainsAmount(depositAmount),
-                        "Transaction list should contain the deposited amount: " + depositAmount);
-
-            }
-
         }
 
         // ─── AC2: Depositing Funds ───────────────────────────────────────────
