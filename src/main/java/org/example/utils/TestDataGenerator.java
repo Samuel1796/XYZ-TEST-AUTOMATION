@@ -7,15 +7,12 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 /**
  * Central place for generating test data. Uses JavaFaker and Random to produce customer names (valid and invalid),
  * postal codes, and transaction amounts. No hardcoded credentials; all data is generated per call so tests stay
  * independent. For parameterized tests, {@link #invalidAddCustomerCases()} returns a list of invalid add-customer
  * cases (description + name + postalCode) consumed by ManagerTest's {@code @ParameterizedTest}.
  *
- * @author QA Team
- * @version 1.0
  */
 public class TestDataGenerator {
 

@@ -61,16 +61,14 @@ public class LoginPage {
     }
 
     @Step("Select customer: {customerName}")
-    public LoginPage selectCustomer(String customerName) {
+    public void selectCustomer(String customerName) {
         SeleniumUtils.waitUntilVisible(driver, userSelect);
         new Select(userSelect).selectByVisibleText(customerName);
-        return this;
     }
 
     @Step("Click Login button (on #/customer)")
-    public LoginPage clickLoginButton() {
+    public void clickLoginButton() {
         SeleniumUtils.waitAndClick(driver, loginButton);
-        return this;
     }
 
     /** Full customer login: select Customer Login → choose customer from dropdown → click Login. Lands on #/account. */
