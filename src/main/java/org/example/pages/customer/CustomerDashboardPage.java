@@ -16,15 +16,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Customer account page (#/account). Deposit and Withdraw use the same URL;
- * form and button change when Deposit or Withdraw is clicked.
- * Transactions (#/listTx) – separate view.
+ * Page object for the customer account flow. Account view (#/account) shows balance and tab buttons for Deposit,
+ * Withdraw, and Transactions. Deposit and Withdraw share the same URL; only the visible form changes when the tab
+ * is clicked (both have an amount input; we wait for the correct form before typing). Transactions view (#/listTx)
+ * shows the transaction history table. This class also provides waits for balance and transaction count to avoid
+ * flaky assertions after async updates.
  */
 public class CustomerDashboardPage {
 
     private final WebDriver driver;
-
-
 
     // --- #/account – tab buttons ---
     @FindBy(xpath = "//button[contains(@ng-click,'deposit')]")
@@ -50,41 +50,28 @@ public class CustomerDashboardPage {
     private WebElement withdrawSubmitButton;
 
     // --- #/account – account info ---
-    @FindBy(xpath = "//div[contains(.,'Account Number')]//span[@class='ng-binding']")
-    private WebElement accountNumber;
-
     @FindBy(xpath = "//div/strong[2]")
     private WebElement accountBalance;
-
-    @FindBy(xpath = "//strong[contains(text(),'Account')]")
-    private WebElement dashboardTitle;
-
-    // --- Messages on #/account ---
-    @FindBy(css = ".alert-success")
-    private WebElement successMessage;
-
-    @FindBy(css = ".alert-danger, .error")
-    private WebElement errorMessage;
 
     /** By locator for transaction table (wait for page ready before counting rows) */
     private static final By TRANSACTION_TABLE = By.cssSelector("table.table");
     /** By locator for transaction rows */
     private static final By TRANSACTION_ROWS = By.cssSelector("table tbody tr");
 
+    /**
+     * Creates the page object and initializes PageFactory elements.
+     *
+     * @param driver the WebDriver instance (expected on #/account or #/listTx)
+     */
     public CustomerDashboardPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    /** Ensure we are on customer account page. */
+    /** Waits until the current URL contains #/account. Use before deposit/withdraw/balance actions. */
     public CustomerDashboardPage ensureOnAccountPage() {
         SeleniumUtils.waitForUrlContains(driver, AppUrls.CUSTOMER_ACCOUNT);
         return this;
-    }
-
-    @Step("Verify customer account page is displayed (#/account)")
-    public boolean isDashboardDisplayed() {
-        return SeleniumUtils.isElementDisplayed(dashboardTitle);
     }
 
     @Step("Click Deposit tab (form appears on same #/account)")
@@ -157,6 +144,7 @@ public class CustomerDashboardPage {
 
 
 
+    /** Returns the displayed balance text (e.g. "500"); empty string if element not found. */
     @Step("Get account balance")
     public String getAccountBalance() {
         try {
@@ -167,6 +155,7 @@ public class CustomerDashboardPage {
         }
     }
 
+    /** Parses displayed balance to int; returns 0 on parse error or missing element. */
     @Step("Get account balance as integer")
     public int getBalanceAsInt() {
         try {
@@ -190,6 +179,7 @@ public class CustomerDashboardPage {
 
 
 
+    /** Returns text of each transaction row on #/listTx; empty list if table missing or error. */
     @Step("Get transaction history (#/listTx)")
     public List<String> getTransactionHistory() {
         try {
@@ -206,6 +196,7 @@ public class CustomerDashboardPage {
         return SeleniumUtils.isElementDisplayed(driver, By.cssSelector("table"));
     }
 
+    /** Number of rows in the transaction table after waiting for the table to be present. */
     @Step("Get transaction count")
     public int getTransactionCount() {
         waitForTransactionsPageReady();
@@ -229,19 +220,6 @@ public class CustomerDashboardPage {
         return this;
     }
 
-    @Step("Verify transaction contains type: {transactionType}")
-    public boolean transactionContainsType(String transactionType) {
-        var list = getTransactionHistory();
-        return list.stream().anyMatch(t -> t.contains(transactionType));
-    }
-
-    @Step("Verify transaction contains amount: {amount}")
-    public boolean transactionContainsAmount(String amount) {
-        var list = getTransactionHistory();
-        return list.stream().anyMatch(t -> t.contains(amount));
-    }
-
-
     @Step("Click Logout")
     public CustomerDashboardPage logout() {
         SeleniumUtils.waitAndClick(driver, logoutButton);
@@ -249,6 +227,7 @@ public class CustomerDashboardPage {
     }
 
 
+    /** Returns true if the Transactions button is displayed (customer must have an account). */
     public boolean isTransactionsButtonVisible() {
         try {
             return transactionsButton.isDisplayed();
@@ -257,6 +236,7 @@ public class CustomerDashboardPage {
         }
     }
 
+    /** Returns true if the Deposit tab button is displayed. */
     public boolean isDepositButtonVisible() {
         try {
             return depositTabButton.isDisplayed();
@@ -265,6 +245,7 @@ public class CustomerDashboardPage {
         }
     }
 
+    /** Returns true if the Withdraw tab button is displayed. */
     public boolean isWithdrawButtonVisible() {
         try {
             return withdrawTabButton.isDisplayed();

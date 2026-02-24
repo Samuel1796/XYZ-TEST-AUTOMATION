@@ -31,7 +31,7 @@ XYZ-TEST-AUTOMATION/
 │   │   │   ├── pages/             # Page Object Model
 │   │   │   └── utils/             # Shared helpers & test data
 │   │   └── resources/
-│   │       ├── config.properties  # Base URL, timeouts, headless, screenshots
+│   │       ├── config.properties  # Base URL, timeouts, headless
 │   │       └── log4j2.xml         # Logging configuration
 │   └── test/
 │       ├── java/org/example/
@@ -81,7 +81,7 @@ So: one Maven run does clean, test, Allure result generation, and report generat
 
 - **ConfigManager.java**
   - Loads `config.properties` from classpath.
-  - Exposes: `getBaseUrl()`, `isHeadlessMode()`, `getImplicitWait()`, `getExplicitWait()`, `getPageLoadTimeout()`, `shouldMaximizeWindow()`, `takeScreenshotOnFailure()`, `getScreenshotPath()`.
+  - Exposes: `getBaseUrl()`, `isHeadlessMode()`, `getImplicitWait()`, `getExplicitWait()`, `getPageLoadTimeout()`, `shouldMaximizeWindow()`, `getSeleniumRemoteUrl()`.
   - System properties override config (e.g. `-Dbase.url`, `-Dheadless.mode` for CI).
 - **AppUrls.java**
   - Constants for URL fragments: `#/login`, `#/manager`, `#/manager/addCust`, `#/manager/openAccount`, `#/manager/list`, `#/customer`, `#/account`, `#/listTx`.
@@ -124,7 +124,6 @@ Pages take `WebDriver` in the constructor and use `SeleniumUtils` for waits and 
   - Waits: `waitForElementToBeVisible`, `waitForElementToBeClickable`, `waitForElementToBePresent`, `waitForUrlContains`, `waitUntilVisible`, `waitUntilClickable`, `waitForFirstVisible`, `waitFirstVisibleThenClearAndType` (with stale retry).
   - Actions: `waitAndClick`, `clearAndType`.
   - Alerts: `acceptAlert`, `getAlertText`.
-  - Screenshots: `takeScreenshot`.
   - Dropdown/option helpers.
 - **TestDataGenerator.java**
   - Uses JavaFaker and Random.
@@ -141,7 +140,7 @@ Test data is generated per test; no hardcoded credentials in code.
   - All test classes extend this; lives in a dedicated `setup` package.
   - `@BeforeAll`: calls `AllureReportWriter.writeAllureEnvironmentAndExecutor()` (writes `environment.properties` and `executor.json` into `target/allure-results`).
   - `@BeforeEach`: creates driver, navigates to base URL.
-  - `@AfterEach`: on failure, attaches error overview and (if configured) screenshot; then quits driver.
+  - `@AfterEach`: on failure, attaches error overview to Allure; then quits driver.
   - `TestWatcher`: sets `testFailed` and `lastFailure` for attachments.
   - `getTestMethodName()` supports both `test*` and `should*`-style names.
 
@@ -183,7 +182,7 @@ Tests use `@DisplayName`, `@Story`, `@Severity`; BDD-style method names; shared 
   - **environment.properties** – static fallback; overwritten at runtime by `AllureReportWriter`.
   - **executor.json** – static fallback; overwritten at runtime with build name, order, URL, report URL (CI).
 - **AllureReportWriter.java (test utils):** Writes current run’s environment (app URL, Java, OS, headless, etc.) and executor (name, build, URLs) into `target/allure-results` from `BaseTest` `@BeforeAll`.
-- **BaseTest:** On failure, attaches error overview and screenshot; Allure picks these up from results.
+- **BaseTest:** On failure, attaches error overview; Allure picks it up from results.
 - **Local:** `mvn test` then `mvn allure:serve` or open `target/allure-report/index.html`.
 - **CI:** Workflow runs `mvn allure:report`, prepares report for GitHub Pages (history, base path patch), publishes to `gh-pages`; report URL is set in executor.
 
@@ -230,10 +229,10 @@ Secrets (e.g. APP_BASE_URL, SMTP_*, EMAIL_TO, SLACK_WEBHOOK_URL) and variable (S
 | Layer           | Responsibility                                      |
 |----------------|-----------------------------------------------------|
 | **POM**        | Dependencies, Surefire, Allure, antrun (clean + copy) |
-| **Config**     | Base URL, timeouts, headless, screenshots           |
+| **Config**     | Base URL, timeouts, headless                        |
 | **Driver**     | Chrome only, CI-friendly binary and options         |
 | **Pages**      | POM for login, manager, customer/account/transactions |
-| **Utils**      | Waits, click, type, alerts, screenshots, test data  |
+| **Utils**      | Waits, click, type, alerts, test data               |
 | **Setup**      | BaseTest: driver lifecycle, Allure env/executor, failure attachments |
 | **Tests**      | 17 tests across Manager (5) and Customer (12), tagged and named for US1/US2 |
 | **Allure**     | Categories, env/executor at runtime, report local + CI (gh-pages) |

@@ -5,8 +5,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.config.ConfigManager;
 import org.example.driver.DriverManager;
+import org.example.pages.customer.CustomerDashboardPage;
+import org.example.pages.manager.LoginPage;
+import org.example.pages.manager.ManagerDashboardPage;
 import org.example.utils.AllureReportWriter;
-import org.example.utils.SeleniumUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +18,6 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
@@ -24,23 +25,43 @@ import java.util.Optional;
 
 /**
  * Base test class (setup layer) for WebDriver lifecycle, teardown, and Allure integration.
- * All test classes extend this. Lives in {@code org.example.setup} to keep test setup separate from tests.
- * Implements TestWatcher for failure detection and attachments.
+ * All UI test classes extend this. Lives in {@code org.example.setup} to keep test setup separate from tests.
+ * <p>
+ * Lifecycle: {@code @BeforeAll} writes Allure environment/executor; {@code @BeforeEach} creates driver and navigates
+ * to base URL; {@code @AfterEach} on failure attaches error overview to Allure, then quits driver.
+ * The inner {@link BaseTestWatcher} sets {@link #testFailed} and {@link #lastFailure} so tearDown can attach the error.
+ * </p>
  */
 @ExtendWith(BaseTest.BaseTestWatcher.class)
 public class BaseTest {
 
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     protected WebDriver driver;
+
+
+    /** Login page (Customer / Bank Manager Login). Created in {@link #setUp()}. */
+    protected LoginPage loginPage;
+
+    /** Manager dashboard (Add Customer, Open Account, Customers list). Created in {@link #setUp()}. */
+
+    protected ManagerDashboardPage managerPage;
+    /** Customer account (Deposit, Withdraw, Transactions). Created in {@link #setUp()}. */
+
+    protected CustomerDashboardPage customerPage;
+    /** Set by {@link BaseTestWatcher#testFailed}; used in tearDown to decide whether to attach error overview. */
+
     protected boolean testFailed = false;
     /** Set by TestWatcher when test fails; used for Error overview attachment. */
+
     protected Throwable lastFailure;
 
+    /** Writes Allure environment.properties and executor.json once per test class so the report shows current run info. */
     @BeforeAll
     static void writeAllureEnvironmentAndExecutor() {
         AllureReportWriter.writeAllureEnvironmentAndExecutor();
     }
 
+    /** Creates driver, navigates to base URL, and initializes page objects. Runs before every test method. */
     @BeforeEach
     public void setUp() {
         testFailed = false;
@@ -49,23 +70,18 @@ public class BaseTest {
         driver = DriverManager.createDriver();
         driver.navigate().to(ConfigManager.getBaseUrl());
         logger.info("Navigated to base URL: {}", ConfigManager.getBaseUrl());
+        loginPage = new LoginPage(driver);
+        managerPage = new ManagerDashboardPage(driver);
+        customerPage = new CustomerDashboardPage(driver);
     }
 
+    /** On failure: attaches error overview to Allure, then quits driver. Always quits driver in finally. */
     @AfterEach
     public void tearDown() {
         if (driver != null) {
             try {
-                if (testFailed) {
-                    if (lastFailure != null) {
-                        attachErrorOverviewToAllure(lastFailure);
-                    }
-                    if (ConfigManager.takeScreenshotOnFailure()) {
-                        String screenshotPath = SeleniumUtils.takeScreenshot(driver,
-                                "failure_" + getTestMethodName());
-                        if (screenshotPath != null) {
-                            attachScreenshotToAllure(screenshotPath);
-                        }
-                    }
+                if (testFailed && lastFailure != null) {
+                    attachErrorOverviewToAllure(lastFailure);
                 }
             } catch (Exception e) {
                 logger.error("Error during teardown: {}", e.getMessage(), e);
@@ -76,7 +92,6 @@ public class BaseTest {
         }
     }
 
-    /** Detects test method name from stack (supports BDD-style should* and legacy test*). */
     protected String getTestMethodName() {
         for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
             String name = element.getMethodName();
@@ -87,6 +102,7 @@ public class BaseTest {
         return "unknown";
     }
 
+    /** Builds a text attachment (test name, exception type, message, stack trace) and adds it to the Allure report. */
     protected void attachErrorOverviewToAllure(Throwable cause) {
         if (cause == null) return;
         String overview = "Test: " + getTestMethodName() + "\n\n"
@@ -103,17 +119,10 @@ public class BaseTest {
         return sw.toString();
     }
 
-    protected void attachScreenshotToAllure(String screenshotPath) {
-        try (FileInputStream fis = new FileInputStream(screenshotPath)) {
-            String testName = getTestMethodName();
-            String attachmentName = "Bug report – failure screenshot (" + testName + ")";
-            Allure.addAttachment(attachmentName, "image/png", fis, "png");
-            logger.info("Screenshot attached to Allure report for test [{}]", testName);
-        } catch (Exception e) {
-            logger.error("Failed to attach screenshot to Allure: {}", e.getMessage(), e);
-        }
-    }
-
+    /**
+     * JUnit 5 TestWatcher that records failure on the BaseTest instance so tearDown can attach error overview.
+     * Also logs pass/abort/disabled for each test.
+     */
     public static class BaseTestWatcher implements TestWatcher {
         private static final Logger logger = LogManager.getLogger(BaseTestWatcher.class);
 
@@ -132,19 +141,6 @@ public class BaseTest {
             }
         }
 
-        @Override
-        public void testSuccessful(ExtensionContext context) {
-            logger.info("Test PASSED: {}", context.getDisplayName());
-        }
 
-        @Override
-        public void testAborted(ExtensionContext context, Throwable cause) {
-            logger.warn("Test ABORTED: {} | {}", context.getDisplayName(), cause.getMessage());
-        }
-
-        @Override
-        public void testDisabled(ExtensionContext context, Optional<String> reason) {
-            logger.info("Test DISABLED: {}", context.getDisplayName());
-        }
     }
 }

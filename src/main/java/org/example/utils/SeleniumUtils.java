@@ -8,19 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 /**
- * Utility class for common Selenium operations and helper methods.
- * Includes screenshot capture, waits, and element interaction helpers.
+ * Utility class for common Selenium operations: waits, element interaction, alerts, URL and dropdown helpers.
  *
  * @author QA Team
  * @version 1.0
@@ -28,35 +20,6 @@ import java.util.Optional;
 public class SeleniumUtils {
 
     private static final Logger logger = LogManager.getLogger(SeleniumUtils.class);
-    private static final String SCREENSHOT_DIRECTORY = ConfigManager.getScreenshotPath();
-
-    static {
-        createScreenshotDirectory();
-    }
-
-    /**
-     * Takes a screenshot and saves it to the screenshots directory
-     *
-     * @param driver the WebDriver instance
-     * @param fileName name of the screenshot file (without extension)
-     * @return path to the saved screenshot
-     */
-    public static String takeScreenshot(WebDriver driver, String fileName) {
-        try {
-            TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-            File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-            String filePath = SCREENSHOT_DIRECTORY + File.separator + fileName + "_" + timestamp + ".png";
-
-            Files.copy(sourceFile.toPath(), Paths.get(filePath));
-            logger.info("Screenshot saved: {}", filePath);
-            return filePath;
-        } catch (IOException e) {
-            logger.error("Screenshot failed: {}", e.getMessage(), e);
-            return null;
-        }
-    }
 
     /**
      * Waits for an element to be visible
@@ -72,19 +35,6 @@ public class SeleniumUtils {
     }
 
     /**
-     * Waits for an element to be clickable
-     *
-     * @param driver the WebDriver instance
-     * @param locator the By locator for the element
-     * @return the WebElement when clickable
-     */
-    public static WebElement waitForElementToBeClickable(WebDriver driver, By locator) {
-        logger.debug("Wait clickable: {}", locator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-
-    /**
      * Waits for an element to be present in DOM
      *
      * @param driver the WebDriver instance
@@ -95,21 +45,6 @@ public class SeleniumUtils {
         logger.debug("Wait present: {}", locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-
-    /**
-     * Checks if element is displayed
-     *
-     * @param element the WebElement to check
-     * @return true if element is displayed
-     */
-    public static boolean isElementDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (NoSuchElementException e) {
-            logger.debug("Element not displayed");
-            return false;
-        }
     }
 
     /**
@@ -154,38 +89,6 @@ public class SeleniumUtils {
     }
 
     /**
-     * Waits up to timeoutSeconds for an alert; if present, returns its text and accepts it.
-     * Use for validation flows where alert may or may not appear (e.g. Open Account without selection).
-     *
-     * @param driver the WebDriver instance
-     * @param timeoutSeconds max seconds to wait for alert
-     * @return Optional with alert text if alert appeared, empty otherwise
-     */
-    public static Optional<String> getAlertTextIfPresent(WebDriver driver, int timeoutSeconds) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
-            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-            String text = alert.getText();
-            alert.accept();
-            return Optional.of(text);
-        } catch (TimeoutException e) {
-            return Optional.empty();
-        }
-    }
-
-    /**
-     * Creates screenshot directory if it doesn't exist
-     */
-    private static void createScreenshotDirectory() {
-        try {
-            Files.createDirectories(Paths.get(SCREENSHOT_DIRECTORY));
-            logger.debug("Screenshot directory: {}", SCREENSHOT_DIRECTORY);
-        } catch (IOException e) {
-            logger.error("Screenshot directory creation failed: {}", e.getMessage(), e);
-        }
-    }
-
-    /**
      * Waits for current URL to contain the given fragment (e.g. "#/manager/addCust").
      *
      * @param driver   the WebDriver instance
@@ -213,7 +116,6 @@ public class SeleniumUtils {
         });
     }
 
-    // ─── WebElement-based overloads (Page Factory support) ───────────────
 
     /**
      * Waits for a WebElement to be visible.

@@ -15,6 +15,7 @@
         <selenium.version>4.15.0</selenium.version>
         <junit.version>5.10.0</junit.version>
         <allure.version>2.17.0</allure.version>
+        <aspectj.version>1.9.22.1</aspectj.version>
         <log4j.version>2.21.1</log4j.version>
     </properties>
 
@@ -139,11 +140,22 @@
                     </includes>
                     <parallel>methods</parallel>
                     <threadCount>1</threadCount>
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <!-- AspectJ weaver required for Allure @Step (and @Attachment) to be recorded in the report -->
+                    <argLine>
+                        -Dfile.encoding=UTF-8
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <!-- Allure Maven Plugin: report + serve use same paths for local and CI -->

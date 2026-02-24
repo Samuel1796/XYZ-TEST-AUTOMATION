@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Test data generator utility for creating valid test data.
- * Uses JavaFaker library and custom logic to generate customer, account, and transaction data.
+ * Central place for generating test data. Uses JavaFaker and Random to produce customer names (valid and invalid),
+ * postal codes, and transaction amounts. No hardcoded credentials; all data is generated per call so tests stay
+ * independent. For parameterized tests, {@link #invalidAddCustomerCases()} returns a list of invalid add-customer
+ * cases (description + name + postalCode) consumed by ManagerTest's {@code @ParameterizedTest}.
  *
  * @author QA Team
  * @version 1.0
@@ -135,8 +137,8 @@ public class TestDataGenerator {
     }
 
     /**
-     * Data for one invalid "Add Customer" case (for parameterized tests).
-     * Holds a description and the invalid name/postalCode to submit.
+     * One row of data for the invalid Add Customer parameterized test. The app should reject the form when
+     * this name/postalCode is submitted; the description is used in the test display name.
      */
     public static class InvalidAddCustomerCase {
         private final String description;
@@ -211,6 +213,11 @@ public class TestDataGenerator {
 
         public void setPostalCode(String postalCode) {
             this.postalCode = postalCode;
+        }
+
+        /** Display name as shown in customer dropdown and Open Account list (firstName + " " + lastName). */
+        public String getDisplayName() {
+            return name == null ? "" : name + " " + name;
         }
 
         @Override
