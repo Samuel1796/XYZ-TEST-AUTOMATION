@@ -40,8 +40,24 @@ public class DriverManager {
             logger.info("Running Chrome in headed mode.");
         }
 
+        // CI sets CHROME_BIN to match the installed ChromeDriver version (e.g. /opt/chrome-for-testing/chrome)
+        String chromeBin = System.getenv("CHROME_BIN");
+        if (chromeBin != null && !chromeBin.isEmpty()) {
+            options.setBinary(chromeBin);
+            logger.info("Using Chrome binary: {}", chromeBin);
+        }
+
+        String remoteUrl = ConfigManager.getSeleniumRemoteUrl();
         WebDriver driver;
-        driver = new ChromeDriver(options);
+        if (remoteUrl != null && !remoteUrl.isEmpty()) {
+            try {
+                driver = new RemoteWebDriver(URI.create(remoteUrl).toURL(), options);
+            } catch (IllegalArgumentException | MalformedURLException e) {
+                throw new RuntimeException("Invalid selenium.remote.url: " + remoteUrl, e);
+            }
+        } else {
+            driver = new ChromeDriver(options);
+        }
 
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigManager.getImplicitWait()));
