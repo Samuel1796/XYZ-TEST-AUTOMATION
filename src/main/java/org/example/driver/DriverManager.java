@@ -6,15 +6,12 @@ import org.example.config.ConfigManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.time.Duration;
 
 /**
  * Creates and quits the Chrome WebDriver for UI tests. Headless when env HEADLESS or CI is set,
- * or when {@code -Dheadless.mode=true}. Supports remote driver when {@link ConfigManager#getSeleniumRemoteUrl()} is set.
+ * or when {@code -Dheadless.mode=true}. Uses local ChromeDriver only.
  */
 public class DriverManager {
 
@@ -47,18 +44,7 @@ public class DriverManager {
             logger.info("Using Chrome binary: {}", chromeBin);
         }
 
-        String remoteUrl = ConfigManager.getSeleniumRemoteUrl();
-        WebDriver driver;
-        if (remoteUrl != null && !remoteUrl.isEmpty()) {
-            try {
-                driver = new RemoteWebDriver(URI.create(remoteUrl).toURL(), options);
-            } catch (IllegalArgumentException | MalformedURLException e) {
-                throw new RuntimeException("Invalid selenium.remote.url: " + remoteUrl, e);
-            }
-        } else {
-            driver = new ChromeDriver(options);
-        }
-
+        WebDriver driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigManager.getImplicitWait()));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigManager.getPageLoadTimeout()));

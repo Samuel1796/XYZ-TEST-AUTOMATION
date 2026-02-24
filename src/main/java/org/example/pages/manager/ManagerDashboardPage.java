@@ -159,9 +159,8 @@ public class ManagerDashboardPage {
     }
 
     @Step("Click Process button")
-    public ManagerDashboardPage clickProcessButton() {
+    public void clickProcessButton() {
         SeleniumUtils.waitAndClick(driver, processButton);
-        return this;
     }
 
     @Step("Create account for customer: {customerName} with currency: {currency}")
@@ -195,10 +194,9 @@ public class ManagerDashboardPage {
     }
 
     @Step("Click Customers (navigate to #/manager/list)")
-    public ManagerDashboardPage clickCustomersButton() {
+    public void clickCustomersButton() {
         SeleniumUtils.waitAndClick(driver, customersButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.MANAGER_CUSTOMERS_LIST);
-        return this;
     }
 
     /**
@@ -206,11 +204,10 @@ public class ManagerDashboardPage {
      * scrolls the row into view (so Delete is visible in viewport), then clicks the row's Delete button.
      *
      * @param customerName display name as shown in table (e.g. "FirstName LastName")
-     * @return this for chaining
      * @throws NoSuchElementException if no row matches the name
      */
     @Step("Scroll to customer and delete: {customerName}")
-    public ManagerDashboardPage scrollToCustomerAndDelete(String customerName) {
+    public void scrollToCustomerAndDelete(String customerName) {
         WebElement customersTable = SeleniumUtils.waitForElementToBeVisible(driver, By.cssSelector("table.table"));
         List<WebElement> rows = customersTable.findElements(By.tagName("tr"));
 
@@ -222,7 +219,7 @@ public class ManagerDashboardPage {
                     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", row);
                     WebElement deleteBtn = row.findElement(By.xpath(".//button[contains(text(),'Delete')]"));
                     SeleniumUtils.waitUntilClickable(driver, deleteBtn).click();
-                    return this;
+                    return;
                 }
             }
         }
@@ -237,9 +234,8 @@ public class ManagerDashboardPage {
     }
 
     @Step("Click Home button (back to #/login)")
-    public ManagerDashboardPage clickHomeButton() {
+    public void clickHomeButton() {
         SeleniumUtils.waitAndClick(driver, homeButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.LOGIN);
-        return this;
     }
 }

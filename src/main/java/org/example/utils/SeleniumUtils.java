@@ -14,8 +14,6 @@ import java.util.List;
 /**
  * Utility class for common Selenium operations: waits, element interaction, alerts, URL and dropdown helpers.
  *
- * @author QA Team
- * @version 1.0
  */
 public class SeleniumUtils {
 

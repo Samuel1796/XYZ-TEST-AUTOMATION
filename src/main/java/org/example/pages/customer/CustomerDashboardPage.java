@@ -58,6 +58,11 @@ public class CustomerDashboardPage {
     /** By locator for transaction rows */
     private static final By TRANSACTION_ROWS = By.cssSelector("table tbody tr");
 
+
+    /** By for amount input. Deposit and Withdraw forms each have one; only the active form’s input is visible. */
+    private static final By AMOUNT_INPUT = By.cssSelector("input[ng-model='amount']");
+    private static final By WITHDRAW_SUBMIT_BUTTON = By.xpath("//button[text()='Withdraw']");
+
     /**
      * Creates the page object and initializes PageFactory elements.
      *
@@ -68,10 +73,11 @@ public class CustomerDashboardPage {
         PageFactory.initElements(driver, this);
     }
 
-    /** Waits until the current URL contains #/account. Use before deposit/withdraw/balance actions. */
-    public CustomerDashboardPage ensureOnAccountPage() {
+    /**
+     * Waits until the current URL contains #/account. Use before deposit/withdraw/balance actions.
+     */
+    public void ensureOnAccountPage() {
         SeleniumUtils.waitForUrlContains(driver, AppUrls.CUSTOMER_ACCOUNT);
-        return this;
     }
 
     @Step("Click Deposit tab (form appears on same #/account)")
@@ -100,9 +106,6 @@ public class CustomerDashboardPage {
         return this;
     }
 
-    /** By for amount input. Deposit and Withdraw forms each have one; only the active form’s input is visible. */
-    private static final By AMOUNT_INPUT = By.cssSelector("input[ng-model='amount']");
-    private static final By WITHDRAW_SUBMIT_BUTTON = By.xpath("//button[text()='Withdraw']");
 
     @Step("Click Withdraw tab (form appears on same #/account)")
     public CustomerDashboardPage clickWithdrawButton() {
@@ -136,10 +139,9 @@ public class CustomerDashboardPage {
     }
 
     @Step("Click Transactions (navigate to #/listTx)")
-    public CustomerDashboardPage clickTransactionsButton() {
+    public void clickTransactionsButton() {
         SeleniumUtils.waitAndClick(driver, transactionsButton);
         SeleniumUtils.waitForUrlContains(driver, AppUrls.CUSTOMER_TRANSACTIONS);
-        return this;
     }
 
 
@@ -166,35 +168,6 @@ public class CustomerDashboardPage {
         }
     }
 
-    /**
-     * Waits until the displayed balance equals the expected value (e.g. after deposit/withdraw).
-     * Use before navigating to Transactions so the app has applied the last transaction.
-     */
-    @Step("Wait for balance to equal {expected}")
-    public CustomerDashboardPage waitForBalanceEqualTo(int expected) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
-        wait.until(d -> getBalanceAsInt() == expected);
-        return this;
-    }
-
-
-
-    /** Returns text of each transaction row on #/listTx; empty list if table missing or error. */
-    @Step("Get transaction history (#/listTx)")
-    public List<String> getTransactionHistory() {
-        try {
-            waitForTransactionsPageReady();
-            List<WebElement> rows = driver.findElements(TRANSACTION_ROWS);
-            return rows.stream().map(WebElement::getText).collect(Collectors.toList());
-        } catch (Exception e) {
-            return List.of();
-        }
-    }
-
-    @Step("Verify transaction history is displayed")
-    public boolean isTransactionHistoryDisplayed() {
-        return SeleniumUtils.isElementDisplayed(driver, By.cssSelector("table"));
-    }
 
     /** Number of rows in the transaction table after waiting for the table to be present. */
     @Step("Get transaction count")

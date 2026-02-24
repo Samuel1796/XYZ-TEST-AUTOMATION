@@ -110,19 +110,5 @@ public class ConfigManager {
         return Boolean.parseBoolean(getProperty("window.maximize", "true"));
     }
 
-    /**
-     * Gets the Selenium Grid / standalone remote WebDriver URL when running tests in Docker.
-     * System property {@code selenium.remote.url} overrides config.
-     * When null or empty, tests use a local ChromeDriver.
-     *
-     * @return remote URL (e.g. http://localhost:4444/wd/hub) or null/empty for local
-     */
-    public static String getSeleniumRemoteUrl() {
-        String fromSystem = System.getProperty("selenium.remote.url");
-        if (fromSystem != null && !fromSystem.isEmpty()) {
-            return fromSystem;
-        }
-        return getProperty("selenium.remote.url", "");
-    }
 }
 

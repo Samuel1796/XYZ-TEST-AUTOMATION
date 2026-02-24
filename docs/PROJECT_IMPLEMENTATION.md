@@ -81,7 +81,7 @@ So: one Maven run does clean, test, Allure result generation, and report generat
 
 - **ConfigManager.java**
   - Loads `config.properties` from classpath.
-  - Exposes: `getBaseUrl()`, `isHeadlessMode()`, `getImplicitWait()`, `getExplicitWait()`, `getPageLoadTimeout()`, `shouldMaximizeWindow()`, `getSeleniumRemoteUrl()`.
+  - Exposes: `getBaseUrl()`, `isHeadlessMode()`, `getImplicitWait()`, `getExplicitWait()`, `getPageLoadTimeout()`, `shouldMaximizeWindow()`.
   - System properties override config (e.g. `-Dbase.url`, `-Dheadless.mode` for CI).
 - **AppUrls.java**
   - Constants for URL fragments: `#/login`, `#/manager`, `#/manager/addCust`, `#/manager/openAccount`, `#/manager/list`, `#/customer`, `#/account`, `#/listTx`.
