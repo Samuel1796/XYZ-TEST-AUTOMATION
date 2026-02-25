@@ -2,7 +2,7 @@ package org.example.config;
 
 /**
  * URL hash fragments for the XYZ Bank AngularJS app. The base URL (e.g. https://.../BankingProject/)
- * is configured in {@link ConfigManager}; these constants are appended for navigation (e.g. base + LOGIN).
+ * is configured in the test setup (BaseTest.Config); these constants are appended for navigation (e.g. base + LOGIN).
  * <p>
  * Flow: LOGIN → MANAGER_HOME / CUSTOMER_LOGIN → MANAGER_ADD_CUSTOMER, MANAGER_OPEN_ACCOUNT, MANAGER_CUSTOMERS_LIST,
  * or CUSTOMER_ACCOUNT, CUSTOMER_TRANSACTIONS.

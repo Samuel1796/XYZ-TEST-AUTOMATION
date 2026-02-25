@@ -13701,3 +13701,1062 @@ org.opentest4j.AssertionFailedError: Error message should not be empty ==> expec
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) [surefire-booter-3.1.2.jar:3.1.2]
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) [surefire-booter-3.1.2.jar:3.1.2]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) [surefire-booter-3.1.2.jar:3.1.2]
+2026-02-25 10:11:51.371 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:11:59.401 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:11:59.698 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Barney
+2026-02-25 10:11:59.698 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 97979
+2026-02-25 10:11:59.698 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Barney', postalCode='97979'}
+2026-02-25 10:11:59.736 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:00.245 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:12:00.769 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:00.908 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:12:01.434 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:12:01.434 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:01.854 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:12:01.856 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:02.638 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:02.638 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:03.045 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:03.303 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:03.333 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:03.361 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:03.618 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:12:04.135 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Barney Barney
+2026-02-25 10:12:04.310 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:12:04.447 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:04.729 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:04.926 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:04.932 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:04.943 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:05.119 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:12:05.143 [DEBUG] org.example.utils.TestDataGenerator - Generated large amount: 5968
+2026-02-25 10:12:05.143 [DEBUG] org.example.utils.TestDataGenerator - Generated withdrawal amount: 59
+2026-02-25 10:12:05.145 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:05.330 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:12:05.845 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:06.068 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:06.310 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:06.866 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:07.245 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:07.632 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=4)
+2026-02-25 10:12:07.632 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:08.066 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:08.435 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:08.553 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:08.565 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:08.821 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //button[text()='Withdraw']
+2026-02-25 10:12:09.138 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:09.172 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible then clear and type (length=2)
+2026-02-25 10:12:09.172 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:09.327 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //div/strong[2]
+2026-02-25 10:12:09.363 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:09.600 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:11.171 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:12:11.387 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:12:14.878 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:12:14.884 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Kenneth
+2026-02-25 10:12:14.885 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 24592
+2026-02-25 10:12:14.885 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Kenneth', postalCode='24592'}
+2026-02-25 10:12:14.886 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:17.404 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:12:17.957 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:18.228 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:12:18.769 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:12:18.769 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:19.157 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:12:19.157 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:19.561 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:19.562 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:19.954 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:20.770 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:20.785 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:20.868 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:21.115 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:12:21.637 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Kenneth Kenneth
+2026-02-25 10:12:21.788 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:12:21.929 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:22.249 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:22.433 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:22.438 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:22.446 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:22.659 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:12:22.678 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:22.899 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:12:23.418 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:23.655 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:24.072 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:24.594 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:24.989 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:25.386 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=3)
+2026-02-25 10:12:25.386 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:25.696 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:26.088 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:26.098 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:26.367 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //button[text()='Withdraw']
+2026-02-25 10:12:26.789 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:26.910 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible then clear and type (length=3)
+2026-02-25 10:12:26.910 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:27.717 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //div/strong[2]
+2026-02-25 10:12:27.766 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:28.094 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:30.142 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:12:30.152 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:12:33.508 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:12:33.512 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Enoch
+2026-02-25 10:12:33.512 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 82698
+2026-02-25 10:12:33.513 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Enoch', postalCode='82698'}
+2026-02-25 10:12:33.513 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:35.277 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:12:35.791 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:35.941 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:12:36.455 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:36.455 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:36.609 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:36.609 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:36.926 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:36.926 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:37.355 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:37.732 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:37.739 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:37.757 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:38.078 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:12:38.599 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Enoch Enoch
+2026-02-25 10:12:38.730 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:12:38.837 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:39.090 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:39.247 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:39.251 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:39.257 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:39.446 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:12:39.458 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:39.604 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:12:40.133 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:40.280 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:40.463 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:40.858 [DEBUG] org.example.utils.TestDataGenerator - Generated large amount: 12551
+2026-02-25 10:12:40.858 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:40.866 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:41.042 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //button[text()='Withdraw']
+2026-02-25 10:12:41.346 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:41.381 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible then clear and type (length=5)
+2026-02-25 10:12:41.381 [DEBUG] org.example.utils.SeleniumUtils - Wait first visible: By.cssSelector: input[ng-model='amount']
+2026-02-25 10:12:41.524 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //div/strong[2]
+2026-02-25 10:12:41.549 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:41.753 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:42.184 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:12:42.217 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:12:45.831 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:12:45.833 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Odell
+2026-02-25 10:12:45.834 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 41647
+2026-02-25 10:12:45.834 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Odell', postalCode='41647'}
+2026-02-25 10:12:45.835 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:47.188 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:12:47.718 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:47.984 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:12:48.506 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:48.506 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:48.837 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:48.838 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:49.088 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:12:49.088 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:49.321 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:49.517 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:49.520 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:49.531 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:49.728 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:12:50.255 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Odell Odell
+2026-02-25 10:12:50.419 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:12:50.590 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:50.837 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:51.004 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:12:51.008 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:12:51.015 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:51.201 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:12:51.213 [DEBUG] org.example.utils.TestDataGenerator - Generated deposit amount: 434
+2026-02-25 10:12:51.214 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:51.377 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:12:51.892 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:52.071 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:52.211 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:52.605 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:12:52.614 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:52.791 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:53.143 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=3)
+2026-02-25 10:12:53.143 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:53.319 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:12:53.516 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:12:53.931 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:12:53.944 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:12:59.359 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:12:59.363 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Antonia
+2026-02-25 10:12:59.367 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 67147
+2026-02-25 10:12:59.368 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Antonia', postalCode='67147'}
+2026-02-25 10:12:59.369 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:00.913 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:13:01.429 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:01.582 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:13:02.096 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:13:02.096 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:02.292 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:13:02.292 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:02.454 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:13:02.454 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:02.623 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:02.808 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:02.811 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:02.819 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:02.992 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:13:03.508 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Antonia Antonia
+2026-02-25 10:13:03.654 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:13:03.788 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:03.970 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:04.115 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:04.118 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:04.127 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:04.311 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:13:04.324 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:04.466 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:13:04.987 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:05.143 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:05.322 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:05.730 [DEBUG] org.example.utils.TestDataGenerator - Generated negative amount: -84
+2026-02-25 10:13:05.730 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:13:05.738 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:05.933 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:06.290 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=3)
+2026-02-25 10:13:06.290 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:06.451 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:06.633 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:07.053 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:13:07.068 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:13:11.683 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:13:11.690 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Francoise
+2026-02-25 10:13:11.690 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 66968
+2026-02-25 10:13:11.691 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Francoise', postalCode='66968'}
+2026-02-25 10:13:11.692 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:12.476 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:13:13.017 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:13.228 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:13:13.757 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=9)
+2026-02-25 10:13:13.757 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:14.022 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=9)
+2026-02-25 10:13:14.022 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:14.288 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:13:14.288 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:14.492 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:14.696 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:14.713 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:14.733 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:14.998 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:13:15.518 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Francoise Francoise
+2026-02-25 10:13:15.648 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:13:15.796 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:16.002 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:16.142 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:16.146 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:16.151 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:16.319 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:13:16.332 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:16.517 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:13:17.036 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:17.222 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:17.397 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:17.761 [DEBUG] org.example.utils.TestDataGenerator - Generated zero amount
+2026-02-25 10:13:17.762 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/account
+2026-02-25 10:13:17.771 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:17.940 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:18.236 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=1)
+2026-02-25 10:13:18.236 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:18.421 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:18.584 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:19.002 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:13:19.019 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:13:22.221 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:13:22.224 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Carson
+2026-02-25 10:13:22.224 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 81289
+2026-02-25 10:13:22.224 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Carson', postalCode='81289'}
+2026-02-25 10:13:22.225 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:22.897 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:13:23.420 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:23.628 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:13:24.148 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:13:24.148 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:24.339 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:13:24.339 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:24.695 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:13:24.695 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:24.992 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:25.700 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:25.705 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:25.721 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:26.025 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:13:26.546 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Carson Carson
+2026-02-25 10:13:26.730 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:13:26.882 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:27.126 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:27.304 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:27.309 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:27.317 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:27.501 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:13:27.508 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:27.670 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:13:28.188 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:28.433 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:28.624 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:29.050 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/listTx
+2026-02-25 10:13:29.564 [DEBUG] org.example.utils.SeleniumUtils - Wait present: By.cssSelector: table.table
+2026-02-25 10:13:35.069 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:13:35.114 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:13:39.724 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:13:39.727 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Nena
+2026-02-25 10:13:39.727 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 85393
+2026-02-25 10:13:39.727 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Nena', postalCode='85393'}
+2026-02-25 10:13:39.727 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:41.755 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:13:42.272 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:42.402 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:13:42.917 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=4)
+2026-02-25 10:13:42.917 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:43.088 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=4)
+2026-02-25 10:13:43.088 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:43.261 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:13:43.261 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:43.453 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:43.712 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:43.724 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:43.753 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:44.160 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:13:44.676 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Nena Nena
+2026-02-25 10:13:44.823 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:13:44.951 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:45.160 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:45.300 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:45.303 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:45.312 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:45.491 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:13:45.499 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Marquis
+2026-02-25 10:13:45.499 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 32376
+2026-02-25 10:13:45.499 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Marquis', postalCode='32376'}
+2026-02-25 10:13:45.499 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:45.633 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:13:45.646 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:45.836 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:13:45.845 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:13:45.845 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:46.045 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:13:46.045 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:46.219 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:13:46.220 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:13:46.386 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:46.534 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:46.537 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:46.543 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:46.744 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:13:46.759 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Marquis Marquis
+2026-02-25 10:13:46.942 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:13:47.074 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:47.237 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:47.370 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:13:47.374 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:13:47.380 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:47.537 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/list
+2026-02-25 10:13:48.051 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.cssSelector: table.table
+2026-02-25 10:13:48.451 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:48.586 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //td[contains(text(),'Marquis Marquis')]
+2026-02-25 10:13:59.207 [DEBUG] org.example.utils.SeleniumUtils - Element not displayed: Expected condition failed: waiting for visibility of element located by By.xpath: //td[contains(text(),'Marquis Marquis')] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\SAMUEL~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49246}, goog:processID: 28692, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49246/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3151cd0bee481b5e32a3e6c1032cf59a
+2026-02-25 10:13:59.207 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:59.295 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:13:59.301 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:13:59.414 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:13:59.930 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:00.440 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:14:00.451 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:14:03.916 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:14:03.920 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Bryce
+2026-02-25 10:14:03.921 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 99111
+2026-02-25 10:14:03.921 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Bryce', postalCode='99111'}
+2026-02-25 10:14:03.922 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:05.452 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:14:05.966 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:06.074 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:14:06.590 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:06.591 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:06.753 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:06.753 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:06.955 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:06.955 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:07.136 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:07.433 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:07.436 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:07.457 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:07.810 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:14:08.339 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Bryce Bryce
+2026-02-25 10:14:08.533 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:14:08.686 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:08.944 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:09.127 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:09.132 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:09.140 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:09.340 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:14:09.347 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Berneice
+2026-02-25 10:14:09.347 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 00398
+2026-02-25 10:14:09.347 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Berneice', postalCode='00398'}
+2026-02-25 10:14:09.347 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:09.507 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:14:09.525 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:09.674 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:14:09.683 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:14:09.683 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:09.901 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:14:09.901 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:10.099 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:10.099 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:10.277 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:10.434 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:10.437 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:10.445 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:10.626 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:14:10.639 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:10.838 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:14:11.353 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:11.502 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:12.429 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:14:12.469 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:14:16.947 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:14:16.949 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Jeanine
+2026-02-25 10:14:16.950 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 05382
+2026-02-25 10:14:16.950 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Jeanine', postalCode='05382'}
+2026-02-25 10:14:16.950 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:17.667 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:14:18.181 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:18.303 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:14:18.816 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:14:18.816 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:19.026 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:14:19.026 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:19.476 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:19.476 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:20.097 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:20.529 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:20.537 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:20.565 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:20.866 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:14:21.390 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Jeanine Jeanine
+2026-02-25 10:14:21.665 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:14:21.848 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:22.236 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:22.447 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:22.450 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:22.459 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:22.940 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/list
+2026-02-25 10:14:23.597 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.cssSelector: table.table
+2026-02-25 10:14:24.461 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:24.594 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //td[contains(text(),'Jeanine Jeanine')]
+2026-02-25 10:14:35.237 [DEBUG] org.example.utils.SeleniumUtils - Element not displayed: Expected condition failed: waiting for visibility of element located by By.xpath: //td[contains(text(),'Jeanine Jeanine')] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\SAMUEL~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50590}, goog:processID: 25324, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50590/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1db3f9a4e0cd922972d9635115c789de
+2026-02-25 10:14:35.971 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:14:35.985 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:14:39.930 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:14:39.936 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Emanuel
+2026-02-25 10:14:39.936 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 56705
+2026-02-25 10:14:39.936 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Emanuel', postalCode='56705'}
+2026-02-25 10:14:39.936 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:41.343 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:14:41.864 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:42.055 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:14:42.567 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:14:42.567 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:43.402 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=7)
+2026-02-25 10:14:43.402 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:44.183 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:14:44.184 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:14:44.656 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:45.049 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:45.052 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:45.068 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:45.327 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:14:45.846 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Emanuel Emanuel
+2026-02-25 10:14:46.013 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:14:46.153 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:46.437 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:46.821 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:14:46.824 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:14:46.834 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:47.071 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/list
+2026-02-25 10:14:47.594 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.cssSelector: table.table
+2026-02-25 10:14:47.983 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:48.094 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //td[contains(text(),'Emanuel Emanuel')]
+2026-02-25 10:14:58.770 [DEBUG] org.example.utils.SeleniumUtils - Element not displayed: Expected condition failed: waiting for visibility of element located by By.xpath: //td[contains(text(),'Emanuel Emanuel')] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\SAMUEL~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51775}, goog:processID: 39592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51775/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 960a822fb4c3d94cb0e1a568d524f5e2
+2026-02-25 10:14:58.770 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:59.007 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/login
+2026-02-25 10:14:59.020 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:14:59.284 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/customer
+2026-02-25 10:14:59.805 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:00.626 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:15:00.642 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:15:03.870 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:15:03.872 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Giuseppe
+2026-02-25 10:15:03.872 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 90927
+2026-02-25 10:15:03.872 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Giuseppe', postalCode='90927'}
+2026-02-25 10:15:03.872 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:05.504 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:15:06.026 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:06.159 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:15:06.675 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:15:06.675 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:06.892 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:15:06.892 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:07.360 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:15:07.360 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:07.842 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:08.232 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:15:08.237 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:15:08.251 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:08.511 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/openAccount
+2026-02-25 10:15:09.057 [DEBUG] org.example.utils.SeleniumUtils - Wait dropdown option: Giuseppe Giuseppe
+2026-02-25 10:15:09.291 [DEBUG] org.example.utils.SeleniumUtils - Wait visible: By.xpath: //select[@id='currency']/preceding::select[1]
+2026-02-25 10:15:09.458 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:09.825 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:10.171 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:15:10.177 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:15:10.732 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:15:10.761 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:15:15.364 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:15:15.366 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Roseanna
+2026-02-25 10:15:15.368 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 91630
+2026-02-25 10:15:15.368 [DEBUG] org.example.utils.TestDataGenerator - Generated customer test data: CustomerTestData{name='Roseanna', postalCode='91630'}
+2026-02-25 10:15:15.368 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:16.134 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:15:16.648 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:16.784 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:15:17.306 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:15:17.306 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:17.648 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:15:17.650 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:18.211 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:15:18.211 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:18.739 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:19.234 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:15:19.243 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:15:19.852 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:15:20.048 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid customer name with numbers: Val123
+2026-02-25 10:15:20.048 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 89715
+2026-02-25 10:15:20.051 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid customer name with special characters: Trinidad@#$
+2026-02-25 10:15:20.051 [DEBUG] org.example.utils.TestDataGenerator - Generated postal code: 06251
+2026-02-25 10:15:20.051 [DEBUG] org.example.utils.TestDataGenerator - Generated customer name: Clarence
+2026-02-25 10:15:20.051 [DEBUG] org.example.utils.TestDataGenerator - Generated invalid postal code with letters: 12345ABC
+2026-02-25 10:15:20.135 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:15:25.220 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:15:25.284 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:26.175 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:15:26.702 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:26.930 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:15:27.447 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:15:27.447 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:27.995 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=6)
+2026-02-25 10:15:27.995 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:28.584 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:15:28.584 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:29.081 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:29.412 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:15:29.415 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:15:29.430 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:45.628 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:15:45.629 [ERROR] org.example.setup.BaseTest.BaseTestWatcher - Test FAILED: Invalid add customer: name with numbers | Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.invalidCustomerData_rejected(ManagerTest.java:65) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) [surefire-booter-3.1.2.jar:3.1.2]
+2026-02-25 10:15:45.688 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:15:49.136 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:15:49.139 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:50.951 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:15:51.463 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:51.580 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:15:52.092 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=11)
+2026-02-25 10:15:52.092 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:52.333 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=11)
+2026-02-25 10:15:52.334 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:53.743 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=5)
+2026-02-25 10:15:53.743 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:15:54.230 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:15:54.703 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:15:54.705 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:15:54.716 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:16:11.607 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:16:11.607 [ERROR] org.example.setup.BaseTest.BaseTestWatcher - Test FAILED: Invalid add customer: name with special characters | Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.invalidCustomerData_rejected(ManagerTest.java:65) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) [surefire-booter-3.1.2.jar:3.1.2]
+2026-02-25 10:16:11.648 [INFO ] org.example.setup.BaseTest - Test started: unknown
+2026-02-25 10:16:15.513 [INFO ] org.example.setup.BaseTest - Navigated to base URL: https://www.globalsqa.com/angularJs-protractor/BankingProject/
+2026-02-25 10:16:15.519 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:16:17.231 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager
+2026-02-25 10:16:17.749 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:16:17.903 [DEBUG] org.example.utils.SeleniumUtils - Wait URL contains: #/manager/addCust
+2026-02-25 10:16:18.426 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:16:18.426 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:16:18.889 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:16:18.889 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:16:19.297 [DEBUG] org.example.utils.SeleniumUtils - Clear and type (length=8)
+2026-02-25 10:16:19.297 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:16:19.814 [DEBUG] org.example.utils.SeleniumUtils - Wait element clickable
+2026-02-25 10:16:20.155 [DEBUG] org.example.utils.SeleniumUtils - Get alert text
+2026-02-25 10:16:20.159 [DEBUG] org.example.utils.SeleniumUtils - Accept alert
+2026-02-25 10:16:20.174 [DEBUG] org.example.utils.SeleniumUtils - Wait element visible
+2026-02-25 10:16:36.356 [INFO ] org.example.setup.BaseTest - Test finished: unknown
+2026-02-25 10:16:36.356 [ERROR] org.example.setup.BaseTest.BaseTestWatcher - Test FAILED: Invalid add customer: postal code with letters | Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+org.opentest4j.AssertionFailedError: Error message should not be empty ==> expected: <(expected non-empty error message)> but was: <>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1152) ~[junit-jupiter-api-5.10.0.jar:5.10.0]
+	at org.example.tests.manager.ManagerTest$AddingCustomers.invalidCustomerData_rejected(ManagerTest.java:65) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestTemplateMethod(TimeoutExtension.java:94) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:142) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293) [?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) [?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) [?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) [?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) [?:?]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:110) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:44) [junit-jupiter-engine-5.10.0.jar:5.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) [junit-platform-engine-1.10.0.jar:1.10.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) [junit-platform-launcher-1.8.2.jar:1.8.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) [surefire-junit-platform-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) [surefire-booter-3.1.2.jar:3.1.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) [surefire-booter-3.1.2.jar:3.1.2]

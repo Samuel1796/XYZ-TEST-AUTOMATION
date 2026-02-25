@@ -1,7 +1,5 @@
 package org.example.utils;
 
-import org.example.config.ConfigManager;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -26,13 +24,16 @@ public final class AllureReportWriter {
 
     /**
      * Writes environment.properties and executor.json to the Allure results directory.
-     * Call once at the start of the test run (e.g. from BaseTest @BeforeAll).
+     * Call once at the start of the test run from BaseTest @BeforeAll with config values from BaseTest.Config.
+     *
+     * @param baseUrl  base URL for the app (from config)
+     * @param headless whether browser runs in headless mode
      */
-    public static void writeAllureEnvironmentAndExecutor() {
+    public static void writeAllureEnvironmentAndExecutor(String baseUrl, boolean headless) {
         Path dir = Paths.get(RESULTS_DIR);
         try {
             Files.createDirectories(dir);
-            writeEnvironmentProperties(dir);
+            writeEnvironmentProperties(dir, baseUrl, headless);
             writeExecutorJson(dir);
         } catch (IOException e) {
             // Log but do not fail tests; report will still work, just without env/executor
@@ -41,16 +42,16 @@ public final class AllureReportWriter {
     }
 
     /** Writes key-value pairs (app, URL, browser, Java/OS, headless, framework) for the Allure Environment widget. */
-    private static void writeEnvironmentProperties(Path dir) throws IOException {
+    private static void writeEnvironmentProperties(Path dir, String baseUrl, boolean headless) throws IOException {
         Properties p = new Properties();
         p.setProperty("Application", "XYZ Bank");
-        p.setProperty("Base.URL", ConfigManager.getBaseUrl());
+        p.setProperty("Base.URL", baseUrl);
         p.setProperty("Browser", "Chrome");
         p.setProperty("Java.Version", System.getProperty("java.version", "unknown"));
         p.setProperty("Java.Vendor", System.getProperty("java.vendor", "unknown"));
         p.setProperty("OS", System.getProperty("os.name", "unknown"));
         p.setProperty("OS.Arch", System.getProperty("os.arch", "unknown"));
-        p.setProperty("Headless.Mode", String.valueOf(ConfigManager.isHeadlessMode()));
+        p.setProperty("Headless.Mode", String.valueOf(headless));
         p.setProperty("Test.Framework", "JUnit 5");
         p.setProperty("Automation", "Selenium WebDriver");
 
