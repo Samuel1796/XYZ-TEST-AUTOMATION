@@ -1,7 +1,6 @@
 package org.example.pages.customer;
 
 import io.qameta.allure.Step;
-import org.example.config.ConfigManager;
 import org.example.config.AppUrls;
 import org.example.utils.SeleniumUtils;
 import org.openqa.selenium.By;
@@ -188,7 +187,7 @@ public class CustomerDashboardPage {
     @Step("Wait for transaction list to have at least {minCount} row(s)")
     public CustomerDashboardPage waitForTransactionCountAtLeast(int minCount) {
         waitForTransactionsPageReady();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(SeleniumUtils.getExplicitWait()));
         wait.until(d -> d.findElements(TRANSACTION_ROWS).size() >= minCount);
         return this;
     }

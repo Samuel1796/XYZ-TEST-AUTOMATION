@@ -77,26 +77,18 @@ So: one Maven run does clean, test, Allure result generation, and report generat
 
 ---
 
-### 3.2 Configuration – `config/`
+### 3.2 Configuration and driver – `BaseTest` (setup)
 
-- **ConfigManager.java**
-  - Loads `config.properties` from classpath.
-  - Exposes: `getBaseUrl()`, `isHeadlessMode()`, `getImplicitWait()`, `getExplicitWait()`, `getPageLoadTimeout()`, `shouldMaximizeWindow()`.
-  - System properties override config (e.g. `-Dbase.url`, `-Dheadless.mode` for CI).
-- **AppUrls.java**
-  - Constants for URL fragments: `#/login`, `#/manager`, `#/manager/addCust`, `#/manager/openAccount`, `#/manager/list`, `#/customer`, `#/account`, `#/listTx`.
+All config and driver setup is kept in **BaseTest**:
 
-Config is centralized and CI-friendly.
-
----
-
-### 3.3 Driver – `driver/`
-
-- **DriverManager.java**
-  - Creates ChromeDriver only (no other browsers).
-  - Uses `CHROME_BIN` when set (CI); otherwise default Chrome.
-  - Common options: `--disable-dev-shm-usage`, `--no-sandbox`, `--disable-gpu`; when headless, adds headless-specific flags.
-  - `createDriver()` and `quitDriver(driver)` are the single entry points for driver lifecycle.
+- **BaseTest.Config** (static inner class)
+  - Loads `config.properties` from classpath (same keys: `base.url`, `headless.mode`, `implicit.wait`, `explicit.wait`, `page.load.timeout`, `window.maximize`).
+  - System properties override (e.g. `-Dbase.url`, `-Dheadless.mode` for CI).
+  - Used only inside BaseTest for driver creation and navigation; BaseTest calls **SeleniumUtils.setExplicitWait()** so SeleniumUtils and page objects use the configured timeout for WebDriverWait.
+- **Driver creation and quit**
+  - `createDriver()` and `quitDriver(driver)` are private static methods in BaseTest (Chrome only, `CHROME_BIN` when set, headless and timeouts from Config).
+- **AppUrls.java** (main)
+  - Constants for URL fragments: `#/login`, `#/manager`, `#/manager/addCust`, etc. Base URL comes from BaseTest.Config.
 
 ---
 

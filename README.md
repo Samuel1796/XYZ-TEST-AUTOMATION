@@ -35,10 +35,7 @@ Tests use `@DisplayName` and `@Story` aligned to these AC. Tags: `us1`, `us2`, `
 ```
 src/main/java/org/example/
 ├── config/
-│   ├── ConfigManager.java      # Loads config from classpath (base URL, timeouts, headless, etc.)
 │   └── AppUrls.java            # URL fragments (#/login, #/manager/..., #/customer, ...)
-├── driver/
-│   └── DriverManager.java      # Chrome only: creates/quits ChromeDriver (headless support for CI)
 ├── pages/
 │   ├── manager/
 │   │   ├── LoginPage.java      # Home, Customer/Manager login, user select
@@ -51,7 +48,7 @@ src/main/java/org/example/
 
 src/test/java/org/example/
 ├── setup/
-│   └── BaseTest.java            # Driver setup, navigate to base URL, tearDown (error attachment on failure)
+│   └── BaseTest.java            # Config (from config.properties), driver create/quit, navigate, tearDown
 ├── tests/
 │   ├── manager/
 │   │   └── ManagerTest.java
@@ -59,9 +56,9 @@ src/test/java/org/example/
 │       └── CustomerTest.java
 ```
 
-- **BaseTest** (in `setup` package): All UI tests extend this; driver creation, navigation, and tearDown (error overview on failure, quit) are centralised here. Kept in a dedicated setup package (not mixed with tests).
+- **BaseTest** (in `setup` package): All setup lives here: loads config from `config.properties` (inner `Config`), creates/quits Chrome driver, navigates to base URL, and tearDown (error overview on failure). Sets explicit wait via `SeleniumUtils.setExplicitWait()` so waits use config timeouts.
 - **Page objects**: Take `WebDriver` in the constructor and use `SeleniumUtils` for waits, clicks, and typing.
-- **Driver**: Chrome only via `DriverManager`. ChromeDriver on PATH (or `webdriver.chrome.driver`). Headless is controlled by `headless.mode` (config or `-Dheadless.mode=true`). CI installs Chrome for Testing and sets `CHROME_BIN`.
+- **Driver**: Chrome only, created in BaseTest. ChromeDriver on PATH (or `webdriver.chrome.driver`). Headless is controlled by `headless.mode` (config or `-Dheadless.mode=true`). CI can set `CHROME_BIN`.
 
 ## Run tests
 

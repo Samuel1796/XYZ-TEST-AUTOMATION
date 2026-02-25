@@ -2,7 +2,6 @@ package org.example.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.config.ConfigManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,11 +12,22 @@ import java.util.List;
 
 /**
  * Utility class for common Selenium operations: waits, element interaction, alerts, URL and dropdown helpers.
- *
+ * BaseTest sets explicit wait via {@link #setExplicitWait(long)} before tests run; {@link #getExplicitWait()} is used for WebDriverWait timeouts.
  */
 public class SeleniumUtils {
 
     private static final Logger logger = LogManager.getLogger(SeleniumUtils.class);
+
+    private static long explicitWaitSeconds = 10;
+
+    /** Set by BaseTest from config. Used for WebDriverWait timeouts in this class and by page objects. */
+    public static void setExplicitWait(long seconds) {
+        explicitWaitSeconds = seconds;
+    }
+
+    public static long getExplicitWait() {
+        return explicitWaitSeconds;
+    }
 
     /**
      * Waits for an element to be visible
@@ -28,7 +38,7 @@ public class SeleniumUtils {
      */
     public static WebElement waitForElementToBeVisible(WebDriver driver, By locator) {
         logger.debug("Wait visible: {}", locator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
@@ -41,7 +51,7 @@ public class SeleniumUtils {
      */
     public static WebElement waitForElementToBePresent(WebDriver driver, By locator) {
         logger.debug("Wait present: {}", locator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -68,7 +78,7 @@ public class SeleniumUtils {
      */
     public static void acceptAlert(WebDriver driver) {
         logger.debug("Accept alert");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
@@ -81,7 +91,7 @@ public class SeleniumUtils {
      */
     public static String getAlertText(WebDriver driver) {
         logger.debug("Get alert text");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         return alert.getText();
     }
@@ -94,7 +104,7 @@ public class SeleniumUtils {
      */
     public static void waitForUrlContains(WebDriver driver, String urlFragment) {
         logger.debug("Wait URL contains: {}", urlFragment);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         wait.until(ExpectedConditions.urlContains(urlFragment));
     }
 
@@ -103,7 +113,7 @@ public class SeleniumUtils {
      */
     public static void waitForDropdownToContainOption(WebDriver driver, By selectLocator, String optionText) {
         logger.debug("Wait dropdown option: {}", optionText);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         wait.until(d -> {
             try {
                 Select sel = new Select(driver.findElement(selectLocator));
@@ -124,7 +134,7 @@ public class SeleniumUtils {
      */
     public static WebElement waitUntilVisible(WebDriver driver, WebElement element) {
         logger.debug("Wait element visible");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -137,7 +147,7 @@ public class SeleniumUtils {
      */
     public static WebElement waitUntilClickable(WebDriver driver, WebElement element) {
         logger.debug("Wait element clickable");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -171,7 +181,7 @@ public class SeleniumUtils {
      */
     public static WebElement waitForFirstVisible(WebDriver driver, By locator) {
         logger.debug("Wait first visible: {}", locator);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getExplicitWait()));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(getExplicitWait()));
         return wait.until(d -> {
             List<WebElement> elements = d.findElements(locator);
             return elements.stream().filter(WebElement::isDisplayed).findFirst().orElse(null);
