@@ -10,8 +10,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 /**
- * Creates and quits the Chrome WebDriver for UI tests. Headless when env HEADLESS or CI is set,
- * or when {@code -Dheadless.mode=true}. Uses local ChromeDriver only.
+ * Creates and quits the Chrome WebDriver for UI tests. Headless when {@link ConfigManager#isHeadlessMode()}
+ * is true (config or {@code -Dheadless.mode=true}). Uses local ChromeDriver only.
  */
 public class DriverManager {
 
@@ -21,23 +21,14 @@ public class DriverManager {
      * Creates a new Chrome WebDriver. Call {@link #quitDriver(WebDriver)} when done.
      */
     public static WebDriver createDriver() {
-        boolean headless = Boolean.parseBoolean(
-                System.getenv().getOrDefault("HEADLESS",
-                        System.getenv().getOrDefault("CI", "false")))
-                || ConfigManager.isHeadlessMode();
+        boolean headless = ConfigManager.isHeadlessMode();
 
         ChromeOptions options = new ChromeOptions();
         if (headless) {
-            logger.info("Running Chrome in headless mode (CI/headless environment detected).");
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu");
-        } else {
-            logger.info("Running Chrome in headed mode.");
+            logger.info("Running Chrome in headless mode.");
+            options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
         }
 
-        // CI sets CHROME_BIN to match the installed ChromeDriver version (e.g. /opt/chrome-for-testing/chrome)
         String chromeBin = System.getenv("CHROME_BIN");
         if (chromeBin != null && !chromeBin.isEmpty()) {
             options.setBinary(chromeBin);

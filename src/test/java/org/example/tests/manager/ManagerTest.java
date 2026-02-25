@@ -61,7 +61,8 @@ public class ManagerTest extends BaseTest {
 
             String error = managerPage.getErrorMessage();
             assertNotNull(error, "Error message should be shown for invalid data: " + description);
-            assertFalse(error.isEmpty(), "Error message should not be empty");
+            String expectedError = error.isEmpty() ? "(expected non-empty error message)" : error;
+            assertEquals(expectedError, error, "Error message should not be empty");
         }
 
         /** Feeds {@link #invalidCustomerData_rejected}; one Arguments per invalid case from TestDataGenerator. */
@@ -90,7 +91,8 @@ public class ManagerTest extends BaseTest {
             String alertMessage = managerPage.createAccountAndGetAlertMessage(displayName, "Dollar");
 
             assertNotNull(alertMessage, "JS alert should be shown when account is created successfully");
-            assertFalse(alertMessage.isEmpty(), "Alert message should not be empty");
+            String expectedAlert = alertMessage.isEmpty() ? "(expected non-empty alert message)" : alertMessage;
+            assertEquals(expectedAlert, alertMessage, "Alert message should not be empty");
         }
 
     }

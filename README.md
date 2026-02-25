@@ -61,7 +61,7 @@ src/test/java/org/example/
 
 - **BaseTest** (in `setup` package): All UI tests extend this; driver creation, navigation, and tearDown (error overview on failure, quit) are centralised here. Kept in a dedicated setup package (not mixed with tests).
 - **Page objects**: Take `WebDriver` in the constructor and use `SeleniumUtils` for waits, clicks, and typing.
-- **Driver**: Chrome only via `DriverManager`. ChromeDriver must be on PATH (or set `webdriver.chrome.driver`); CI uses Chrome for Testing for a matching Chrome/ChromeDriver pair.
+- **Driver**: Chrome only via `DriverManager`. ChromeDriver on PATH (or `webdriver.chrome.driver`). Headless is controlled by `headless.mode` (config or `-Dheadless.mode=true`). CI installs Chrome for Testing and sets `CHROME_BIN`.
 
 ## Run tests
 
@@ -69,15 +69,18 @@ src/test/java/org/example/
 mvn clean test
 ```
 
+- **Headless (no browser window):** `mvn test -Dheadless.mode=true`
+- **From IDE:** Run any test class or method; ensure Chrome/ChromeDriver are available.
+
 ### Allure report (local)
 
-Reports are generated into `target/allure-report`. To view:
+Reports are generated into `target/allure-report` and include steps, tags, and assertion expected/actual on failure. To view:
 
 1. **Serve (opens in browser):**
    ```bash
    mvn allure:serve
    ```
-   Runs a local server and opens the report. Run after `mvn test` so `target/allure-results` exists.
+   Run after `mvn test` so `target/allure-results` exists.
 
 2. **Or open the report file:**
    After `mvn test` (or `mvn allure:report`), open `target/allure-report/index.html` in your browser.
@@ -98,10 +101,15 @@ The report will be available at:
 
 ## Config
 
-Edit `src/main/resources/config.properties` (loaded from classpath). Main options:
+Edit `src/main/resources/config.properties` (loaded from classpath). System properties override the file (e.g. CI passes `-Dbase.url=...`, `-Dheadless.mode=true`).
 
-- **base.url** – application under test (default: GlobalSQA XYZ Bank). Override in CI with `-Dbase.url=...`
-- **headless.mode** – run Chrome headless (CI uses `-Dheadless.mode=true`)
-- **implicit.wait** / **explicit.wait** / **page.load.timeout** – wait timeouts (seconds)
+| Property | Description |
+|----------|-------------|
+| **base.url** | Application under test (default: GlobalSQA XYZ Bank). |
+| **headless.mode** | `true` = run Chrome headless; `false` = show browser (default). |
+| **window.maximize** | Maximize browser window in headed mode. |
+| **implicit.wait** | Implicit wait timeout (seconds). |
+| **explicit.wait** | Explicit wait timeout (seconds). |
+| **page.load.timeout** | Page load timeout (seconds). |
 
-CI and secrets are documented in [.github/REPO_SECRETS.md](.github/REPO_SECRETS.md).
+CI and secrets: [.github/REPO_SECRETS.md](.github/REPO_SECRETS.md).
