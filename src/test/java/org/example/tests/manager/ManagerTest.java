@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openqa.selenium.TimeoutException;
 
 import java.util.stream.Stream;
 
@@ -57,12 +58,16 @@ public class ManagerTest extends BaseTest {
         @Severity(SeverityLevel.NORMAL)
         void invalidCustomerData_rejected(String description, String name, String postalCode) {
             loginPage.loginAsManager();
-            managerPage.addCustomer(name, postalCode);
 
-            String error = managerPage.getErrorMessage();
-            assertNotNull(error, "Error message should be shown for invalid data: " + description);
-            String expectedError = error.isEmpty() ? "(expected non-empty error message)" : error;
-            assertEquals(expectedError, error, "Error message should not be empty");
+            try {
+                String alertMessage = managerPage.addCustomerAndGetAlertMessage(name, postalCode);
+                assertFalse(alertMessage.toLowerCase().contains("customer added"),
+                        "Invalid data should not succeed. Alert was: " + alertMessage);
+            } catch (TimeoutException e) {
+                String error = managerPage.getErrorMessage();
+                assertNotNull(error, "Error message should be shown for invalid data: " + description);
+                assertFalse(error.isEmpty(), "Error message should not be empty for invalid data: " + description);
+            }
         }
 
         /** Feeds {@link #invalidCustomerData_rejected}; one Arguments per invalid case from TestDataGenerator. */

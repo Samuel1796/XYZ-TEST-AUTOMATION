@@ -1,10 +1,12 @@
 package org.example.utils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -33,11 +35,23 @@ public final class AllureReportWriter {
         Path dir = Paths.get(RESULTS_DIR);
         try {
             Files.createDirectories(dir);
+            copyCategoriesJson(dir);
             writeEnvironmentProperties(dir, baseUrl, headless);
             writeExecutorJson(dir);
         } catch (IOException e) {
             // Log but do not fail tests; report will still work, just without env/executor
             System.err.println("AllureReportWriter: could not write env/executor: " + e.getMessage());
+        }
+    }
+
+    /** Copies categories.json into the Allure results directory when present on the test classpath. */
+    private static void copyCategoriesJson(Path dir) throws IOException {
+        try (InputStream in = AllureReportWriter.class.getResourceAsStream("/allure/categories.json")) {
+            if (in == null) {
+                System.err.println("AllureReportWriter: categories.json not found on classpath");
+                return;
+            }
+            Files.copy(in, dir.resolve("categories.json"), StandardCopyOption.REPLACE_EXISTING);
         }
     }
 

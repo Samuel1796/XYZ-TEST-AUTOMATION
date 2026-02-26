@@ -1255,6 +1255,8 @@ Tests use `@DisplayName`, `@Story`, `@Severity`; BDD-style method names; shared 
 
 ### 3.10 CI pipeline – `.github/workflows/test-automation.yml`
 
+See `docs/CI_PIPELINE.md` for a full, step-by-step explanation of the runner, jobs, and each workflow step.
+
 - **Triggers:** push/PR to `master`, `workflow_dispatch`.
 - **Job: ui-tests-xyz-bank** (ubuntu-latest, contents: write).
 - **Steps (summary):**
