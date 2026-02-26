@@ -1,6 +1,5 @@
 package org.example.setup;
 
-import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.utils.SeleniumUtils;
@@ -8,21 +7,16 @@ import org.example.pages.customer.CustomerDashboardPage;
 import org.example.pages.manager.LoginPage;
 import org.example.pages.manager.ManagerDashboardPage;
 import org.example.utils.AllureReportWriter;
+import org.example.utils.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Properties;
 
@@ -32,12 +26,12 @@ import java.util.Properties;
  * <p>
  * Lifecycle: {@code @BeforeAll} loads config, writes Allure env/executor;
  * {@code @BeforeEach} creates driver and navigates to base URL; {@code @AfterEach} on failure attaches
- * error overview to Allure, then quits driver. The inner {@link BaseTestWatcher} sets {@link #testFailed}
+ * error overview to Allure, then quits driver. The inner {@link TestUtils.BaseTestWatcher} sets {@link #testFailed}
  * and {@link #lastFailure} so tearDown can attach the error.
  * </p>
  */
-@ExtendWith(BaseTest.BaseTestWatcher.class)
-public class BaseTest {
+@ExtendWith(TestUtils.BaseTestWatcher.class)
+public class BaseTest implements TestUtils.TestFailureCapture {
 
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     protected WebDriver driver;
@@ -48,10 +42,20 @@ public class BaseTest {
     protected ManagerDashboardPage managerPage;
     /** Customer account (Deposit, Withdraw, Transactions). Created in {@link #setUp()}. */
     protected CustomerDashboardPage customerPage;
-    /** Set by {@link BaseTestWatcher#testFailed}; used in tearDown to decide whether to attach error overview. */
+    /** Set by {@link TestUtils.BaseTestWatcher#testFailed}; used in tearDown to decide whether to attach error overview. */
     protected boolean testFailed = false;
     /** Set by TestWatcher when test fails; used for Error overview attachment. */
     protected Throwable lastFailure;
+
+    @Override
+    public void setTestFailed(boolean failed) {
+        this.testFailed = failed;
+    }
+
+    @Override
+    public void setLastFailure(Throwable cause) {
+        this.lastFailure = cause;
+    }
 
     /** Central config loaded from {@code config.properties}; system properties override (e.g. {@code -Dbase.url=...}). */
     public static final class Config {
@@ -68,34 +72,65 @@ public class BaseTest {
             }
         }
 
-        private static String get(String key, String defaultValue) {
+        /**
+         * Retrieves a required string property from system properties or config.properties.
+         * Throws ConfigurationException if the property is missing or empty.
+         */
+        private static String getRequired(String key) {
             String fromSystem = System.getProperty(key);
             if (fromSystem != null && !fromSystem.isEmpty()) return fromSystem;
-            return properties.getProperty(key, defaultValue);
+            String fromProperties = properties.getProperty(key);
+            if (fromProperties == null || fromProperties.isEmpty()) {
+                throw new TestUtils.ConfigurationException("Required property '" + key + "' is missing from config.properties and not set as system property");
+            }
+            return fromProperties;
+        }
+
+        /**
+         * Retrieves an optional string property from system properties or config.properties.
+         * Returns the provided default value if the property is missing or empty.
+         */
+        private static String getOptional(String key, String defaultValue) {
+            String fromSystem = System.getProperty(key);
+            if (fromSystem != null && !fromSystem.isEmpty()) return fromSystem;
+            String fromProperties = properties.getProperty(key);
+            return fromProperties != null && !fromProperties.isEmpty() ? fromProperties : defaultValue;
         }
 
         public static String getBaseUrl() {
-            return get("base.url", " ");
+            return getRequired("base.url");
         }
 
         public static boolean isHeadlessMode() {
-            return Boolean.parseBoolean(get("headless.mode", "false"));
+            return Boolean.parseBoolean(getOptional("headless.mode", "false"));
         }
 
         public static long getImplicitWait() {
-            return Long.parseLong(get("implicit.wait", "5"));
+            try {
+                return Long.parseLong(getOptional("implicit.wait", "5"));
+            } catch (NumberFormatException e) {
+                throw new TestUtils.ConfigurationException("Invalid value for 'implicit.wait': must be a valid number", e);
+            }
         }
 
         public static long getExplicitWait() {
-            return Long.parseLong(get("explicit.wait", "10"));
+            try {
+                return Long.parseLong(getOptional("explicit.wait", "10"));
+            } catch (NumberFormatException e) {
+                throw new TestUtils.ConfigurationException("Invalid value for 'explicit.wait': must be a valid number", e);
+            }
         }
 
         public static long getPageLoadTimeout() {
-            return Long.parseLong(get("page.load.timeout", "20"));
+            try {
+                return Long.parseLong(getOptional("page.load.timeout", "20"));
+            } catch (NumberFormatException e) {
+                throw new TestUtils.ConfigurationException("Invalid value for 'page.load.timeout': must be a valid number", e);
+            }
         }
 
         public static boolean shouldMaximizeWindow() {
-            return Boolean.parseBoolean(get("window.maximize", "true"));
+            return Boolean.parseBoolean(getOptional("window.maximize", "true"));
         }
     }
 
@@ -141,7 +176,7 @@ public class BaseTest {
     public void setUp() {
         testFailed = false;
         lastFailure = null;
-        logger.info("Test started: {}", getTestMethodName());
+        logger.info("Test started: {}", TestUtils.getTestMethodName());
         driver = createDriver();
         driver.navigate().to(Config.getBaseUrl());
         logger.info("Navigated to base URL: {}", Config.getBaseUrl());
@@ -155,67 +190,16 @@ public class BaseTest {
     public void tearDown() {
         if (driver != null) {
             try {
+                TestUtils.attachScreenshot(driver);
                 if (testFailed && lastFailure != null) {
-                    attachErrorOverviewToAllure(lastFailure);
+                    TestUtils.attachErrorOverviewToAllure(lastFailure);
                 }
             } catch (Exception e) {
                 logger.error("Error during teardown: {}", e.getMessage(), e);
             } finally {
                 quitDriver(driver);
-                logger.info("Test finished: {}", getTestMethodName());
+                logger.info("Test finished: {}", TestUtils.getTestMethodName());
             }
         }
-    }
-
-    protected String getTestMethodName() {
-        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
-            String name = element.getMethodName();
-            if (name != null && (name.startsWith("test") || name.startsWith("should"))) {
-                return name;
-            }
-        }
-        return "unknown";
-    }
-
-    /** Builds a text attachment (test name, exception type, message, stack trace) and adds it to the Allure report. */
-    protected void attachErrorOverviewToAllure(Throwable cause) {
-        if (cause == null) return;
-        String overview = "Test: " + getTestMethodName() + "\n\n"
-                + "Error: " + cause.getClass().getSimpleName() + "\n"
-                + "Message: " + (cause.getMessage() != null ? cause.getMessage() : "(no message)") + "\n\n"
-                + "Stack trace:\n" + getStackTraceString(cause);
-        Allure.addAttachment("Error overview", "text/plain",
-                new ByteArrayInputStream(overview.getBytes(StandardCharsets.UTF_8)), "txt");
-    }
-
-    private static String getStackTraceString(Throwable t) {
-        StringWriter sw = new StringWriter();
-        t.printStackTrace(new PrintWriter(sw));
-        return sw.toString();
-    }
-
-    /**
-     * JUnit 5 TestWatcher that records failure on the BaseTest instance so tearDown can attach error overview.
-     * Also logs pass/abort/disabled for each test.
-     */
-    public static class BaseTestWatcher implements TestWatcher {
-        private static final Logger logger = LogManager.getLogger(BaseTestWatcher.class);
-
-        @Override
-        public void testFailed(ExtensionContext context, Throwable cause) {
-            logger.error("Test FAILED: {} | {}", context.getDisplayName(), cause.getMessage(), cause);
-            try {
-                Object testInstance = context.getTestInstance().orElse(null);
-                if (testInstance instanceof BaseTest) {
-                    BaseTest base = (BaseTest) testInstance;
-                    base.testFailed = true;
-                    base.lastFailure = cause;
-                }
-            } catch (Exception e) {
-                logger.error("Failed to set test failed flag: {}", e.getMessage(), e);
-            }
-        }
-
-
     }
 }
