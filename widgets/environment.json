@@ -1,1 +1,1 @@
-[{"values":["17.0.18"],"name":"Java.Version"},{"values":["Selenium WebDriver"],"name":"Automation"},{"values":["Linux"],"name":"OS"},{"values":["amd64"],"name":"OS.Arch"},{"values":["Eclipse Adoptium"],"name":"Java.Vendor"},{"values":["JUnit 5"],"name":"Test.Framework"},{"values":["true"],"name":"Headless.Mode"},{"values":["XYZ Bank"],"name":"Application"},{"values":["https://www.globalsqa.com/angularJs-protractor/BankingProject"],"name":"Base.URL"},{"values":["Chrome"],"name":"Browser"}]
+[]
