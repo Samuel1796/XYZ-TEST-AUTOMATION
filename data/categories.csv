@@ -1,2 +1,4 @@
 "BROKEN","CATEGORY","FAILED","PASSED","SKIPPED","UNKNOWN"
-"16","Broken","0","0","0","0"
+"0","Failed – Assertion / Validation (screenshot in test)","3","0","0","0"
+"0","Failed – Other (screenshot in test)","3","0","0","0"
+"0","Passed","0","13","0","0"
