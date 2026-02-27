@@ -14,7 +14,7 @@ Add these secrets in **GitHub** → **Settings** → **Secrets and variables** �
 | **SMTP_PORT**      | Gmail SMTP port. | `587` |
 | **SMTP_USERNAME**  | Sender (sender email = “from” address). | `yoshninjas.1@gmail.com` |
 | **SMTP_PASSWORD**  | Gmail **App Password** (not your normal password). | 16‑char app password for yoshninjas.1@gmail.com |
-| **EMAIL_TO**       | Recipient(s) for the test report email. | `sboakye1796@gmail.com` |
+| **EMAIL_TO**       | Recipient(s) for the test report email. | `sppppppp@gmail.com` |
 
 **To enable email:** In **Variables** tab add **SEND_EMAIL** = `true` (must be a Variable; secrets cannot be used in workflow conditions). In **Secrets** add **EMAIL_TO** = `sboakye1796@gmail.com`. Emails then send from **yoshninjas.1@gmail.com** to **sboakye1796@gmail.com**.
 

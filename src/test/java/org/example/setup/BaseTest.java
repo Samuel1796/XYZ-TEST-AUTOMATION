@@ -144,11 +144,7 @@ public class BaseTest implements TestUtils.TestFailureCapture {
             logger.info("Running Chrome in headless mode.");
             options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
         }
-        String chromeBin = System.getenv("CHROME_BIN");
-        if (chromeBin != null && !chromeBin.isEmpty()) {
-            options.setBinary(chromeBin);
-            logger.info("Using Chrome binary: {}", chromeBin);
-        }
+
         WebDriver d = new ChromeDriver(options);
         d.manage().timeouts().implicitlyWait(Duration.ofSeconds(Config.getImplicitWait()));
         d.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Config.getPageLoadTimeout()));
