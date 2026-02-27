@@ -58,6 +58,7 @@ jobs:
         run: |
           mvn -B -e test \
             -Dheadless.mode=true \
+            -Dchrome.bin=${{ env.CHROME_BIN }} \
             -Dbase.url=${{ secrets.APP_BASE_URL }} \
             -DtrimStackTrace=false \
             -Dallure.executor.url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \

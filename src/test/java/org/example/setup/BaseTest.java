@@ -138,6 +138,14 @@ public class BaseTest implements TestUtils.TestFailureCapture {
     private static WebDriver createDriver() {
         boolean headless = Config.isHeadlessMode();
         ChromeOptions options = new ChromeOptions();
+        String chromeBinary = System.getProperty("chrome.bin");
+        if (chromeBinary == null || chromeBinary.isBlank()) {
+            chromeBinary = System.getenv("CHROME_BIN");
+        }
+        if (chromeBinary != null && !chromeBinary.isBlank()) {
+            options.setBinary(chromeBinary);
+            logger.info("Using Chrome binary: {}", chromeBinary);
+        }
 
 
         if (headless) {
